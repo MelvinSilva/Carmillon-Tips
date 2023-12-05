@@ -3,7 +3,7 @@ import { Component, HostBinding, effect, signal } from '@angular/core';
 @Component({
   selector: 'app-header',
   standalone: true,
-  template: ` <header class="bg-white dark:bg-gray-900">
+  template: `<header class="bg-white dark:bg-gray-900">
     <div
       class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8"
     >
@@ -87,8 +87,6 @@ import { Component, HostBinding, effect, signal } from '@angular/core';
         <div
           class="flex justify-between items-center bg-teal-600 text-white dark:bg-slate-900 p-5 font-semibold text-lg shadow-lg"
         >
-          Dark Mode with Angular and TailwindCSS
-
           <button
             class="flex transition-transform hover:scale-125 align-middle"
             (click)="darkMode.set(!darkMode())"
@@ -101,7 +99,6 @@ import { Component, HostBinding, effect, signal } from '@angular/core';
       </div>
     </div>
   </header>`,
-  styles: [``],
 })
 export class HeaderComponent {
   darkMode = signal<boolean>(
