@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, HostBinding, effect, signal } from '@angular/core';
+import { HeaderComponent } from './components/header.component';
 import { RouterOutlet } from '@angular/router';
+import { HomeComponent } from './components/home.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  template: `
+    <app-header></app-header>
+    <app-home></app-home>
+    <router-outlet></router-outlet>
+  `,
+  styles: [``],
+  imports: [HomeComponent, RouterOutlet, HeaderComponent],
 })
-export class AppComponent {
-  title = 'Carmillon-Tips';
-}
+export class AppComponent {}
