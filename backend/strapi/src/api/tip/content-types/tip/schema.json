@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tips",
+  "info": {
+    "singularName": "tip",
+    "pluralName": "tips",
+    "displayName": "tips"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ville": {
+      "type": "string"
+    },
+    "departement": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "enseigne": {
+      "type": "string"
+    },
+    "reduction": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "date": {
+      "type": "date"
+    },
+    "statut": {
+      "type": "string"
+    }
+  }
+}
