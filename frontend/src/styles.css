@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Sen", sans-serif;
+}
+
+.home {
+  background-image: url(assets/gare.png);
+}
+
+.message {
+  background-color: #af1172ca;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.button-search-city {
+  background-color: #00b389;
+}
