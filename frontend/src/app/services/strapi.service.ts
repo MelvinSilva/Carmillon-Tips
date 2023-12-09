@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class StrapiService {
-  private apiUrl = 'http://localhost:1337'; // Mettez ici l'URL de votre API Strapi
+  private apiUrl = 'http://localhost:1337/api'; // Mettez ici l'URL de votre API Strapi
 
   constructor(private http: HttpClient) {}
 
   getTips(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/tips`);
+    return this.http.get<any[]>(`${this.apiUrl}/tips?populate=*`);
   }
 }
