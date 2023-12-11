@@ -11,6 +11,6 @@ export class StrapiService {
   constructor(private http: HttpClient) {}
 
   getTips(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/tips`);
+    return this.http.get<any[]>(`${this.apiUrl}/Tips`);
   }
 }
