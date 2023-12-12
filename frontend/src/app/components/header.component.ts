@@ -20,7 +20,7 @@ import { Component, HostBinding, effect, signal } from '@angular/core';
                 class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                 href="/"
               >
-                Catalogue France
+                Accueil
               </a>
             </li>
 
@@ -29,7 +29,7 @@ import { Component, HostBinding, effect, signal } from '@angular/core';
                 class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                 href="/"
               >
-                Catalogue par ville
+                Catalogue France
               </a>
             </li>
 
@@ -56,7 +56,7 @@ import { Component, HostBinding, effect, signal } from '@angular/core';
         <div class="flex items-center gap-4">
           <div class="sm:flex sm:gap-4">
             <a
-              class="block rounded-md bg-gray-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-gray-700 dark:hover:bg-gray-500"
+              class="block rounded-md bg-gray-500 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-gray-700 dark:hover:bg-gray-500 hidden md:block"
               href="/"
             >
               Espace contributeur
