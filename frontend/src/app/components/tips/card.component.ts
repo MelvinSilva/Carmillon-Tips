@@ -8,14 +8,25 @@ registerLocaleData(localeFr);
 
 @Component({
   selector: 'app-cartes',
+  standalone: true,
+  imports: [NgFor, NgIf, DatePipe],
+  styles: [
+    `
+      .bg-card {
+        background-color: #f4f5f6;
+      }
+    `,
+  ],
+  providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   template: `
     <div *ngIf="!tipsData || tipsData.length === 0; else content">
-      <p>Aucune donnée disponible.</p>
+      <p class="p-2 h-96 text-center text-white text-3xl">
+        Aucune donnée disponible.
+      </p>
     </div>
     <ng-template #content>
       <div class="m-1 flex justify-center">
         <div class="w-full max-w-screen-lg">
-          <h1 class="text-center text-2xl p-10">Les bons plans</h1>
           <div class="flex flex-wrap justify-center gap-4 m-4">
             <ng-container *ngFor="let carte of tipsData">
               <div
@@ -63,10 +74,10 @@ registerLocaleData(localeFr);
 
               <div
                 *ngIf="!carte.attributes.disponible"
-                class="w-80 max-h-max p-4 bg-card rounded-xl flex flex-col gap-4 relative"
+                class="card-not-disponible w-80 max-h-max p-4 bg-card rounded-xl flex flex-col gap-4 relative"
               >
                 <span
-                  class="absolute top-2 right-2 bg-red-500 p-1 rounded-lg text-white text-xl"
+                  class="absolute top-2 right-2 bg-red-500 p-1 rounded-lg text-white text-xl opacity-30"
                 >
                   -{{ carte.attributes.reduction }}
                 </span>
@@ -75,7 +86,7 @@ registerLocaleData(localeFr);
                 >
                   NON DISPONIBLE
                 </span>
-                <div class="h-40 flex items-center justify-center">
+                <div class="h-40 flex items-center justify-center opacity-30">
                   <img
                     class="w-full h-full object-contain rounded-lg"
                     [src]="
@@ -84,7 +95,7 @@ registerLocaleData(localeFr);
                     "
                   />
                 </div>
-                <div class="flex flex-col gap-2">
+                <div class="flex flex-col gap-2 opacity-30">
                   <div class="text-zinc-800 font-extrabold">
                     🏠 {{ carte.attributes.ville }}
                   </div>
@@ -114,30 +125,39 @@ registerLocaleData(localeFr);
       </div>
     </ng-template>
   `,
-  standalone: true,
-  imports: [NgFor, NgIf, DatePipe],
-  styles: [
-    `
-      .bg-card {
-        background-color: #f4f5f6;
-      }
-    `,
-  ],
-  providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
 })
 export class CarteComponent implements OnInit {
   tipsData: any[] = [];
+  searchValue: string = '';
 
   constructor(private strapiService: StrapiService) {}
 
   ngOnInit(): void {
-    this.loadTips();
+    this.loadTips(); // initialise tout les bons plans
+
+    this.strapiService.searchValue$.subscribe((value) => {
+      this.searchValue = value;
+      this.filterTips();
+    });
+  }
+
+  filterTips() {
+    if (this.searchValue) {
+      // Filtre les résultats selon la valeur de recherche
+      this.tipsData = this.tipsData.filter((carte) =>
+        carte.attributes.ville
+          .toLowerCase()
+          .includes(this.searchValue.toLowerCase())
+      );
+    } else {
+      this.loadTips();
+      // Charge tous les bons plans si la valeur de recherche est vide
+    }
   }
 
   loadTips() {
     this.strapiService.getTips().subscribe(
       (data: any) => {
-        console.log('Données reçues :', data.data);
         this.tipsData = data.data;
       },
       (error) => {
