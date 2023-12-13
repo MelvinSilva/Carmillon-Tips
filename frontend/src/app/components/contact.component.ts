@@ -2,42 +2,88 @@ import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgForm, FormsModule } from '@angular/forms';
 
+interface MyForm {
+  fullName: string;
+  email: string;
+  message: string;
+}
+
 @Component({
   selector: 'app-contact',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  template: `<h1>Angular 17 template-based contact form by example</h1>
+  template: ` <div class="flex items-center justify-center min-h-screen">
+    <form
+      #myform="ngForm"
+      (ngSubmit)="onSubmit(myform)"
+      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+    >
+      <h1 class="text-2xl font-bold mb-4">FORMULAIRE CONTACT</h1>
 
-    <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
-      <input
-        type="text"
-        name="fullName"
-        placeholder="Your full name"
-        [(ngModel)]="myForm.fullName"
-      />
-      <br />
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2"
+          >Your full name</label
+        >
+        <input
+          type="text"
+          name="fullName"
+          placeholder="Your full name"
+          [(ngModel)]="myForm.fullName"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      </div>
 
-      <input
-        type="email"
-        name="email"
-        placeholder="Your email"
-        [(ngModel)]="myForm.email"
-      />
-      <br />
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2"
+          >Your email</label
+        >
+        <input
+          type="email"
+          name="email"
+          placeholder="Your email"
+          [(ngModel)]="myForm.email"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      </div>
 
-      <textarea
-        name="message"
-        placeholder="Your message"
-        [(ngModel)]="myForm.message"
-      ></textarea>
-      <br />
-      <input type="submit" value="Send" />
-    </form>`,
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2"
+          >Your message</label
+        >
+        <textarea
+          name="message"
+          placeholder="Your message"
+          [(ngModel)]="myForm.message"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        ></textarea>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <button
+          type="submit"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Send
+        </button>
+      </div>
+    </form>
+  </div>`,
 })
 export class ContactComponent {
-  myForm: any = {}; // Déclare un objet pour stocker les valeurs du formulaire
+  myForm: MyForm = {
+    fullName: '',
+    email: '',
+    message: '',
+  };
 
   onSubmit(form: NgForm) {
-    console.log('Your form data : ', (this.myForm = {}));
+    console.log(
+      'Your form data : ',
+      (this.myForm = {
+        fullName: '',
+        email: '',
+        message: '',
+      })
+    );
   }
 }
