@@ -1,8 +1,10 @@
 import { Component, HostBinding, effect, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
+  imports: [RouterLink],
   template: `<header class="bg-white dark:bg-gray-900">
     <div
       class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8"
@@ -43,12 +45,14 @@ import { Component, HostBinding, effect, signal } from '@angular/core';
             </li>
 
             <li>
-              <a
-                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                href="/"
-              >
-                Contact
-              </a>
+              <nav>
+                <a
+                  routerLink="/contact"
+                  class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                >
+                  Contact
+                </a>
+              </nav>
             </li>
           </ul>
         </nav>

@@ -13,24 +13,29 @@
   "pluginOptions": {},
   "attributes": {
     "ville": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "departement": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "enseigne": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "reduction": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "image": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -39,14 +44,17 @@
       ]
     },
     "date": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "verifier": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true
     },
     "disponible": {
       "type": "boolean",
-      "default": true
+      "default": true,
+      "required": true
     }
   }
 }

@@ -6,6 +6,29 @@ import localeFr from '@angular/common/locales/fr';
 
 registerLocaleData(localeFr);
 
+interface Carte {
+  attributes: {
+    disponible: boolean;
+    reduction: number;
+    ville: string;
+    enseigne: string;
+    description: string;
+    verifier: boolean;
+    date: string; // Assurez-vous que le format de date est correct
+    image: {
+      data: {
+        attributes: {
+          formats: {
+            small: {
+              url: string;
+            };
+          };
+        };
+      };
+    };
+  };
+}
+
 @Component({
   selector: 'app-cartes',
   standalone: true,
@@ -127,7 +150,7 @@ registerLocaleData(localeFr);
   `,
 })
 export class CarteComponent implements OnInit {
-  tipsData: any[] = [];
+  tipsData: Carte[] = [];
   searchValue: string = '';
 
   constructor(private strapiService: StrapiService) {}
