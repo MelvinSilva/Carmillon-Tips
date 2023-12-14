@@ -15,6 +15,8 @@
     "ville": {
       "type": "string",
       "required": true
+      "type": "string",
+      "required": true
     },
     "departement": {
       "type": "string",
@@ -48,8 +50,7 @@
       "required": true
     },
     "verifier": {
-      "type": "boolean",
-      "required": true
+      "type": "boolean"
     },
     "disponible": {
       "type": "boolean",
