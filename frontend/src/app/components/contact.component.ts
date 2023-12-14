@@ -2,11 +2,11 @@ import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgForm, FormsModule } from '@angular/forms';
 
-interface MyForm {
+type MyForm = {
   fullName: string;
   email: string;
   message: string;
-}
+};
 
 @Component({
   selector: 'app-contact',
@@ -78,11 +78,11 @@ export class ContactComponent {
 
   onSubmit(form: NgForm) {
     console.log(
-      'Your form data : ',
+      'Message envoyé : ',
       (this.myForm = {
-        fullName: '',
-        email: '',
-        message: '',
+        fullName: `${this.myForm.fullName}`,
+        email: `${this.myForm.email}`,
+        message: `${this.myForm.message}`,
       })
     );
   }

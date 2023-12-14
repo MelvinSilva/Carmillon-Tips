@@ -6,7 +6,7 @@ import localeFr from '@angular/common/locales/fr';
 
 registerLocaleData(localeFr);
 
-interface Carte {
+type Carte = {
   attributes: {
     disponible: boolean;
     reduction: number;
@@ -27,7 +27,7 @@ interface Carte {
       };
     };
   };
-}
+};
 
 @Component({
   selector: 'app-cartes',
