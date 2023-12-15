@@ -101,7 +101,10 @@ type Carte = {
                   <div class="text-neutral-600 font-extrabold p-2">
                     🏠 {{ carte.attributes.ville }}
                   </div>
-                  <div class="text-neutral-600 font-extrabold p-2">
+                  <div
+                    *ngIf="carte.attributes.adresse !== null"
+                    class="text-neutral-600 font-extrabold p-2"
+                  >
                     📮 {{ carte.attributes.adresse }}
                   </div>
 
