@@ -22,15 +22,6 @@ import { RouterLink } from '@angular/router';
                 class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                 href="/"
               >
-                Accueil
-              </a>
-            </li>
-
-            <li>
-              <a
-                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                href="/"
-              >
                 Catalogue France
               </a>
             </li>
@@ -43,29 +34,35 @@ import { RouterLink } from '@angular/router';
                 Les transports en IDF
               </a>
             </li>
+            <li>
+              <a
+                routerLink="/proposer-un-avantage"
+                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+              >
+                Proposer un avantage
+              </a>
+            </li>
 
             <li>
-              <nav>
-                <a
-                  routerLink="/contact"
-                  class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                >
-                  Contact
-                </a>
-              </nav>
+              <a
+                routerLink="/contact"
+                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+              >
+                Contact
+              </a>
             </li>
           </ul>
         </nav>
 
         <div class="flex items-center gap-4">
-          <div class="sm:flex sm:gap-4">
+          <!-- <div class="sm:flex sm:gap-4">
             <a
               class="block rounded-md bg-gray-500 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-gray-700 dark:hover:bg-gray-500 hidden md:block"
               href="/"
             >
               Espace contributeur
             </a>
-          </div>
+          </div> -->
 
           <button
             class="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75 md:hidden"

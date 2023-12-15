@@ -40,11 +40,14 @@ type Carte = {
         background-color: #f4f5f6;
       }
       .bg-enseigne {
-        background-color: #ee528a;
+        background-color: #d7d7d7;
         font-size: 20px;
         white-space: nowrap; /* Empêche le passage à la ligne */
         overflow: hidden; /* Cache le contenu débordant */
         text-overflow: ellipsis;
+        border-radius: 20px;
+        margin: 5px;
+        color: #3f2a56;
       }
       .bg-enseigne:hover {
         overflow: visible;
@@ -71,10 +74,20 @@ type Carte = {
               >
                 <span
                   *ngIf="carte.attributes.reduction !== null"
-                  class="absolute top-2 right-2 bg-red-500 p-1 rounded-lg text-white text-xl"
-                >
-                  -{{ carte.attributes.reduction }}
+                  class="absolute top-0 right-0 bg-red-500 p-2 rounded-tr-lg text-white text-xl flex items-center justify-center"
+                  style="border-bottom-left-radius: 10px; height: 36px;"
+                  >{{ carte.attributes.reduction }}
                 </span>
+                <!--   <span
+                  *ngIf="
+                    carte.attributes.reduction === null ||
+                    carte.attributes.reduction === undefined
+                  "
+                  class="absolute top-0 right-0 bg-red-500 p-2 rounded-tr-lg text-white text-xs flex items-center justify-center"
+                  style="border-bottom-left-radius: 10px; height: 36px;"
+                >
+                  Réduction
+                </span> -->
 
                 <div class="h-28 flex items-center justify-center">
                   <img
@@ -98,19 +111,25 @@ type Carte = {
 
                   <br />
 
-                  <div class="text-neutral-600 font-extrabold p-2">
+                  <div
+                    class="text-neutral-900 font-extrabold pt-2 pr-2 pl-2 text-md"
+                  >
                     🏠 {{ carte.attributes.ville }}
                   </div>
-                  <div
-                    *ngIf="carte.attributes.adresse !== null"
-                    class="text-neutral-600 font-extrabold p-2"
-                  >
-                    📮 {{ carte.attributes.adresse }}
+                  <div class="text-neutral-600 font-extrabold pl-2 pr-2 pb-2">
+                    📮
+                    {{
+                      carte.attributes.adresse !== null &&
+                      carte.attributes.adresse !== undefined
+                        ? carte.attributes.adresse
+                        : 'Adresse à venir'
+                    }}
                   </div>
 
                   <div class="text-neutral-600 p-2">
-                    🔖 {{ carte.attributes.description }}
+                    🔖 {{ filterDescriptionName(carte.attributes.description) }}
                   </div>
+
                   <div class="flex justify-between">
                     <div class="text-neutral-600 p-2">
                       {{
@@ -121,7 +140,7 @@ type Carte = {
                     </div>
                     <div
                       *ngIf="carte.attributes.date !== null"
-                      class="text-sky-600 text-base font-medium text-xs p-2"
+                      class="text-neutral-600 text-base font-medium text-xs p-2 italic"
                     >
                       Publié le
                       {{ carte.attributes.date | date : 'd MMMM yyyy' }}
@@ -136,9 +155,9 @@ type Carte = {
               >
                 <span
                   *ngIf="carte.attributes.reduction !== null"
-                  class="absolute top-2 right-2 bg-red-500 p-1 rounded-lg text-white text-xl"
+                  class="absolute top-2 right-2 bg-red-500 p-1 rounded-lg text-white text-xl p-2"
                 >
-                  -{{ carte.attributes.reduction }}
+                  {{ carte.attributes.reduction }}
                 </span>
 
                 <span
@@ -169,15 +188,25 @@ type Carte = {
                     {{ carte.attributes.enseigne }}
                   </div>
                   <br />
-                  <div class="text-neutral-600 font-extrabold p-2">
+                  <div
+                    class="text-neutral-900 font-extrabold pt-2 pr-2 pl-2 text-md"
+                  >
                     🏠 {{ carte.attributes.ville }}
                   </div>
-                  <div class="text-neutral-600 font-extrabold p-2">
-                    📮 {{ carte.attributes.adresse }}
+                  <div class="text-neutral-600 font-extrabold pl-2 pr-2 pb-2">
+                    📮
+                    {{
+                      carte.attributes.adresse !== null &&
+                      carte.attributes.adresse !== undefined
+                        ? carte.attributes.adresse
+                        : 'Adresse à venir'
+                    }}
                   </div>
+
                   <div class="text-neutral-600 p-2">
-                    🔖 {{ carte.attributes.description }}
+                    🔖 {{ filterDescriptionName(carte.attributes.description) }}
                   </div>
+
                   <div class="flex justify-between">
                     <div class="text-neutral-600 p-2">
                       {{
@@ -188,7 +217,7 @@ type Carte = {
                     </div>
                     <div
                       *ngIf="carte.attributes.date !== null"
-                      class="text-sky-600 text-base font-medium text-xs p-2"
+                      class="text-neutral-600 text-base font-medium text-xs p-2"
                     >
                       Publié le
                       {{ carte.attributes.date | date : 'd MMMM yyyy' }}
@@ -241,5 +270,23 @@ export class CarteComponent implements OnInit {
         console.error(error);
       }
     );
+  }
+
+  filterDescriptionName(description: string): string {
+    const filteredTerms = [
+      'A re-vérifier',
+      'Vérifié en 2020',
+      'Vérifié en 2021',
+      'Vérifié en 2022',
+      'Vérifié en 2023',
+    ];
+
+    // Remplace les termes spécifiques par une chaîne vide dans la description
+    const filteredDescription = description.replace(
+      new RegExp(filteredTerms.join('|'), 'g'),
+      ''
+    );
+
+    return filteredDescription.trim();
   }
 }

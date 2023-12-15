@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -23,5 +23,23 @@ export class StrapiService {
 
   searchTips(query: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/tips?q=${query}`); // effectue la recherche selon la query envoyé (ville)
+  }
+
+  createTips(dealData: any): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    const payload = {
+      data: {
+        ...dealData, // Les données du deal vont ici
+      },
+    };
+    return this.http.post<any>(
+      `${this.apiUrl}/propositions`,
+      payload,
+      httpOptions
+    );
   }
 }

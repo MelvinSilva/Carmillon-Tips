@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { StrapiService } from '../services/strapi.service';
 import { FormsModule } from '@angular/forms';
 import { CarteComponent } from './tips/card.component';
+import { SuggestTipsComponent } from './tips/suggest-tips.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FormsModule, CarteComponent],
   styles: [``],
   template: ` <section class="home bg-cover bg-center bg-no-repeat">
     <div
@@ -37,6 +37,7 @@ import { CarteComponent } from './tips/card.component';
     </div>
     <app-cartes></app-cartes>
   </section>`,
+  imports: [FormsModule, CarteComponent, SuggestTipsComponent],
 })
 export class HomeComponent {
   constructor(private strapiService: StrapiService) {}

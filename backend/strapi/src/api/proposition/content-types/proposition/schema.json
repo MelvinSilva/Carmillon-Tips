@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "propositions",
+  "info": {
+    "singularName": "proposition",
+    "pluralName": "propositions",
+    "displayName": "Les propositions",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nom": {
+      "type": "string",
+      "pluginOptions": {}
+    },
+    "cp": {
+      "type": "string",
+      "pluginOptions": {}
+    },
+    "description": {
+      "type": "text",
+      "pluginOptions": {}
+    },
+    "ville": {
+      "type": "string",
+      "pluginOptions": {}
+    },
+    "enseigne": {
+      "type": "string",
+      "pluginOptions": {}
+    }
+  }
+}
