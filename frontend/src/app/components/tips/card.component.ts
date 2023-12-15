@@ -46,7 +46,7 @@ type Carte = {
         overflow: hidden; /* Cache le contenu débordant */
         text-overflow: ellipsis;
         border-radius: 20px;
-        margin: 5px;
+        margin: 0px 10px;
         color: #3f2a56;
       }
       .bg-enseigne:hover {
@@ -89,7 +89,7 @@ type Carte = {
                   Réduction
                 </span> -->
 
-                <div class="h-28 flex items-center justify-center">
+                <div class="h-32 flex items-center justify-center">
                   <img
                     class="w-full h-full object-contain rounded-lg p-2"
                     [src]="
@@ -102,21 +102,22 @@ type Carte = {
                     "
                   />
                 </div>
-                <div class="flex flex-col text-sm">
+                <div class="flex flex-col text-md">
                   <div
                     class="text-white font-extrabold bg-enseigne text-center p-2"
                   >
                     {{ carte.attributes.enseigne.split('-')[0].trim() }}
+                    <div class="text-sm font-bold">
+                      {{ carte.attributes.ville }}
+                    </div>
                   </div>
 
-                  <br />
-
-                  <div
-                    class="text-neutral-900 font-extrabold pt-2 pr-2 pl-2 text-md"
+                  <!--   <div
+                    class="text-neutral-600 font-extrabold pl-3 pb-1 text-md"
                   >
                     🏠 {{ carte.attributes.ville }}
-                  </div>
-                  <div class="text-neutral-600 font-extrabold pl-2 pr-2 pb-2">
+                  </div> -->
+                  <div class="text-neutral-600 pl-3 pb-1 pt-3">
                     📮
                     {{
                       carte.attributes.adresse !== null &&
@@ -126,12 +127,15 @@ type Carte = {
                     }}
                   </div>
 
-                  <div class="text-neutral-600 p-2">
+                  <div
+                    class="font-black pr-3 pl-3 pb-1"
+                    style="color: #3f2a56;"
+                  >
                     🔖 {{ filterDescriptionName(carte.attributes.description) }}
                   </div>
 
                   <div class="flex justify-between">
-                    <div class="text-neutral-600 p-2">
+                    <div class="text-neutral-600 pl-3 pb-1 pr-3">
                       {{
                         carte.attributes.verifier
                           ? ' ✅ Vérifier'
@@ -140,7 +144,7 @@ type Carte = {
                     </div>
                     <div
                       *ngIf="carte.attributes.date !== null"
-                      class="text-neutral-600 text-base font-medium text-xs p-2 italic"
+                      class="text-neutral-600 text-base font-medium text-xs p-1 italic"
                     >
                       Publié le
                       {{ carte.attributes.date | date : 'd MMMM yyyy' }}
@@ -148,7 +152,6 @@ type Carte = {
                   </div>
                 </div>
               </div>
-
               <div
                 *ngIf="!carte.attributes.disponible"
                 class="card-not-disponible w-80 max-h-max bg-card rounded-xl gap-4 flex flex-col relative"
