@@ -18,10 +18,14 @@ export class StrapiService {
   }
 
   getTips(): Observable<any[]> {
+<<<<<<< HEAD
     return this.http.get<any[]>(`${this.apiUrl}/tips?populate=*`); // effectue la recherche de tout les tips
   }
 
   searchTips(query: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/tips?q=${query}`); // effectue la recherche selon la query envoyé (ville)
+=======
+    return this.http.get<any[]>(`${this.apiUrl}/Tips`);
+>>>>>>> 0d59872 (1.7 MAJ)
   }
 }
