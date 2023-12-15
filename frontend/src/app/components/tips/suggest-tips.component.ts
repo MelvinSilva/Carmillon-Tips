@@ -23,7 +23,7 @@ interface Tips {
     `,
   ],
   template: `
-    <div class="mt-12 m-2">
+    <div class="mt-12 m-4">
       <h1 class="text-center text-white text-lg">
         Proposer un nouvel avantage ici et notre équipe l'ajoutera au catalogue
         dans les plus brefs délais.

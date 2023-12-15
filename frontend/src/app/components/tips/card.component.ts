@@ -48,11 +48,13 @@ type Carte = {
         border-radius: 20px;
         margin: 0px 10px;
         color: #3f2a56;
+        height: 68px;
       }
       .bg-enseigne:hover {
         overflow: visible;
         white-space: normal;
         font-size: 13px;
+        height: 68px;
       }
     `,
   ],
@@ -128,23 +130,23 @@ type Carte = {
                   </div>
 
                   <div
-                    class="font-black pr-3 pl-3 pb-1"
+                    class="font-black pr-3 pl-3 pb-1 h-20"
                     style="color: #3f2a56;"
                   >
                     🔖 {{ filterDescriptionName(carte.attributes.description) }}
                   </div>
 
-                  <div class="flex justify-between">
-                    <div class="text-neutral-600 pl-3 pb-1 pr-3">
+                  <div class="flex justify-between p-3">
+                    <div class="text-xs italic text-neutral-500">
                       {{
                         carte.attributes.verifier
-                          ? ' ✅ Vérifier'
+                          ? ' ☑️ Vérifier dernièrement'
                           : '☑️ A re-vérifier'
                       }}
                     </div>
                     <div
                       *ngIf="carte.attributes.date !== null"
-                      class="text-neutral-600 text-base font-medium text-xs p-1 italic"
+                      class="text-neutral-500 text-base font-medium text-xs italic"
                     >
                       Publié le
                       {{ carte.attributes.date | date : 'd MMMM yyyy' }}
