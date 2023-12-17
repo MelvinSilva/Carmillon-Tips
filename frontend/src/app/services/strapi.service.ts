@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { DatePipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StrapiService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private datePipe: DatePipe) {}
 
   private apiUrl = 'http://localhost:1337/api';
   private searchValueSubject = new BehaviorSubject<string>(''); // suivi de la valeur de recherche (initialement vide)
@@ -41,5 +42,25 @@ export class StrapiService {
       payload,
       httpOptions
     );
+  }
+
+  updateTips(carteId: number, commentaire: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+
+    const currentDate = new Date();
+    const formattedDate = this.datePipe.transform(currentDate, 'dd MMMM yyyy');
+    const payload = {
+      data: {
+        demande_modification: `${formattedDate} - ${commentaire}`,
+      },
+    };
+
+    const url = `${this.apiUrl}/tips/${carteId}`;
+
+    return this.http.put<any>(url, payload, httpOptions);
   }
 }

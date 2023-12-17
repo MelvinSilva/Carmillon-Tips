@@ -40,10 +40,6 @@
         "images"
       ]
     },
-    "date": {
-      "type": "date",
-      "required": false
-    },
     "verifier": {
       "type": "boolean",
       "required": false,
@@ -57,8 +53,14 @@
     "adresse": {
       "type": "text"
     },
+    "date_verification": {
+      "type": "string"
+    },
     "tag": {
       "type": "string"
+    },
+    "demande_modification": {
+      "type": "text"
     }
   }
 }

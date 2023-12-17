@@ -21,11 +21,11 @@ import { SuggestTipsComponent } from './tips/suggest-tips.component';
           <strong class="block font-blacktext-white"> Carmillon. </strong>
         </h1>
 
-        <p class="mt-4 max-w-lg sm:text-xl/relaxed text-thin text-gray-400">
+        <p class="mt-4 max-w-lg sm:text-xl/relaxed text-thin text-gray-200">
           Recherchez les bons plans disponible dans votre ville
         </p>
 
-        <div class="mt-8 flex flex-wrap gap-4 text-center">
+        <div class="mt-6 flex flex-wrap gap-4 text-center">
           <input
             placeholder="Entrez votre ville"
             type="text"
