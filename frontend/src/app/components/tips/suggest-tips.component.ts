@@ -52,7 +52,7 @@ interface Tips {
               class="placeholder:text-sm border rounded-md w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
             <span
-              class="absolute top-0 left-0 px-3 text-gray-400 text-sm italic"
+              class="absolute top-0 left-0 px-3 text-gray-400 text-sm"
               style="transform: translateY(0.15rem);"
             >
               Nom et prénom
@@ -69,7 +69,7 @@ interface Tips {
               class="placeholder:text-sm border rounded-md w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
             <span
-              class="absolute top-0 left-0 px-3 text-gray-400 text-sm italic"
+              class="absolute top-0 left-0 px-3 text-gray-400 text-sm"
               style="transform: translateY(0.15rem);"
             >
               Numéro de CP
@@ -89,7 +89,7 @@ interface Tips {
               class="placeholder:text-sm border rounded-md w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
             <span
-              class="absolute top-0 left-0 px-3 text-gray-400 text-sm italic"
+              class="absolute top-0 left-0 px-3 text-gray-400 text-sm"
               style="transform: translateY(0.15rem);"
             >
               Nom de l'enseigne
@@ -105,7 +105,7 @@ interface Tips {
               class="placeholder:text-sm border rounded-md w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
             <span
-              class="absolute top-0 left-0 px-3 text-gray-400 text-sm italic"
+              class="absolute top-0 left-0 px-3 text-gray-400 text-sm"
               style="transform: translateY(0.15rem);"
             >
               Ville et adresse
@@ -121,7 +121,7 @@ interface Tips {
               style="padding-top: 0.95rem; padding-bottom: 0.95rem;"
             ></textarea>
             <span
-              class="absolute top-0 left-0 px-3 text-gray-400 text-sm italic"
+              class="absolute top-0 left-0 px-3 text-gray-400 text-sm"
               style="transform: translateY(0.15rem);"
             >
               Description complète (réduction etc...)
