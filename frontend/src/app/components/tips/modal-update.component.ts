@@ -32,7 +32,7 @@ import { StrapiService } from '../../services/strapi.service';
       >
         <div class="bg-text rounded-lg p-2">
           <h2 class="text-lg font-bold text-center">
-            Dites nous si l'avantage est toujours valable le
+            ⓘ Dites nous si l'avantage est toujours valable le
             {{ currentDate }} ou s'il est expiré afin de mettre à jour les
             informations.
           </h2>

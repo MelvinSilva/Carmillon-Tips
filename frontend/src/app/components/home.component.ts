@@ -22,14 +22,14 @@ import { SuggestTipsComponent } from './tips/suggest-tips.component';
         </h1>
 
         <p class="mt-4 max-w-lg sm:text-xl/relaxed text-thin text-gray-200">
-          Recherchez les bons plans disponible dans votre ville
+          Contribuons ensemble à trouver et partager les bons plans cheminots !
         </p>
 
         <div class="mt-6 flex flex-wrap gap-4 text-center">
           <input
-            placeholder="Entrez votre ville"
+            placeholder="Entrez ville ou enseigne"
             type="text"
-            class="text-white button-search-city mx-auto block rounded px-12 py-3 text-1xl font-medium shadow focus:outline-none sm:w-auto placeholder:text-white placeholder:text-center"
+            class="text-white button-search-city mx-auto block rounded px-12 py-3 text-1xl font-medium shadow focus:outline-none sm:w-auto placeholder:text-gray-100 placeholder:text-center"
             (input)="search($event)"
           />
         </div>

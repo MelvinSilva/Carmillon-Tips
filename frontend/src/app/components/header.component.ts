@@ -22,7 +22,15 @@ import { RouterLink } from '@angular/router';
                 class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                 href="/"
               >
-                Catalogue France
+                Accueil
+              </a>
+            </li>
+            <li>
+              <a
+                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                href="/"
+              >
+                Offre en ligne
               </a>
             </li>
 
@@ -31,7 +39,7 @@ import { RouterLink } from '@angular/router';
                 class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                 href="/"
               >
-                Les transports en IDF
+                Transports en IDF
               </a>
             </li>
             <li>
@@ -39,7 +47,7 @@ import { RouterLink } from '@angular/router';
                 routerLink="/proposer-un-avantage"
                 class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
               >
-                Proposer un avantage
+                🌟 Proposer un avantage
               </a>
             </li>
 

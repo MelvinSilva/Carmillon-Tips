@@ -12,7 +12,7 @@ type Carte = {
   id: number;
   attributes: {
     disponible: boolean;
-    reduction: number;
+    reduction: string;
     ville: string;
     enseigne: string;
     adresse: string;
@@ -86,10 +86,21 @@ type Carte = {
               >
                 <span
                   *ngIf="carte.attributes.reduction !== null"
-                  class="absolute top-0 right-0 bg-reduction p-2 rounded-tr-lg text-white text-xl flex items-center justify-center"
+                  class="absolute top-0 right-0 bg-reduction p-2 rounded-tr-lg text-white text-sm flex items-center justify-center"
                   style="border-bottom-left-radius: 10px; height: 36px;"
                   >{{ carte.attributes.reduction }}
                 </span>
+                <span
+                  *ngIf="
+                    carte.attributes.reduction === null ||
+                    carte.attributes.reduction === ''
+                  "
+                  class="absolute top-0 right-0 bg-reduction p-2 rounded-tr-lg text-white text-xs flex items-center justify-center"
+                  style="border-bottom-left-radius: 10px; height: 36px;"
+                >
+                  Offre spéciale
+                </span>
+
                 <button
                   (click)="openModal(carte.id)"
                   class="absolute bottom-0 right-0 bg-gray-200 p-2 rounded-br-lg color-edit text-md flex items-center justify-center"
@@ -97,17 +108,6 @@ type Carte = {
                 >
                   ✎
                 </button>
-
-                <!--   <span
-                  *ngIf="
-                    carte.attributes.reduction === null ||
-                    carte.attributes.reduction === undefined
-                  "
-                  class="absolute top-0 right-0 bg-red-500 p-2 rounded-tr-lg text-white text-xs flex items-center justify-center"
-                  style="border-bottom-left-radius: 10px; height: 36px;"
-                >
-                  Réduction
-                </span> -->
 
                 <div class="h-32 flex items-center justify-center">
                   <img
@@ -197,11 +197,15 @@ export class CarteComponent implements OnInit {
 
   filterTips() {
     if (this.searchValue) {
-      // Filtre les résultats selon la valeur de recherche
-      this.tipsData = this.tipsData.filter((carte) =>
-        carte.attributes.ville
-          .toLowerCase()
-          .includes(this.searchValue.toLowerCase())
+      // Filtre les résultats selon la valeur de recherche ville ou enseigne
+      this.tipsData = this.tipsData.filter(
+        (carte) =>
+          carte.attributes.ville
+            .toLowerCase()
+            .includes(this.searchValue.toLowerCase()) ||
+          carte.attributes.enseigne
+            .toLowerCase()
+            .includes(this.searchValue.toLowerCase())
       );
     } else {
       this.loadTips();
@@ -222,11 +226,11 @@ export class CarteComponent implements OnInit {
 
   filterDescriptionName(description: string): string {
     const filteredTerms = [
-      'A re-vérifier',
-      'Vérifié en 2020',
-      'Vérifié en 2021',
-      'Vérifié en 2022',
-      'Vérifié en 2023',
+      '.A re-vérifier',
+      '.Vérifié en 2020',
+      '.Vérifié en 2021',
+      '.Vérifié en 2022',
+      '.Vérifié en 2023',
     ];
 
     // Remplace les termes spécifiques par une chaîne vide dans la description
