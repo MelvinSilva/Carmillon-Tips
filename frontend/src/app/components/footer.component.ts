@@ -50,8 +50,8 @@ import { RouterLink } from '@angular/router';
         </p>
         <div class="order-1 md:order-2">
           <span class="px-2">Accueil</span>
+          <span class="px-2 border-l">Proposer un avantange</span>
           <span class="px-2 border-l">Contact</span>
-          <span class="px-2 border-l">Privacy Policy</span>
         </div>
       </div>
     </div>
