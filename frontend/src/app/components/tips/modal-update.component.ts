@@ -39,38 +39,36 @@ import { StrapiService } from '../../services/strapi.service';
         </div>
 
         <!-- Cases à cocher -->
-        <div class="mb-4 mt-4">
+        <div class="mb-4 mt-4 flex flex-col">
           <!-- <p class="text-xs text-gray-500">
             Cochez la case correspondante
             <span class="text-xs text-red-500 italic">(requis)</span>
           </p> -->
-          <label class="inline-flex items-center">
+          <label class="items-center">
             <input
               type="checkbox"
               class="form-checkbox"
               name="toujoursValable"
               [(ngModel)]="toujoursValable"
             />
-            <span class="ml-2 text-gray-600 text-lg">TOUJOURS VALABLE</span>
+            <span class="ml-2 text-gray-600 text-md">TOUJOURS VALABLE</span>
           </label>
-          <label class="inline-flex items-center ml-8">
+          <label class="items-center">
             <input
               type="checkbox"
               class="form-checkbox"
               name="expire"
               [(ngModel)]="expire"
             />
-            <span class="ml-2 text-gray-600 text-lg">EXPIRÉ</span>
+            <span class="ml-2 text-gray-600 text-md">EXPIRÉ</span>
           </label>
         </div>
-        <label class="text-xs text-gray-500"
-          >Si expiré, renseigner un maximum d'info ainsi que votre nom et CP
-          <textarea
-            class="w-full h-20 border border-gray-300 rounded p-2 focus:outline-none placeholder:text-xs"
-            placeholder=""
-            [(ngModel)]="commentaire"
-          ></textarea>
-        </label>
+
+        <textarea
+          class="w-full h-20 border border-gray-300 rounded p-2 focus:outline-none placeholder:text-xs"
+          placeholder="Si expiré, renseigner un maximum d'info ainsi que votre nom et CP"
+          [(ngModel)]="commentaire"
+        ></textarea>
 
         <!-- Actions de la modal -->
         <div class="mt-4 flex justify-end">
