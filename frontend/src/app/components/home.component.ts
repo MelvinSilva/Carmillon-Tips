@@ -15,23 +15,27 @@ import { SuggestTipsComponent } from './tips/suggest-tips.component';
       <div
         class="message mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right"
       >
-        <h1 class="text-4xl font-black sm:text-6xl text-white">
-          Les bons plans
+        <h1 class="text-2xl font-black sm:text-5xl text-white">
+          LES BONS PLANS
 
-          <strong class="block font-blacktext-white"> Carmillon. </strong>
+          <strong class="block font-blacktext-white"> CARMILLON. </strong>
         </h1>
 
-        <p class="mt-4 max-w-lg sm:text-xl/relaxed text-thin text-gray-200">
+        <p class="mt-4 text-md sm:text-2xl text-gray-200">
           Contribuons ensemble à trouver et partager les bons plans cheminots !
         </p>
-
-        <div class="mt-6 flex flex-wrap gap-4 text-center">
-          <input
-            placeholder="Entrez ville ou enseigne"
-            type="text"
-            class="text-white button-search-city mx-auto block rounded px-12 py-3 text-1xl font-medium shadow focus:outline-none sm:w-auto placeholder:text-gray-100 placeholder:text-center"
-            (input)="search($event)"
-          />
+        <br />
+        <hr />
+        <div class="mt-3 flex justify-center">
+          <label class="text-gray-200 mx-auto block py-3 text-md italic">
+            Recherche par ville, enseigne ou mot-clé
+            <input
+              placeholder="🔍"
+              type="text"
+              class="text-white button-search-city mt-1 block rounded py-3 text-md w-80 pl-3 focus:outline-none placeholder:text-gray-200"
+              (input)="search($event)"
+            />
+          </label>
         </div>
       </div>
     </div>

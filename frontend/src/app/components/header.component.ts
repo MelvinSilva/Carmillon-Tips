@@ -22,7 +22,7 @@ import { RouterLink } from '@angular/router';
                 class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                 href="/"
               >
-                Accueil
+                Les bons plans
               </a>
             </li>
             <li>
@@ -30,7 +30,7 @@ import { RouterLink } from '@angular/router';
                 class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                 href="/"
               >
-                Offre en ligne
+                Offres nationales
               </a>
             </li>
 
@@ -44,10 +44,10 @@ import { RouterLink } from '@angular/router';
             </li>
             <li>
               <a
-                routerLink="/proposer-un-avantage"
+                routerLink="/proposer-un-bon-plan"
                 class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
               >
-                🌟 Proposer un avantage
+                💡 Proposer un bon plan
               </a>
             </li>
 

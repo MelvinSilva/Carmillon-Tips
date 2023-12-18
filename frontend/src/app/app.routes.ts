@@ -4,8 +4,8 @@ import { HomeComponent } from './components/home.component';
 import { SuggestTipsComponent } from './components/tips/suggest-tips.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
-  { path: 'accueil', component: HomeComponent },
+  { path: '', redirectTo: '/les-bons-plans', pathMatch: 'full' },
+  { path: 'les-bons-plans', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'proposer-un-avantage', component: SuggestTipsComponent },
+  { path: 'proposer-un-bon-plan', component: SuggestTipsComponent },
 ];
