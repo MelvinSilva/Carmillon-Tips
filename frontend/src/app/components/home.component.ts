@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { StrapiService } from '../services/strapi.service';
 import { FormsModule } from '@angular/forms';
 import { CarteComponent } from './tips/card.component';
+import { SuggestTipsComponent } from './tips/suggest-tips.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FormsModule, CarteComponent],
   styles: [``],
   template: ` <section class="home bg-cover bg-center bg-no-repeat">
     <div
@@ -15,28 +15,35 @@ import { CarteComponent } from './tips/card.component';
       <div
         class="message mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right"
       >
-        <h1 class="text-4xl font-black sm:text-6xl text-white">
-          Les bons plans
+        <h1 class="text-2xl font-black sm:text-5xl text-white">
+          CARMISPHERE
 
-          <strong class="block font-blacktext-white"> Carmillon. </strong>
+          <strong class="text-sm block font-black sm:text-2xl text-white">
+            LES BONS PLANS CARMILLON.
+          </strong>
         </h1>
 
-        <p class="mt-4 max-w-lg sm:text-xl/relaxed text-thin text-gray-400">
-          Recherchez les bons plans disponible dans votre ville
+        <p class="mt-4 text-md sm:text-xl text-gray-200">
+          Contribuons ensemble à trouver et partager les bons plans cheminots !
         </p>
-
-        <div class="mt-8 flex flex-wrap gap-4 text-center">
-          <input
-            placeholder="Entrez votre ville"
-            type="text"
-            class="text-white button-search-city mx-auto block rounded px-12 py-3 text-1xl font-medium shadow focus:outline-none sm:w-auto placeholder:text-white placeholder:text-center"
-            (input)="search($event)"
-          />
+        <br />
+        <hr />
+        <div class="mt-3 flex justify-center">
+          <label class="text-gray-200 mx-auto block py-3 text-xs italic">
+            Recherche par ville, enseigne, département ou catégorie
+            <input
+              placeholder="🔍"
+              type="text"
+              class="text-white button-search-city mt-1 block rounded py-3 text-md w-80 pl-3 focus:outline-none placeholder:text-gray-200"
+              (input)="search($event)"
+            />
+          </label>
         </div>
       </div>
     </div>
     <app-cartes></app-cartes>
   </section>`,
+  imports: [FormsModule, CarteComponent, SuggestTipsComponent],
 })
 export class HomeComponent {
   constructor(private strapiService: StrapiService) {}

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "tip",
     "pluralName": "tips",
-    "displayName": "tips",
+    "displayName": "Les bons plans",
     "description": ""
   },
   "options": {
@@ -36,11 +36,9 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images"]
-    },
-    "date": {
-      "type": "date",
-      "required": false
+      "allowedTypes": [
+        "images"
+      ]
     },
     "verifier": {
       "type": "boolean",
@@ -55,8 +53,14 @@
     "adresse": {
       "type": "text"
     },
+    "date_verification": {
+      "type": "string"
+    },
     "tag": {
       "type": "string"
+    },
+    "demande_modification": {
+      "type": "text"
     }
   }
 }

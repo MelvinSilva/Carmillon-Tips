@@ -4,6 +4,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { HomeComponent } from './components/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CarteComponent } from './components/tips/card.component';
+import { FooterComponent } from './components/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { CarteComponent } from './components/tips/card.component';
     <app-header></app-header>
     <!-- <app-cartes></app-cartes> -->
     <router-outlet></router-outlet>
+    <app-footer></app-footer>
   `,
   styles: [``],
   imports: [
@@ -20,6 +22,7 @@ import { CarteComponent } from './components/tips/card.component';
     CarteComponent,
     HttpClientModule,
     RouterLink,
+    FooterComponent,
   ],
 })
 export class AppComponent {}
