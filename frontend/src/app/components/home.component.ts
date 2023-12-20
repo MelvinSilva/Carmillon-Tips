@@ -16,19 +16,21 @@ import { SuggestTipsComponent } from './tips/suggest-tips.component';
         class="message mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right"
       >
         <h1 class="text-2xl font-black sm:text-5xl text-white">
-          LES BONS PLANS
+          CARMISPHERE
 
-          <strong class="block font-blacktext-white"> CARMILLON. </strong>
+          <strong class="text-sm block font-black sm:text-2xl text-white">
+            LES BONS PLANS CARMILLON.
+          </strong>
         </h1>
 
-        <p class="mt-4 text-md sm:text-2xl text-gray-200">
+        <p class="mt-4 text-md sm:text-xl text-gray-200">
           Contribuons ensemble à trouver et partager les bons plans cheminots !
         </p>
         <br />
         <hr />
         <div class="mt-3 flex justify-center">
-          <label class="text-gray-200 mx-auto block py-3 text-md italic">
-            Recherche par ville, enseigne ou mot-clé
+          <label class="text-gray-200 mx-auto block py-3 text-xs italic">
+            Recherche par ville, enseigne, département ou catégorie
             <input
               placeholder="🔍"
               type="text"

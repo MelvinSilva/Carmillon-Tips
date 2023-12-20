@@ -18,6 +18,7 @@ type Carte = {
     adresse: string;
     date_verification: string;
     description: string;
+    departement: string;
     verifier: boolean;
     date: string; // Assurez-vous que le format de date est correct
     image?: {
@@ -204,6 +205,9 @@ export class CarteComponent implements OnInit {
             .toLowerCase()
             .includes(this.searchValue.toLowerCase()) ||
           carte.attributes.enseigne
+            .toLowerCase()
+            .includes(this.searchValue.toLowerCase()) ||
+          carte.attributes.departement
             .toLowerCase()
             .includes(this.searchValue.toLowerCase())
       );

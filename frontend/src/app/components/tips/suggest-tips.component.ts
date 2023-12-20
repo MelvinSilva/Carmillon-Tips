@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { StrapiService } from '../../services/strapi.service';
-import { FormControl, FormsModule, NgModel } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 interface Tips {
   nom: string;
@@ -25,6 +25,7 @@ interface Tips {
         background-size: cover;
         height: 200px;
         opacity: 0.4;
+      }
     `,
   ],
   template: `
