@@ -1,6 +1,7 @@
 import { NgClass, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { StrapiService } from '../services/strapi.service';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +18,7 @@ import { RouterLink } from '@angular/router';
       </a>
 
       <!-- Menu classique pour les écrans larges -->
-      <nav class="hidden md:flex items-center gap-6 text-sm">
+      <nav class="hidden lg:flex items-center gap-6 text-sm">
         <a
           class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
           routerLink="/les-bons-plans"
@@ -48,11 +49,17 @@ import { RouterLink } from '@angular/router';
         >
           Contact
         </a>
+        <input
+          placeholder="🔍 Recherche par ville, enseigne, catégorie"
+          type="text"
+          class="text-gray-700 button-search-city mt-1 block rounded-3xl py-3 text-md w-80 pl-3 focus:outline-none placeholder:text-gray-400 placeholder:text-sm"
+          (input)="search($event)"
+        />
       </nav>
 
       <!-- Bouton du menu burger pour les écrans mobiles -->
       <button
-        class="block md:hidden rounded bg-gray-100 p-2.5 absolute right-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
+        class="block lg:hidden rounded bg-gray-100 p-2.5 absolute right-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
         (click)="toggleMenu()"
       >
         <span class="sr-only">Toggle menu</span>
@@ -82,7 +89,7 @@ import { RouterLink } from '@angular/router';
       <!-- Menu déroulant pour les écrans mobiles -->
       <div
         *ngIf="isMenuOpen"
-        class="md:hidden absolute top-16 right-0 bg-white dark:bg-gray-900 shadow-md p-4 z-10 rounded-bl-lg"
+        class="lg:hidden absolute top-16 right-0 bg-white dark:bg-gray-900 shadow-md p-4 z-10 rounded-bl-lg"
       >
         <nav aria-label="Global">
           <ul class="flex flex-col items-center gap-6 text-sm">
@@ -126,6 +133,12 @@ import { RouterLink } from '@angular/router';
                 Contact
               </a>
             </li>
+            <input
+              placeholder="🔍 ville, enseigne, catégorie"
+              type="text"
+              class="text-gray-700 button-search-city mt-1 block rounded-3xl py-3 text-md w-48 pl-3 focus:outline-none placeholder:text-gray-400 placeholder:text-xs"
+              (input)="search($event)"
+            />
           </ul>
         </nav>
       </div>
@@ -133,9 +146,17 @@ import { RouterLink } from '@angular/router';
   </header> `,
 })
 export class HeaderComponent {
-  isMenuOpen = false; // Contrôle l'état du menu
+  isMenuOpen = false; // etat du menu sur false par defaut
+
+  constructor(private strapiService: StrapiService) {}
 
   toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen; // Bascule l'état du menu
+    this.isMenuOpen = !this.isMenuOpen; // bascule l'état du menu
+  }
+
+  search(event: Event) {
+    const value = (event.target as HTMLInputElement).value;
+    this.strapiService.setSearchValue(value);
+    // recupere ce qui est tapé dans la barre de recherche
   }
 }
