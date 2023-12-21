@@ -7,12 +7,10 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
   styles: [
     `
       .container {
-        width: 100%;
         margin: 0 auto;
         padding: 0 20px;
       }
       .svg-container {
-        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -43,8 +41,7 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
         <svg
           #maCarte
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="50 0 700 700"
-          style="display: block; margin: 0 auto;"
+          viewBox="-50 0 700 700"
           class="fill-gray-100"
         >
           <defs id="defs28" />
