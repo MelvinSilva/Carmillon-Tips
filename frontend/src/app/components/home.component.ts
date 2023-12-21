@@ -3,6 +3,7 @@ import { StrapiService } from '../services/strapi.service';
 import { FormsModule } from '@angular/forms';
 import { CarteComponent } from './tips/card.component';
 import { SuggestTipsComponent } from './tips/suggest-tips.component';
+import { MapAreaComponent } from './map-card/map-area.component';
 
 @Component({
   selector: 'app-home',
@@ -41,9 +42,15 @@ import { SuggestTipsComponent } from './tips/suggest-tips.component';
         </div>
       </div>
     </div>
+    <app-map-area></app-map-area>
     <app-cartes></app-cartes>
   </section>`,
-  imports: [FormsModule, CarteComponent, SuggestTipsComponent],
+  imports: [
+    FormsModule,
+    CarteComponent,
+    SuggestTipsComponent,
+    MapAreaComponent,
+  ],
 })
 export class HomeComponent {
   constructor(private strapiService: StrapiService) {}
