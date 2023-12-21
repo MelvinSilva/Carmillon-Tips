@@ -43,7 +43,7 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
         <svg
           #maCarte
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="-50 0 700 700"
+          viewBox="50 0 700 700"
           style="display: block; margin: 0 auto;"
           class="fill-gray-100"
         >
