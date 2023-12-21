@@ -30,7 +30,7 @@ import { MapAreaComponent } from './map-card/map-area.component';
         <br />
         <hr />
         <div class="mt-3 flex justify-center">
-          <<!-- label class="text-gray-200 mx-auto block py-3 text-xs italic">
+          <!-- label class="text-gray-200 mx-auto block py-3 text-xs italic">
             Recherche par ville, enseigne, département ou catégorie -->
           <input
             placeholder="🔍 Recherche"
