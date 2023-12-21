@@ -13,7 +13,7 @@ import { RouterLink } from '@angular/router';
           Application non officiel - Réservé aux cheminots SNCF
         </p>
         <p class="text-xs">
-          Rejoignez le groupe Facebook « Carmisphère - Bons plans Carmillon »
+          Rejoignez le groupe « Carmisphère - Bons plans Carmillon »
         </p>
         <!-- <div class="flex justify-center my-10">
           <div
@@ -43,7 +43,7 @@ import { RouterLink } from '@angular/router';
         </div> -->
       </div>
       <div
-        class="mt-28 flex flex-col md:flex-row md:justify-between items-center text-sm text-gray-400"
+        class="mt-8 flex flex-col md:flex-row md:justify-between items-center text-sm text-gray-400"
       >
         <p class="order-2 md:order-1 mt-8 md:mt-0">&copy; Carmisphère, 2024.</p>
         <div class="order-1 md:order-2">
