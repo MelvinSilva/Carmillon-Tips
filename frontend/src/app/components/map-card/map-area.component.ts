@@ -18,14 +18,15 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
         align-items: center;
       }
 
-      @media (min-width: 1000px) {
-        .svg-container svg {
-          width: 60%;
-        }
-      }
       svg {
         stroke: #3f2a56;
         stroke-width: 2.5px;
+      }
+
+      @media (min-width: 1000px) {
+        svg {
+          width: 500px;
+        }
       }
 
       svg path:hover {
@@ -42,7 +43,7 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
         <svg
           #maCarte
           viewBox="-50 0 700 700"
-          style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+          style="display: block; margin: 0 auto;"
           class="fill-gray-100"
         >
           <defs id="defs28" />
