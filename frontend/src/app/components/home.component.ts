@@ -24,21 +24,21 @@ import { MapAreaComponent } from './map-card/map-area.component';
           </strong>
         </h1>
 
-        <p class="mt-4 text-md sm:text-xl text-gray-200">
+        <p class="mt-4 text-xs sm:text-xl text-gray-200">
           Contribuons ensemble à trouver et partager les bons plans cheminots !
         </p>
         <br />
         <hr />
         <div class="mt-3 flex justify-center">
-          <label class="text-gray-200 mx-auto block py-3 text-xs italic">
-            Recherche par ville, enseigne, département ou catégorie
-            <input
-              placeholder="🔍"
-              type="text"
-              class="text-white button-search-city mt-1 block rounded py-3 text-md w-80 pl-3 focus:outline-none placeholder:text-gray-200"
-              (input)="search($event)"
-            />
-          </label>
+          <!-- label class="text-gray-200 mx-auto block py-3 text-xs italic">
+            Recherche par ville, enseigne, département ou catégorie -->
+          <input
+            placeholder="🔍 Recherche"
+            type="text"
+            class="text-white button-search-city mt-1 block rounded py-3 text-md w-80 pl-3 focus:outline-none placeholder:text-gray-200"
+            (input)="search($event)"
+          />
+          <!-- </label> -->
         </div>
       </div>
     </div>
