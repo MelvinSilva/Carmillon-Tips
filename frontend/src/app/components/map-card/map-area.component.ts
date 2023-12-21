@@ -44,7 +44,6 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
           viewBox="-50 0 700 700"
           class="fill-gray-100"
         >
-          <defs id="defs28" />
           <path
             title="Grand Est"
             id="grand-est"
