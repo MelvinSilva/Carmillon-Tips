@@ -19,5 +19,5 @@ body {
 }
 
 .button-search-city {
-  background-color: #ee528a;
+  border: 1px solid rgba(201, 201, 201, 0.543);
 }

@@ -12,6 +12,7 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
       }
       .svg-container {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
       }
@@ -34,11 +35,17 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
         transition: all 0.2s ease-in-out;
         cursor: pointer;
       }
+      .bg-title {
+        background-color: #ee528a;
+      }
     `,
   ],
   template: `
     <div class="container">
       <div class="svg-container">
+        <h1 class="text-gray-200 mb-3 p-1 text-lg bg-title rounded-md">
+          Selectionnez la région sur la carte
+        </h1>
         <svg
           #maCarte
           xmlns:svg="http://www.w3.org/2000/svg"
