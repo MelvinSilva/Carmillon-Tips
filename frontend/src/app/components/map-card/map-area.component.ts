@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-map-area',
@@ -115,20 +115,5 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
   `,
 })
 export class MapAreaComponent {
-  @ViewChild('maCarte') maCarte!: ElementRef;
-
-  constructor(private renderer: Renderer2) {}
-
-  ngAfterViewInit() {
-    // Ajoutez des écouteurs d'événements aux régions
-    const regions = this.maCarte.nativeElement.querySelectorAll('path');
-    regions.forEach((region: { getAttribute: (arg0: string) => any }) => {
-      this.renderer.listen(region, 'click', () => {
-        // Gérez l'événement de clic ici
-        const regionId = region.getAttribute('id');
-        console.log('Region sélectionnée :', regionId);
-        // Effectuez des actions en fonction de la région sélectionnée
-      });
-    });
-  }
+  constructor() {}
 }
