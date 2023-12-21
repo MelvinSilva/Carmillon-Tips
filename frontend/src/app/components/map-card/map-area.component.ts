@@ -40,9 +40,13 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
   template: `
     <div class="container">
       <div class="svg-container">
-        <svg #maCarte xmlns="http://www.w3.org/2000/svg">
-          viewBox="-50 0 700 700" style="display: block; margin: 0 auto;"
-          class="fill-gray-100" >
+        <svg
+          #maCarte
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="-50 0 700 700"
+          style="display: block; margin: 0 auto;"
+          class="fill-gray-100"
+        >
           <defs id="defs28" />
           <path
             title="Grand Est"
