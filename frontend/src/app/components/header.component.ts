@@ -9,7 +9,7 @@ import { StrapiService } from '../services/strapi.service';
   imports: [RouterLink, NgClass, NgIf],
   template: `<header class="bg-white dark:bg-gray-900">
     <div
-      class="mx-auto flex h-16 max-w-screen-xl items-center gap-4 px-4 sm:px-6 lg:px-8"
+      class="mx-auto flex h-16 max-w-screen-xl items-center lg:justify-center gap-4 px-4 sm:px-6 lg:px-8"
     >
       <!-- logo -->
       <a class="block text-red-600 dark:text-teal-300" href="/">
@@ -18,7 +18,7 @@ import { StrapiService } from '../services/strapi.service';
       </a>
 
       <!-- Menu classique pour les écrans larges -->
-      <nav class="hidden xl:flex items-center gap-6 text-sm">
+      <nav class="hidden lg:flex items-center gap-6 text-sm">
         <a
           class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
           routerLink="/accueil"
@@ -61,7 +61,7 @@ import { StrapiService } from '../services/strapi.service';
 
       <!-- Bouton du menu burger pour les écrans mobiles -->
       <button
-        class="block xl:hidden rounded bg-gray-100 p-2.5 absolute right-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
+        class="block lg:hidden rounded bg-gray-100 p-2.5 absolute right-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
         (click)="toggleMenu()"
       >
         <span class="sr-only">Toggle menu</span>
@@ -87,7 +87,7 @@ import { StrapiService } from '../services/strapi.service';
           />
         </svg>
       </button>
-      <div class="relative xl:hidden">
+      <div class="relative lg:hidden">
         <button
           class="button-header-search block rounded-3xl py-2 text-xs p-3 focus:outline-none"
           routerLink="les-bons-plans"
@@ -99,7 +99,7 @@ import { StrapiService } from '../services/strapi.service';
       <!-- Menu déroulant pour les écrans mobiles -->
       <div
         *ngIf="isMenuOpen"
-        class="xl:hidden absolute top-16 right-0 bg-white dark:bg-gray-900 shadow-md p-4 z-10 rounded-bl-lg"
+        class="lg:hidden absolute top-16 right-0 bg-white dark:bg-gray-900 shadow-md p-4 z-10 rounded-bl-lg"
       >
         <nav aria-label="Global">
           <ul class="flex flex-col items-center gap-6 text-sm">
