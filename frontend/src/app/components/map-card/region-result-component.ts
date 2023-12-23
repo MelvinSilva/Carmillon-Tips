@@ -72,7 +72,7 @@ type RegionData = {
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   template: `
-    <div *ngIf="!tipsData || tipsData.length === 0; else content">
+    <div class="w-80" *ngIf="!tipsData || tipsData.length === 0; else content">
       <p class="p-2 h-screen mt-6 text-center text-white text-3xl">
         Aucune donnée disponible.
       </p>

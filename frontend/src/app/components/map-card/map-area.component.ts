@@ -136,27 +136,19 @@ export class MapAreaComponent {
 
   ngAfterViewInit() {
     const regions = this.maCarte.nativeElement.querySelectorAll('path');
-    regions.forEach(
-      (region: {
-        addEventListener: any;
-        getAttribute: (arg0: string) => any;
-      }) => {
-        region.addEventListener('click', (event: MouseEvent) => {
-          const regionId = region.getAttribute('id');
-          console.log('Region sélectionnée :', regionId);
+    regions.forEach((region: { getAttribute: (arg0: string) => any }) => {
+      this.renderer.listen(region, 'click', () => {
+        const regionId = region.getAttribute('id');
+        console.log('Region sélectionnée :', regionId);
 
-          // Empêcher le comportement par défaut du click pour éviter toute interférence
-          event.preventDefault();
-
-          // Utilisation du service pour obtenir les données de la région sélectionnée
-          this.strapiService.getTipsByRegion(regionId).subscribe((data) => {
-            // Naviguer vers le composant bon plan region et transmettre les données
-            this.router.navigate(['bons-plans-region', regionId], {
-              state: { regionId: regionId },
-            });
+        // Utilisation du service pour obtenir les données de la région sélectionnée
+        this.strapiService.getTipsByRegion(regionId).subscribe((data) => {
+          // Naviguer vers le composant bon plan region et transmettre les données
+          this.router.navigate(['bons-plans-region', regionId], {
+            state: { regionId: regionId },
           });
         });
-      }
-    );
+      });
+    });
   }
 }
