@@ -144,7 +144,7 @@ interface Tips {
     </div>
   `,
 })
-export class SuggestTipsComponent {
+export class TipsSuggestComponent {
   newTips: Tips = {
     nom: '',
     cp: '',

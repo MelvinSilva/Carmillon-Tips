@@ -1,18 +1,18 @@
 import { Routes } from '@angular/router';
 import { ContactComponent } from './components/contact.component';
 import { HomeComponent } from './components/home.component';
-import { SuggestTipsComponent } from './components/tips/suggest-tips.component';
-import { CarteComponent } from './components/tips/card.component';
-import { RegionResultComponent } from './components/map-card/region-result-component';
+import { TipsResultComponent } from './components/tips/result.component';
+import { TipsRegionResult } from './components/tips-region/region.component';
+import { TipsSuggestComponent } from './components/tips/suggest.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
   { path: 'accueil', component: HomeComponent },
-  { path: 'les-bons-plans', component: CarteComponent },
+  { path: 'les-bons-plans', component: TipsResultComponent },
   {
-    path: 'bons-plans-region/:region',
-    component: RegionResultComponent,
+    path: 'region/:region',
+    component: TipsRegionResult,
   },
   { path: 'contact', component: ContactComponent },
-  { path: 'proposer-un-bon-plan', component: SuggestTipsComponent },
+  { path: 'proposer-un-bon-plan', component: TipsSuggestComponent },
 ];

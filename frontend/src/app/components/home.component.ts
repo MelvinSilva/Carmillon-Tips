@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { StrapiService } from '../services/strapi.service';
 import { FormsModule } from '@angular/forms';
-import { CarteComponent } from './tips/card.component';
-import { SuggestTipsComponent } from './tips/suggest-tips.component';
-import { MapAreaComponent } from './map-card/map-area.component';
+import { TipsResultComponent } from './tips/result.component';
+import { TipsSuggestComponent } from './tips/suggest.component';
+import { MapFrenchComponent } from './tips-region/map-french.component';
 
 @Component({
   selector: 'app-home',
@@ -11,23 +10,18 @@ import { MapAreaComponent } from './map-card/map-area.component';
   styles: [``],
   template: ` <section class="home bg-cover bg-center bg-no-repeat">
     <div
-      class="mx-auto max-w-screen-2xl px-4 py-10 sm:px-6 lg:flex lg:items-center"
+      class="mx-auto max-w-screen-2xl px-4 py-4 sm:px-6 lg:flex lg:items-center"
     >
       <div
         class="message mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right"
       >
-        <h1 class="text-4xl font-black sm:text-5xl text-white">
-          CARMISPHERE
-
-          <strong class="text-sm block font-black sm:text-2xl text-white">
-            LES BONS PLANS CARMILLON.
-          </strong>
-        </h1>
-        <br />
-        <hr />
-        <p class="mt-4 text-md sm:text-xl text-gray-200">
-          Contribuons ensemble à trouver et partager les bons plans cheminots !
-        </p>
+        <h1 class="text-4xl font-black sm:text-5xl text-white">CARMISPHERE</h1>
+        <div>
+          <p class="mt-2 text-md sm:text-xl text-gray-200">
+            Contribuons ensemble à trouver et partager les bons plans cheminots
+            !
+          </p>
+        </div>
 
         <!--  <div class="mt-3 flex justify-center">
          
@@ -41,13 +35,13 @@ import { MapAreaComponent } from './map-card/map-area.component';
         </div> -->
       </div>
     </div>
-    <app-map-area></app-map-area>
+    <app-map-french></app-map-french>
   </section>`,
   imports: [
     FormsModule,
-    CarteComponent,
-    SuggestTipsComponent,
-    MapAreaComponent,
+    TipsResultComponent,
+    TipsSuggestComponent,
+    MapFrenchComponent,
   ],
 })
 export class HomeComponent {

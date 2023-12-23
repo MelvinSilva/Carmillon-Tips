@@ -3,7 +3,7 @@ import { StrapiService } from '../../services/strapi.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-map-area',
+  selector: 'app-map-french',
   standalone: true,
   imports: [],
   styles: [
@@ -44,9 +44,9 @@ import { Router } from '@angular/router';
   ],
   template: `
     <div class="container">
-      <div class="svg-container">
-        <h1 class="text-gray-200 mb-3 p-1 text-lg bg-title">
-          Selectionnez une région sur la carte
+      <div class="svg-container mt-8">
+        <h1 class="text-gray-100/30 mb-3 p-1 text-lg ">
+          🌍 Selectionnez une région
         </h1>
         <svg
           #maCarte
@@ -125,7 +125,7 @@ import { Router } from '@angular/router';
     </div>
   `,
 })
-export class MapAreaComponent {
+export class MapFrenchComponent {
   @ViewChild('maCarte') maCarte!: ElementRef;
 
   constructor(
@@ -145,7 +145,7 @@ export class MapAreaComponent {
         this.strapiService.getTipsByRegion(regionId).subscribe(
           (data) => {
             // Navigation vers le composant bon plan par region et transmettre les données
-            this.router.navigate(['bons-plans-region', regionId], {
+            this.router.navigate(['region', regionId], {
               state: { regionId: regionId },
             });
           },
@@ -155,7 +155,7 @@ export class MapAreaComponent {
               error
             );
             // si erreur naviguer quand même vers la page
-            this.router.navigate(['bons-plans-region', regionId], {
+            this.router.navigate(['region', regionId], {
               state: { regionId: regionId, error: true },
             });
           }

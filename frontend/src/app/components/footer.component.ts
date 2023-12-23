@@ -7,15 +7,17 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   template: `<div class=" bg-gray-900">
     <div class="max-w-2xl mx-auto text-white py-10">
+      <div class="text-center flex justify-center">
+        <a class="block text-red-600 dark:text-teal-300" href="/">
+          <img src="../../assets/logo-carmisphere.webp" class="h-10 w-10" />
+        </a>
+        <h3 class="text-3xl mb-2 ml-1">CARMISPHÈRE</h3>
+      </div>
       <div class="text-center">
-        <h3 class="text-3xl mb-2">CARMISPHÈRE</h3>
-        <p class="text-sm">
+        <p class="text-xs">
           Application non officiel - Réservé aux cheminots SNCF
         </p>
-        <p class="text-xs">
-          Rejoignez le groupe facebook <br />« Carmisphère - Bons plans
-          Carmillon »
-        </p>
+        <p class="text-xs">Rejoignez le groupe facebook « Carmisphère »</p>
         <!-- <div class="flex justify-center my-10">
           <div
             class="flex items-center border w-auto rounded-lg px-4 py-2 w-52 mx-2"
@@ -42,16 +44,6 @@ import { RouterLink } from '@angular/router';
             </div>
           </div>
         </div> -->
-      </div>
-      <div
-        class="mt-8 flex flex-col md:flex-row md:justify-between items-center text-sm text-gray-400"
-      >
-        <p class="order-2 md:order-1 mt-8 md:mt-0">&copy; Carmisphère, 2024.</p>
-        <div class="order-1 md:order-2">
-          <span class="px-2">Accueil</span>
-          <span class="px-2 border-l">Proposer un avantange</span>
-          <span class="px-2 border-l">Contact</span>
-        </div>
       </div>
     </div>
   </div>`,

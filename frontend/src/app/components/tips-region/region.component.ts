@@ -4,11 +4,12 @@ import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalUpdate } from './modal-update.component';
+import { ModalUpdate } from '../tips/modal-update.component';
+import { ActivatedRoute } from '@angular/router';
 
 registerLocaleData(localeFr);
 
-type Carte = {
+type RegionData = {
   id: number;
   attributes: {
     disponible: boolean;
@@ -36,13 +37,15 @@ type Carte = {
 };
 
 @Component({
-  selector: 'app-cartes',
+  selector: 'app-tips-region-result',
   standalone: true,
   imports: [NgFor, NgIf, DatePipe],
   styles: [
     `
       .bg-card {
         background-color: #f4f5f6;
+        box-shadow: rgba(240, 46, 170, 0.3) 4px 4px,
+          rgba(240, 46, 170, 0.2) 8px 8px, rgba(240, 46, 170, 0.1) 12px 12px;
       }
       .bg-enseigne {
         background-color: #d7d7d7;
@@ -70,39 +73,32 @@ type Carte = {
     `,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
-  template: `<div class="mt-4 relative justify-center flex">
-      <input
-        placeholder="Saisir ville, enseigne ou catégorie"
-        type="text"
-        class="button-search-city text-gray-700 block rounded-md py-2 text-sm w-80 pl-2 mb-4 focus:outline-none placeholder:text-gray-400 placeholder:text-sm"
-        (input)="search($event)"
-      />
-    </div>
+  template: `
     <div *ngIf="!tipsData || tipsData.length === 0; else content">
-      <p class="p-2 h-96 text-center text-white text-3xl">
+      <p class="p-2 h-96  mt-20 text-center text-white text-3xl">
         Aucune donnée disponible.
       </p>
     </div>
 
     <ng-template #content>
-      <div class="m-1 flex justify-center">
+      <div class="m-1 mt-6 flex justify-center">
         <div class="w-full max-w-screen-2xl">
           <div class="flex flex-wrap justify-center gap-4">
-            <ng-container *ngFor="let carte of tipsData">
+            <ng-container *ngFor="let data of tipsData">
               <div
-                *ngIf="carte.attributes.disponible"
-                class="w-80 max-h-max bg-card rounded-xl flex flex-col gap-4 relative"
+                *ngIf="data.attributes.disponible"
+                class="w-80 max-h-max bg-card rounded-xl flex flex-col gap-4 relative shadow-inner"
               >
                 <span
-                  *ngIf="carte.attributes.reduction !== null"
+                  *ngIf="data.attributes.reduction !== null"
                   class="absolute top-0 right-0 bg-reduction p-2 rounded-tr-lg text-white text-sm flex items-center justify-center"
                   style="border-bottom-left-radius: 10px; height: 36px;"
-                  >{{ carte.attributes.reduction }}
+                  >{{ data.attributes.reduction }}
                 </span>
                 <span
                   *ngIf="
-                    carte.attributes.reduction === null ||
-                    carte.attributes.reduction === ''
+                    data.attributes.reduction === null ||
+                    data.attributes.reduction === ''
                   "
                   class="absolute top-0 right-0 bg-reduction p-2 rounded-tr-lg text-white text-xs flex items-center justify-center"
                   style="border-bottom-left-radius: 10px; height: 36px;"
@@ -111,7 +107,7 @@ type Carte = {
                 </span>
 
                 <button
-                  (click)="openModal(carte.id)"
+                  (click)="openModal(data.id)"
                   class="absolute bottom-0 right-0 bg-gray-200 p-2 rounded-br-lg color-edit text-md flex items-center justify-center"
                   style="border-top-left-radius: 10px; height: 36px;"
                 >
@@ -122,10 +118,10 @@ type Carte = {
                   <img
                     class="w-full h-full object-contain rounded-lg p-2"
                     [src]="
-                      carte.attributes.image?.data?.attributes?.formats?.small
+                      data.attributes.image?.data?.attributes?.formats?.small
                         ?.url
                         ? 'http://localhost:1337' +
-                          carte.attributes.image?.data?.attributes?.formats
+                          data.attributes.image?.data?.attributes?.formats
                             ?.small?.url
                         : '../../../assets/shop.png'
                     "
@@ -135,17 +131,17 @@ type Carte = {
                   <div
                     class="text-white font-extrabold bg-enseigne text-center p-2"
                   >
-                    {{ carte.attributes.enseigne.split('-')[0].trim() }}
+                    {{ data.attributes.enseigne.split('-')[0].trim() }}
                     <div class="text-sm font-bold">
-                      {{ carte.attributes.ville }}
+                      {{ data.attributes.ville }}
                     </div>
                   </div>
                   <div class="text-neutral-600 pl-3 pb-1 pt-3">
                     📮
                     {{
-                      carte.attributes.adresse !== null &&
-                      carte.attributes.adresse !== undefined
-                        ? carte.attributes.adresse
+                      data.attributes.adresse !== null &&
+                      data.attributes.adresse !== undefined
+                        ? data.attributes.adresse
                         : 'Adresse à venir'
                     }}
                   </div>
@@ -154,26 +150,26 @@ type Carte = {
                     class="font-black pr-3 pl-3 pb-1 h-24"
                     style="color: #3f2a56;"
                   >
-                    🔖 {{ filterDescriptionName(carte.attributes.description) }}
+                    🔖 {{ filterDescriptionName(data.attributes.description) }}
                   </div>
 
                   <!-- AFFICHE "VERIFIER" OU "A RE-VERIFIER" SELON LE BOOLEAN OU "DATE_VERIFICATION" SEULEMENT SI UNE DONNEE EST DISPO -->
                   <div class="flex justify-between p-3">
                     <div
-                      *ngIf="!carte.attributes.date_verification"
+                      *ngIf="!data.attributes.date_verification"
                       class="text-sm italic text-neutral-500"
                     >
                       {{
-                        carte.attributes.verifier
+                        data.attributes.verifier
                           ? ' ☑️ Vérifié dernièrement'
                           : '☑️ A re-vérifier'
                       }}
                     </div>
                     <div
-                      *ngIf="carte.attributes.date_verification"
+                      *ngIf="data.attributes.date_verification"
                       class="text-sm italic text-neutral-500"
                     >
-                      ☑️ Vérifié le {{ carte.attributes.date_verification }}
+                      ☑️ Vérifié le {{ data.attributes.date_verification }}
                     </div>
                   </div>
                 </div>
@@ -183,70 +179,33 @@ type Carte = {
         </div>
       </div>
       <br />
-    </ng-template> `,
+    </ng-template>
+  `,
 })
-export class CarteComponent implements OnInit {
-  tipsData: Carte[] = [];
-  searchValue: string = '';
-  selectedRegion: string | null = null;
+export class TipsRegionResult implements OnInit {
+  tipsData: RegionData[] = [];
+  regionId: string = '';
 
   constructor(
     private strapiService: StrapiService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.loadTips(); // initialise tout les bons plans
-
-    this.strapiService.searchValue$.subscribe((value) => {
-      this.searchValue = value;
-      this.filterTips();
-    });
-  }
-
-  search(event: Event) {
-    const value = (event.target as HTMLInputElement).value;
-    this.strapiService.setSearchValue(value);
-    // recupere ce qui est tapé dans la barre de recherche
-  }
-
-  filterTips() {
-    if (this.searchValue) {
-      // Filtre les résultats selon la valeur de recherche ville ou enseigne
-      this.tipsData = this.tipsData.filter(
-        (carte) =>
-          carte.attributes.ville
-            .toLowerCase()
-            .includes(this.searchValue.toLowerCase()) ||
-          carte.attributes.enseigne
-            .toLowerCase()
-            .includes(this.searchValue.toLowerCase()) ||
-          carte.attributes.departement
-            .toLowerCase()
-            .includes(this.searchValue.toLowerCase())
-      );
+    // Récupérez l'ID de la région depuis la route
+    const regionId = history.state.regionId;
+    if (regionId) {
+      this.loadTipsForRegion(regionId);
     } else {
-      this.loadTips();
-      // Charge tous les bons plans si la valeur de recherche est vide
+      // Gérer le cas si une région n'est pas disponible
     }
-  }
-
-  loadTips() {
-    this.strapiService.getTips().subscribe(
-      (data: any) => {
-        this.tipsData = data.data;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
   }
 
   loadTipsForRegion(region: string) {
     this.strapiService.getTipsByRegion(region).subscribe(
-      (data: any) => {
-        this.tipsData = data; // Assurez-vous que les données reçues correspondent à la structure Carte
-        this.filterTips(); // Appliquez éventuellement d'autres filtres ici si nécessaire
+      (response: any) => {
+        this.tipsData = response.data; // mettre les données de la propriété 'data'
       },
       (error) => {
         console.error(error);
@@ -280,7 +239,6 @@ export class CarteComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('La modal est fermée :', result);
-      // Fais quelque chose avec le résultat si nécessaire
     });
   }
 }

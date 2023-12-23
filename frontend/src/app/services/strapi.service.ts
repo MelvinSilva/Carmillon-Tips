@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { DatePipe } from '@angular/common';
-import { departementsParRegion } from '../components/map-card/departement';
+import { departementsParRegion } from '../components/tips-region/departement';
 
 @Injectable({
   providedIn: 'root',
