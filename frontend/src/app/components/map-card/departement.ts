@@ -114,7 +114,7 @@ export const departementsParRegion: DepartementsParRegion = {
     'SARTHE - 72',
     'VENDEE - 85',
   ],
-  "Provence-Alpes-Côte d'Azur": [
+  paca: [
     'ALPES DE HAUTE PROVENCE - 04',
     'HAUTES ALPES - 05',
     'ALPES MARITIMES - 06',
