@@ -138,16 +138,25 @@ export class MapAreaComponent {
     const regions = this.maCarte.nativeElement.querySelectorAll('path');
     regions.forEach((region: { getAttribute: (arg0: string) => any }) => {
       this.renderer.listen(region, 'click', () => {
-        const regionId = region.getAttribute('id');
-        console.log('Region sélectionnée :', regionId);
+        this.handleRegionSelection(region);
+      });
 
-        // Utilisation du service pour obtenir les données de la région sélectionnée
-        this.strapiService.getTipsByRegion(regionId).subscribe((data) => {
-          // Naviguer vers le composant CardComponent et transmettre les données
-          this.router.navigate(['bons-plans-region', regionId], {
-            state: { regionId: regionId },
-          });
-        });
+      this.renderer.listen(region, 'touchstart', (event: TouchEvent) => {
+        event.preventDefault(); // Empêche le comportement par défaut du touchstart
+        this.handleRegionSelection(region);
+      });
+    });
+  }
+
+  handleRegionSelection(region: { getAttribute: (arg0: string) => any }) {
+    const regionId = region.getAttribute('id');
+    console.log('Region sélectionnée :', regionId);
+
+    // Utilisation du service pour obtenir les données de la région sélectionnée
+    this.strapiService.getTipsByRegion(regionId).subscribe((data) => {
+      // Naviguer vers le composant CardComponent et transmettre les données
+      this.router.navigate(['bons-plans-region', regionId], {
+        state: { regionId: regionId },
       });
     });
   }
