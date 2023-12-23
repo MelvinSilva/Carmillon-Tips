@@ -72,7 +72,7 @@ type RegionData = {
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   template: `
-    <div class="w-80" *ngIf="!tipsData || tipsData.length === 0; else content">
+    <div *ngIf="!tipsData || tipsData.length === 0; else content">
       <p class="p-2 h-screen mt-6 text-center text-white text-3xl">
         Aucune donnée disponible.
       </p>
@@ -197,14 +197,14 @@ export class RegionResultComponent implements OnInit {
     if (regionId) {
       this.loadTipsForRegion(regionId);
     } else {
-      // Gérer le cas où la région n'est pas disponible
+      // Gérer le cas si une région n'est pas disponible
     }
   }
 
   loadTipsForRegion(region: string) {
     this.strapiService.getTipsByRegion(region).subscribe(
       (response: any) => {
-        this.tipsData = response.data; // Assignez les données de la propriété 'data'
+        this.tipsData = response.data; // mettre les données de la propriété 'data'
       },
       (error) => {
         console.error(error);
@@ -238,7 +238,6 @@ export class RegionResultComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('La modal est fermée :', result);
-      // Fais quelque chose avec le résultat si nécessaire
     });
   }
 }
