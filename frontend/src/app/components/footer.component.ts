@@ -9,11 +9,12 @@ import { RouterLink } from '@angular/router';
     <div class="max-w-2xl mx-auto text-white py-10">
       <div class="text-center">
         <h3 class="text-3xl mb-2">CARMISPHÈRE</h3>
-        <p class="text-md">
+        <p class="text-sm">
           Application non officiel - Réservé aux cheminots SNCF
         </p>
         <p class="text-xs">
-          Rejoignez le groupe « Carmisphère - Bons plans Carmillon »
+          Rejoignez le groupe facebook <br />« Carmisphère - Bons plans
+          Carmillon »
         </p>
         <!-- <div class="flex justify-center my-10">
           <div

@@ -9,21 +9,21 @@ import { StrapiService } from '../services/strapi.service';
   imports: [RouterLink, NgClass, NgIf],
   template: `<header class="bg-white dark:bg-gray-900">
     <div
-      class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8"
+      class="mx-auto flex h-16 max-w-screen-xl items-center gap-4 px-4 sm:px-6 lg:px-8"
     >
-      <!-- Votre logo ou titre -->
+      <!-- logo -->
       <a class="block text-red-600 dark:text-teal-300" href="/">
         <span class="sr-only">Home</span>
-        <img src="../../assets/KR9J_fb_petit.jpg" class="h-12" />
+        <img src="../../assets/logo-carmisphere.webp" class="h-10 w-10" />
       </a>
 
       <!-- Menu classique pour les écrans larges -->
-      <nav class="hidden lg:flex items-center gap-6 text-sm">
+      <nav class="hidden xl:flex items-center gap-6 text-sm">
         <a
           class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-          routerLink="/les-bons-plans"
+          routerLink="/accueil"
         >
-          Les bons plans
+          Accueil
         </a>
         <a
           class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
@@ -35,13 +35,13 @@ import { StrapiService } from '../services/strapi.service';
           class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
           routerLink="/transports-idf"
         >
-          Transports en IDF
+          Transports IDF
         </a>
         <a
           class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
           routerLink="/proposer-un-bon-plan"
         >
-          💡 Proposer un bon plan
+          Proposer un bon plan
         </a>
         <a
           class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
@@ -49,17 +49,19 @@ import { StrapiService } from '../services/strapi.service';
         >
           Contact
         </a>
-        <input
-          placeholder="🔍 Recherche par ville, enseigne, catégorie"
-          type="text"
-          class="text-gray-700 button-search-city mt-1 block rounded-3xl py-3 text-md w-80 pl-3 focus:outline-none placeholder:text-gray-400 placeholder:text-sm"
-          (input)="search($event)"
-        />
+        <div class="relative">
+          <button
+            class="button-header-search text-gray-700 block rounded-3xl py-2 text-md p-3 focus:outline-none placeholder:text-gray-400 placeholder:text-sm"
+            routerLink="les-bons-plans"
+          >
+            🔎 Recherche avancée de Bons Plans
+          </button>
+        </div>
       </nav>
 
       <!-- Bouton du menu burger pour les écrans mobiles -->
       <button
-        class="block lg:hidden rounded bg-gray-100 p-2.5 absolute right-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
+        class="block xl:hidden rounded bg-gray-100 p-2.5 absolute right-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
         (click)="toggleMenu()"
       >
         <span class="sr-only">Toggle menu</span>
@@ -85,20 +87,28 @@ import { StrapiService } from '../services/strapi.service';
           />
         </svg>
       </button>
+      <div class="relative xl:hidden">
+        <button
+          class="button-header-search block rounded-3xl py-2 text-xs p-3 focus:outline-none"
+          routerLink="les-bons-plans"
+        >
+          🔎 Recherche avancée
+        </button>
+      </div>
 
       <!-- Menu déroulant pour les écrans mobiles -->
       <div
         *ngIf="isMenuOpen"
-        class="lg:hidden absolute top-16 right-0 bg-white dark:bg-gray-900 shadow-md p-4 z-10 rounded-bl-lg"
+        class="xl:hidden absolute top-16 right-0 bg-white dark:bg-gray-900 shadow-md p-4 z-10 rounded-bl-lg"
       >
         <nav aria-label="Global">
           <ul class="flex flex-col items-center gap-6 text-sm">
             <li>
               <a
                 class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                routerLink="/les-bons-plans"
+                routerLink="/accueil"
               >
-                Les bons plans
+                Accueil
               </a>
             </li>
             <li>
@@ -133,12 +143,6 @@ import { StrapiService } from '../services/strapi.service';
                 Contact
               </a>
             </li>
-            <input
-              placeholder="🔍 ville, enseigne, catégorie"
-              type="text"
-              class="text-gray-700 button-search-city mt-1 block rounded-3xl py-3 text-md w-48 pl-3 focus:outline-none placeholder:text-gray-400 placeholder:text-xs"
-              (input)="search($event)"
-            />
           </ul>
         </nav>
       </div>

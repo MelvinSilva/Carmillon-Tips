@@ -70,12 +70,20 @@ type Carte = {
     `,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
-  template: `
+  template: `<div class="mt-4 relative justify-center flex">
+      <input
+        placeholder="Saisir ville, enseigne ou catégorie"
+        type="text"
+        class="button-search-city text-gray-700 block rounded-md py-2 text-sm w-80 pl-2 mb-4 focus:outline-none placeholder:text-gray-400 placeholder:text-sm"
+        (input)="search($event)"
+      />
+    </div>
     <div *ngIf="!tipsData || tipsData.length === 0; else content">
       <p class="p-2 h-96 text-center text-white text-3xl">
         Aucune donnée disponible.
       </p>
     </div>
+
     <ng-template #content>
       <div class="m-1 flex justify-center">
         <div class="w-full max-w-screen-2xl">
@@ -175,8 +183,7 @@ type Carte = {
         </div>
       </div>
       <br />
-    </ng-template>
-  `,
+    </ng-template> `,
 })
 export class CarteComponent implements OnInit {
   tipsData: Carte[] = [];
@@ -194,6 +201,12 @@ export class CarteComponent implements OnInit {
       this.searchValue = value;
       this.filterTips();
     });
+  }
+
+  search(event: Event) {
+    const value = (event.target as HTMLInputElement).value;
+    this.strapiService.setSearchValue(value);
+    // recupere ce qui est tapé dans la barre de recherche
   }
 
   filterTips() {

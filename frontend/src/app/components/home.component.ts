@@ -42,7 +42,6 @@ import { MapAreaComponent } from './map-card/map-area.component';
       </div>
     </div>
     <app-map-area></app-map-area>
-    <app-cartes></app-cartes>
   </section>`,
   imports: [
     FormsModule,

@@ -21,3 +21,8 @@ body {
 .button-search-city {
   border: 1px solid rgba(201, 201, 201, 0.543);
 }
+
+.button-header-search {
+  background-color: #ee528a;
+  color: white;
+}

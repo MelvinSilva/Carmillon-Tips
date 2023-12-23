@@ -36,15 +36,15 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
         cursor: pointer;
       }
       .bg-title {
-        background-color: #ee528a;
+        color: #ee528a;
       }
     `,
   ],
   template: `
     <div class="container">
       <div class="svg-container">
-        <h1 class="text-gray-200 mb-3 p-1 text-lg bg-title rounded-md">
-          Selectionnez la région sur la carte
+        <h1 class="text-gray-200 mb-3 p-1 text-lg bg-title">
+          Selectionnez une région sur la carte
         </h1>
         <svg
           #maCarte
