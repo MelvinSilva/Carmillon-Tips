@@ -45,7 +45,7 @@ import { StrapiService } from '../services/strapi.service';
         </a>
         <a
           class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-          routerLink="/"
+          routerLink="/faq"
         >
           FAQ
         </a>
@@ -149,7 +149,7 @@ import { StrapiService } from '../services/strapi.service';
             <li>
               <a
                 class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                routerLink="/"
+                routerLink="/faq"
                 (click)="closeMenuClick()"
               >
                 FAQ
