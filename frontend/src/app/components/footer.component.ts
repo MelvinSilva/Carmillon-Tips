@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-footer',
   standalone: true,
   imports: [RouterLink],
-  template: `<div class=" bg-gray-900">
+  template: `<div class="footer bg-gray-900">
     <div class="max-w-2xl mx-auto text-white py-10">
       <div class="text-center flex justify-center">
         <a class="block text-red-600 dark:text-teal-300" href="/">

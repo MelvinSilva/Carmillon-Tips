@@ -1,6 +1,6 @@
 import { Component, LOCALE_ID, OnInit } from '@angular/core';
 import { StrapiService } from '../../services/strapi.service';
-import { DatePipe, NgFor, NgIf } from '@angular/common';
+import { CommonModule, DatePipe, NgFor, NgIf } from '@angular/common';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { MatDialog } from '@angular/material/dialog';
@@ -39,7 +39,7 @@ type RegionData = {
 @Component({
   selector: 'app-tips-region-result',
   standalone: true,
-  imports: [NgFor, NgIf, DatePipe],
+  imports: [NgFor, NgIf, DatePipe, CommonModule],
   styles: [
     `
       .bg-card {
@@ -75,13 +75,21 @@ type RegionData = {
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   template: `
     <div *ngIf="!tipsData || tipsData.length === 0; else content">
-      <p class="p-2 h-96  mt-20 text-center text-white text-3xl">
+      <p class="text-gray-200 text-center m-6 text-sm">
+        Vous êtes en région : <br />
+        {{ regionId | uppercase }}
+      </p>
+      <p class="p-2 h-96 text-center text-white text-3xl">
         Aucune donnée disponible.
       </p>
     </div>
 
     <ng-template #content>
-      <div class="m-1 mt-6 flex justify-center">
+      <div class="m-1 mt-6">
+        <p class="text-gray-200 text-center mb-6 text-sm">
+          Vous êtes en région : <br />
+          {{ regionId | uppercase }}
+        </p>
         <div class="w-full max-w-screen-2xl">
           <div class="flex flex-wrap justify-center gap-4">
             <ng-container *ngFor="let data of tipsData">
@@ -197,6 +205,7 @@ export class TipsRegionResult implements OnInit {
     const regionId = history.state.regionId;
     if (regionId) {
       this.loadTipsForRegion(regionId);
+      this.regionId = regionId;
     } else {
       // Gérer le cas si une région n'est pas disponible
     }

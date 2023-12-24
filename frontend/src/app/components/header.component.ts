@@ -33,15 +33,21 @@ import { StrapiService } from '../services/strapi.service';
         </a>
         <a
           class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+          routerLink="/proposer-un-bon-plan"
+        >
+          Proposer un bon plan
+        </a>
+        <a
+          class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
           routerLink="/transports-idf"
         >
           Transports IDF
         </a>
         <a
           class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-          routerLink="/proposer-un-bon-plan"
+          routerLink="/"
         >
-          Proposer un bon plan
+          FAQ
         </a>
         <a
           class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
@@ -54,7 +60,7 @@ import { StrapiService } from '../services/strapi.service';
             class="button-header-search text-gray-700 block rounded-3xl py-2 text-md p-3 focus:outline-none placeholder:text-gray-400 placeholder:text-sm"
             routerLink="les-bons-plans"
           >
-            🔎 Recherche avancée de Bons Plans
+            🔎 Recherche avancée de bons plans
           </button>
         </div>
       </nav>
@@ -107,6 +113,7 @@ import { StrapiService } from '../services/strapi.service';
               <a
                 class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                 routerLink="/accueil"
+                (click)="closeMenuClick()"
               >
                 Accueil
               </a>
@@ -115,6 +122,7 @@ import { StrapiService } from '../services/strapi.service';
               <a
                 class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                 routerLink="/offres-nationales"
+                (click)="closeMenuClick()"
               >
                 Offres nationales
               </a>
@@ -122,15 +130,8 @@ import { StrapiService } from '../services/strapi.service';
             <li>
               <a
                 class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                routerLink="/transports-idf"
-              >
-                Transports en IDF
-              </a>
-            </li>
-            <li>
-              <a
-                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                 routerLink="/proposer-un-bon-plan"
+                (click)="closeMenuClick()"
               >
                 💡 Proposer un bon plan
               </a>
@@ -138,7 +139,27 @@ import { StrapiService } from '../services/strapi.service';
             <li>
               <a
                 class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                routerLink="/transports-idf"
+                (click)="closeMenuClick()"
+              >
+                Transports en IDF
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                routerLink="/"
+                (click)="closeMenuClick()"
+              >
+                FAQ
+              </a>
+            </li>
+            <li>
+              <a
+                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                 routerLink="/contact"
+                (click)="closeMenuClick()"
               >
                 Contact
               </a>
@@ -150,7 +171,7 @@ import { StrapiService } from '../services/strapi.service';
   </header> `,
 })
 export class HeaderComponent {
-  isMenuOpen = false; // etat du menu sur false par defaut
+  isMenuOpen = false; // état du menu sur false par défaut
 
   constructor(private strapiService: StrapiService) {}
 
@@ -158,9 +179,18 @@ export class HeaderComponent {
     this.isMenuOpen = !this.isMenuOpen; // bascule l'état du menu
   }
 
+  closeMenu() {
+    this.isMenuOpen = false; // fermer le menu
+  }
+
   search(event: Event) {
     const value = (event.target as HTMLInputElement).value;
     this.strapiService.setSearchValue(value);
-    // recupere ce qui est tapé dans la barre de recherche
+    // récupère ce qui est tapé dans la barre de recherche
+  }
+
+  // fermer le menu lorsqu'un lien est cliqué
+  closeMenuClick() {
+    this.closeMenu();
   }
 }
