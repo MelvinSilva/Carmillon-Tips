@@ -30,7 +30,7 @@ export class StrapiService {
       .map((dep) => `filters[departement][$in]=${encodeURIComponent(dep)}`)
       .join('&');
 
-    return this.http.get<any[]>(`${this.apiUrl}/tips?${query}`);
+    return this.http.get<any[]>(`${this.apiUrl}/tips?${query}&populate=*`);
   }
 
   searchTips(query: string): Observable<any[]> {

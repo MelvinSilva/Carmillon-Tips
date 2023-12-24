@@ -47,7 +47,7 @@ import { RouterLink } from '@angular/router';
         </div>
       </div>
     </div>
-    <br />
-    <br />`,
+    <br class="lg:hidden" />
+    <br class="lg:hidden" />`,
 })
 export class FooterComponent {}
