@@ -180,7 +180,7 @@ import { MatIconModule } from '@angular/material/icon';
       </div>
 
       <nav
-        class="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg text-nav-bottom z-10"
+        class="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg text-nav-bottom z-10 rounded-t-2xl"
       >
         <ul class="flex justify-around py-1">
           <li class="text-center">

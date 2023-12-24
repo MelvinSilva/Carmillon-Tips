@@ -47,6 +47,7 @@ import { RouterLink } from '@angular/router';
         </div>
       </div>
     </div>
+
     <br class="lg:hidden" />
     <br class="lg:hidden" />`,
 })
