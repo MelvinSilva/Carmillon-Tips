@@ -6,19 +6,19 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   template: `<div class="footer bg-gray-900">
-    <div class="max-w-2xl mx-auto text-white py-10">
-      <div class="text-center flex justify-center">
-        <a class="block text-red-600 dark:text-teal-300" href="/">
-          <img src="../../assets/logo-carmisphere.webp" class="h-10 w-10" />
-        </a>
-        <h3 class="text-3xl mb-2 ml-1">CARMISPHÈRE</h3>
-      </div>
-      <div class="text-center">
-        <p class="text-xs">
-          Application non officiel - Réservé aux cheminots SNCF
-        </p>
-        <p class="text-xs">Rejoignez le groupe facebook « Carmisphère »</p>
-        <!-- <div class="flex justify-center my-10">
+      <div class="max-w-2xl mx-auto text-white py-10">
+        <div class="text-center flex justify-center">
+          <a class="block text-red-600 dark:text-teal-300" href="/">
+            <img src="../../assets/logo-carmisphere.webp" class="h-10 w-10" />
+          </a>
+          <h3 class="text-3xl mb-2 ml-1">CARMISPHÈRE</h3>
+        </div>
+        <div class="text-center">
+          <p class="text-xs">
+            Application non officiel - Réservé aux cheminots SNCF
+          </p>
+          <p class="text-xs">Rejoignez le groupe facebook « Carmisphère »</p>
+          <!-- <div class="flex justify-center my-10">
           <div
             class="flex items-center border w-auto rounded-lg px-4 py-2 w-52 mx-2"
           >
@@ -44,8 +44,10 @@ import { RouterLink } from '@angular/router';
             </div>
           </div>
         </div> -->
+        </div>
       </div>
     </div>
-  </div>`,
+    <br />
+    <br />`,
 })
 export class FooterComponent {}

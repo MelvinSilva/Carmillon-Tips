@@ -11,7 +11,6 @@ import { FooterComponent } from './components/footer.component';
     <app-header></app-header>
     <!-- <app-cartes></app-cartes> -->
     <router-outlet></router-outlet>
-    <app-footer></app-footer>
   `,
   styles: [``],
   imports: [

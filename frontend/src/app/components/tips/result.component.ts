@@ -185,6 +185,10 @@ type Carte = {
         </div>
       </div>
       <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </ng-template> `,
 })
 export class TipsResultComponent implements OnInit {

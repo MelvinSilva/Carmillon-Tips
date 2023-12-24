@@ -2,11 +2,22 @@ import { NgClass, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { StrapiService } from '../services/strapi.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, NgClass, NgIf],
+  imports: [RouterLink, NgClass, NgIf, MatIconModule],
+  styles: [
+    `
+      .text-nav-bottom {
+        font-size: 10px;
+      }
+      .icon-nav {
+        color: #ee528a;
+      }
+    `,
+  ],
   template: `<header class="bg-white dark:bg-gray-900">
     <div
       class="mx-auto flex h-16 max-w-screen-xl items-center lg:justify-center gap-4 px-4 sm:px-6 lg:px-8"
@@ -167,6 +178,78 @@ import { StrapiService } from '../services/strapi.service';
           </ul>
         </nav>
       </div>
+
+      <nav
+        class="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg text-nav-bottom z-10"
+      >
+        <ul class="flex justify-around py-1">
+          <li class="text-center">
+            <a
+              class="block text-gray-700 block hover:text-gray-900"
+              routerLink="/"
+            >
+              <div class="flex flex-col items-center">
+                <mat-icon
+                  class="icon-nav"
+                  aria-hidden="false"
+                  aria-label="home"
+                  fontIcon="map"
+                ></mat-icon>
+                <span>Carte</span>
+              </div>
+            </a>
+          </li>
+          <li class="text-center">
+            <a
+              class="block text-gray-700 hover:text-gray-900"
+              routerLink="/les-bons-plans"
+            >
+              <div class="flex flex-col items-center">
+                <mat-icon
+                  class="icon-nav"
+                  aria-hidden="false"
+                  aria-label="home"
+                  fontIcon="find_in_page"
+                ></mat-icon>
+                <span>Recherche</span>
+              </div>
+            </a>
+          </li>
+          <li class="text-center">
+            <a
+              class="block text-gray-700 hover:text-gray-900"
+              routerLink="/proposer-un-bon-plan"
+            >
+              <div class="flex flex-col items-center">
+                <mat-icon
+                  class="icon-nav"
+                  aria-hidden="false"
+                  aria-label="home"
+                  fontIcon="library_add"
+                ></mat-icon>
+                <span>Proposer</span>
+              </div>
+            </a>
+          </li>
+
+          <li class="text-center">
+            <a
+              class="block text-gray-700 hover:text-gray-900"
+              routerLink="/faq"
+            >
+              <div class="flex flex-col items-center">
+                <mat-icon
+                  class="icon-nav"
+                  aria-hidden="false"
+                  aria-label="home"
+                  fontIcon="help"
+                ></mat-icon>
+                <span>FAQ</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </header> `,
 })

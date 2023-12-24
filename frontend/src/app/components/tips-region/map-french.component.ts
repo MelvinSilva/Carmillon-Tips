@@ -45,7 +45,7 @@ import { Router } from '@angular/router';
   template: `
     <div class="container">
       <div class="svg-container mt-8">
-        <h1 class="text-gray-100/70 mb-3 p-1 text-lg ">
+        <h1 class="text-gray-200 mb-3 p-1 text-lg ">
           🌍 Selectionnez une région
         </h1>
         <svg

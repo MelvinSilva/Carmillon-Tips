@@ -187,6 +187,10 @@ type RegionData = {
         </div>
       </div>
       <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </ng-template>
   `,
 })

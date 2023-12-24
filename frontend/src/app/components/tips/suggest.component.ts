@@ -30,9 +30,8 @@ interface Tips {
   ],
   template: `
     <div class="">
-      <div class="bg-shop"></div>
       <div class="m-4">
-        <h1 class="text-center text-white text-lg p-4 mt-2">
+        <h1 class="text-center text-white text-sm p-2 mt-2">
           Proposer un nouvel avantage ici et notre équipe l'ajoutera au
           catalogue dans les plus brefs délais.
         </h1>
@@ -43,7 +42,7 @@ interface Tips {
           <h1 class="text-center text-sm m-2 text-gray-400">
             INFORMATION AGENT
           </h1>
-          <div class="mb-4 relative">
+          <div class="mb-2 relative">
             <input
               type="text"
               id="nom"
@@ -139,6 +138,7 @@ interface Tips {
           </div>
         </form>
       </div>
+      <br />
       <br />
       <br />
     </div>
