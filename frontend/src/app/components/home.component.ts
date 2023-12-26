@@ -9,7 +9,7 @@ import { FooterComponent } from './footer.component';
   selector: 'app-home',
   standalone: true,
   styles: [``],
-  template: ` <section class="home bg-cover bg-center bg-no-repeat">
+  template: ` <section class="home">
       <div
         class="mx-auto max-w-screen-2xl px-4 py-4 sm:px-6 lg:flex lg:items-center"
       >

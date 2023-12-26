@@ -10,25 +10,21 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [RouterLink, NgClass, NgIf, MatIconModule],
   styles: [
     `
-      .text-nav-bottom {
-        font-size: 10px;
-      }
       .icon-nav {
         color: #ee528a;
       }
     `,
   ],
-  template: `<header class="bg-white dark:bg-gray-900">
+  template: `<header
+    class="bg-white dark:bg-gray-900 rounded-b-2xl lg:rounded-none "
+  >
     <div
-      class="mx-auto flex h-16 max-w-screen-xl items-center lg:justify-center gap-4 px-4 sm:px-6 lg:px-8"
+      class="mx-auto flex h-12 lg:h-16 justify-between lg:justify-center max-w-screen-xl items-center gap-4 px-4 sm:px-6 lg:px-8"
     >
       <!-- logo -->
       <a class="block text-red-600 dark:text-teal-300" href="/">
-        <span class="sr-only">Home</span>
         <img src="../../assets/logo-carmisphere.webp" class="h-10 w-10" />
       </a>
-
-      <!-- Menu classique pour les écrans larges -->
       <nav class="hidden lg:flex items-center gap-6 text-sm">
         <a
           class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
@@ -68,7 +64,7 @@ import { MatIconModule } from '@angular/material/icon';
         </a>
         <div class="relative">
           <button
-            class="button-header-search text-gray-700 block rounded-3xl py-2 text-md p-3 focus:outline-none placeholder:text-gray-400 placeholder:text-sm"
+            class="bg-gray-100 text-gray-500 block rounded-3xl py-2 text-md p-3 focus:outline-none  placeholder:text-sm"
             routerLink="les-bons-plans"
           >
             🔎 Recherche avancée de bons plans
@@ -76,47 +72,122 @@ import { MatIconModule } from '@angular/material/icon';
         </div>
       </nav>
 
-      <!-- Bouton du menu burger pour les écrans mobiles -->
-      <button
-        class="block lg:hidden rounded bg-gray-100 p-2.5 absolute right-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
-        (click)="toggleMenu()"
-      >
-        <span class="sr-only">Toggle menu</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path
-            [ngClass]="{ block: !isMenuOpen, hidden: isMenuOpen }"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-          <path
-            [ngClass]="{ block: isMenuOpen, hidden: !isMenuOpen }"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
-      <div class="relative lg:hidden">
+      <!-- ***************** Bouton du menu burger et search mobiles header TOP ****************** -->
+      <!-- ***************** Bouton du menu burger et search mobiles header TOP ****************** -->
+      <!-- ***************** Bouton du menu burger et search mobiles header TOP ****************** -->
+      <div class="lg:hidden flex">
         <button
-          class="button-header-search block rounded-3xl py-2 text-xs p-3 focus:outline-none"
+          class="bg-gray-100 text-gray-600 block rounded-xl py-2 text-xs p-2 focus:outline-none"
           routerLink="les-bons-plans"
         >
-          🔎 Recherche avancée
+          🔎 Recherche
         </button>
+        <!-- <button
+          class="block lg:hidden rounded-xl bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
+          (click)="toggleMenuTop()"
+        >
+          <span class="sr-only">Toggle menu</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              [ngClass]="{ block: !isMenuTopOpen, hidden: isMenuTopOpen }"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+            <path
+              [ngClass]="{ block: isMenuTopOpen, hidden: !isMenuTopOpen }"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button> -->
       </div>
 
-      <!-- Menu déroulant pour les écrans mobiles -->
+      <!-- ***************** Menu deroulant mobiles header TOP ****************** -->
+      <!-- ***************** Menu deroulant mobiles header TOP ****************** -->
+      <!-- ***************** Menu deroulant mobiles header TOP ****************** -->
+
+      <!--       <div
+        *ngIf="isMenuTopOpen"
+        class="lg:hidden fixed top-0 right-0 bg-white dark:bg-gray-900 shadow-md p-4 z-10 rounded-bl-lg"
+      >
+        <nav aria-label="Global">
+          <br />
+          <ul class="flex flex-col items-center gap-6 text-sm">
+            <li>
+              <a
+                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                routerLink="/accueil"
+                (click)="closeMenuClick()"
+              >
+                Accueil
+              </a>
+            </li>
+            <li>
+              <a
+                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                routerLink="/offres-nationales"
+                (click)="closeMenuClick()"
+              >
+                Offres nationales
+              </a>
+            </li>
+            <li>
+              <a
+                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                routerLink="/proposer-un-bon-plan"
+                (click)="closeMenuClick()"
+              >
+                💡 Proposer un bon plan
+              </a>
+            </li>
+            <li>
+              <a
+                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                routerLink="/transports-idf"
+                (click)="closeMenuClick()"
+              >
+                Transports en IDF
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                routerLink="/faq"
+                (click)="closeMenuClick()"
+              >
+                FAQ
+              </a>
+            </li>
+            <li>
+              <a
+                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                routerLink="/contact"
+                (click)="closeMenuClick()"
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
+          <br />
+        </nav>
+      </div> -->
+
+      <!-- ******************************* Menu déroulant BOTTOM pour les écrans mobiles *******************************-->
+      <!-- ******************************* Menu déroulant BOTTOM pour les écrans mobiles *******************************-->
+      <!-- ******************************* Menu déroulant BOTTOM pour les écrans mobiles *******************************-->
       <div
-        *ngIf="isMenuOpen"
-        class="lg:hidden absolute top-16 right-0 bg-white dark:bg-gray-900 shadow-md p-4 z-10 rounded-bl-lg"
+        *ngIf="isMenuBottomOpen"
+        class="lg:hidden fixed bottom-8 right-0 bg-white dark:bg-gray-900 shadow-md p-4 z-10 rounded-tl-lg"
       >
         <nav aria-label="Global">
           <ul class="flex flex-col items-center gap-6 text-sm">
@@ -176,17 +247,22 @@ import { MatIconModule } from '@angular/material/icon';
               </a>
             </li>
           </ul>
+          <br />
         </nav>
       </div>
 
+      <!-- ******************************* Navbar mobile fixe BOTTOM *******************************-->
+      <!-- ******************************* Navbar mobile fixe BOTTOM *******************************-->
+      <!-- ******************************* Navbar mobile fixe BOTTOM *******************************-->
       <nav
-        class="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg text-nav-bottom z-10 rounded-t-2xl"
+        class="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg md:text-xl text-xs z-10 rounded-t-2xl"
       >
         <ul class="flex justify-around py-1">
           <li class="text-center">
             <a
               class="block text-gray-700 block hover:text-gray-900"
               routerLink="/"
+              (click)="closeMenuClick()"
             >
               <div class="flex flex-col items-center">
                 <mat-icon
@@ -203,6 +279,7 @@ import { MatIconModule } from '@angular/material/icon';
             <a
               class="block text-gray-700 hover:text-gray-900"
               routerLink="/les-bons-plans"
+              (click)="closeMenuClick()"
             >
               <div class="flex flex-col items-center">
                 <mat-icon
@@ -219,6 +296,7 @@ import { MatIconModule } from '@angular/material/icon';
             <a
               class="block text-gray-700 hover:text-gray-900"
               routerLink="/proposer-un-bon-plan"
+              (click)="closeMenuClick()"
             >
               <div class="flex flex-col items-center">
                 <mat-icon
@@ -233,20 +311,20 @@ import { MatIconModule } from '@angular/material/icon';
           </li>
 
           <li class="text-center">
-            <a
+            <button
               class="block text-gray-700 hover:text-gray-900"
-              routerLink="/faq"
+              (click)="toggleMenuBottom()"
             >
               <div class="flex flex-col items-center">
                 <mat-icon
                   class="icon-nav"
                   aria-hidden="false"
                   aria-label="home"
-                  fontIcon="help"
+                  fontIcon="menu"
                 ></mat-icon>
-                <span>FAQ</span>
+                <span>Menu</span>
               </div>
-            </a>
+            </button>
           </li>
         </ul>
       </nav>
@@ -254,16 +332,22 @@ import { MatIconModule } from '@angular/material/icon';
   </header> `,
 })
 export class HeaderComponent {
-  isMenuOpen = false; // état du menu sur false par défaut
+  isMenuTopOpen = false;
+  isMenuBottomOpen = false;
 
   constructor(private strapiService: StrapiService) {}
 
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen; // bascule l'état du menu
+  /*   toggleMenuTop() {
+    this.isMenuTopOpen = !this.isMenuTopOpen; // bascule l'état du menu
+  } */
+
+  toggleMenuBottom() {
+    this.isMenuBottomOpen = !this.isMenuBottomOpen;
   }
 
   closeMenu() {
-    this.isMenuOpen = false; // fermer le menu
+    this.isMenuTopOpen = false; // fermer le menu
+    this.isMenuBottomOpen = false; // fermer le menu
   }
 
   search(event: Event) {

@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [NgFor, NgIf, NgClass],
   template: `
-    <div class="faq bg-white p-4 text-sm h-screen">
-      <div *ngFor="let faq of faqs" class="faq-item bg-gray-100/50 m-1">
+    <div class="faq p-4 text-sm h-screen">
+      <div *ngFor="let faq of faqs" class="faq-item bg-gray-100 m-2">
         <div class="question text-gray-400" (click)="toggleAnswer(faq)">
           {{ faq.question }}
           <svg
@@ -38,12 +38,15 @@ import { Component } from '@angular/core';
           {{ faq.answer }}
         </div>
       </div>
+      <br />
+      <br />
+      <br />
     </div>
   `,
   styles: [
     `
       .faq-item {
-        padding: 5px;
+        padding: 10px;
         border-radius: 5px; /* Ajout du border-radius */
         overflow: hidden; /* Masquage du contenu débordant */
       }

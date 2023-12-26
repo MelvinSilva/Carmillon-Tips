@@ -5,8 +5,8 @@ import { RouterLink } from '@angular/router';
   selector: 'app-footer',
   standalone: true,
   imports: [RouterLink],
-  template: `<div class="footer bg-gray-900">
-      <div class="max-w-2xl mx-auto text-white py-10">
+  template: `<div class="footer">
+      <div class="max-w-2xl mx-auto text-white py-8">
         <div class="text-center flex justify-center">
           <a class="block text-red-600 dark:text-teal-300" href="/">
             <img src="../../assets/logo-carmisphere.webp" class="h-10 w-10" />
@@ -48,6 +48,7 @@ import { RouterLink } from '@angular/router';
       </div>
     </div>
 
-    <br class="lg:hidden" />`,
+    <br class="lg:hidden" />
+    <br class="lg:hidden" /> `,
 })
 export class FooterComponent {}
