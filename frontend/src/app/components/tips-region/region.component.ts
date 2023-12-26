@@ -128,7 +128,7 @@ type RegionData = {
                     [src]="
                       data.attributes.image?.data?.attributes?.formats?.small
                         ?.url
-                        ? 'http://localhost:1337' +
+                        ? 'https://meaningful-horses-3ddd745858.strapiapp.com' +
                           data.attributes.image?.data?.attributes?.formats
                             ?.small?.url
                         : '../../../assets/shop.png'
