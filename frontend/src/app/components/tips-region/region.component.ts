@@ -128,7 +128,7 @@ type RegionData = {
                     [src]="
                       data.attributes.image?.data?.attributes?.formats?.small
                         ?.url
-                        ? 'https://meaningful-horses-3ddd745858.strapiapp.com' +
+                        ? 'https://meaningful-horses-3ddd745858.media.strapiapp.com/GO_Sport_logo_1380761708_ee9c76d13b.png' +
                           data.attributes.image?.data?.attributes?.formats
                             ?.small?.url
                         : '../../../assets/shop.png'
