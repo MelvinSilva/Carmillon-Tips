@@ -6,6 +6,7 @@ import {
   MatDialogModule,
 } from '@angular/material/dialog';
 import { StrapiService } from '../../services/strapi.service';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-modal-update',
@@ -163,6 +164,10 @@ export class ModalUpdate {
       .subscribe(
         (data: any) => {
           console.log('Commentaire envoyé avec succès :', data);
+          alert(
+            'Votre modification à bien été prise en compte et sera traité au plus vite.'
+          );
+
           this.closeModal();
         },
         (error) => {

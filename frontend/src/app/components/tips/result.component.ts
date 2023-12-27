@@ -77,8 +77,15 @@ type Carte = {
         placeholder="Saisir ville, enseigne ou catégorie"
         type="text"
         class="button-search-city text-gray-700 block rounded-md py-2 w-80 pl-2 mb-4 focus:outline-none placeholder:text-gray-400"
+        (keyup)="(0)"
+        #searchCollectorInput
         (input)="search($event)"
       />
+      <span
+        *ngIf="searchCollectorInput.value.length > 0"
+        (click)="searchCollectorInput.value = ''"
+        class="fa fa-close"
+      ></span>
     </div>
     <div *ngIf="!tipsData || tipsData.length === 0; else content">
       <p class="p-2 h-96 text-center text-white text-3xl">
@@ -218,7 +225,7 @@ export class TipsResultComponent implements OnInit {
 
   filterTips() {
     if (this.searchValue) {
-      // Filtre les résultats selon la valeur de recherche ville ou enseigne
+      // Filtre les résultats selon la valeur de recherche ville, enseigne ou catégorie
       this.tipsData = this.tipsData.filter(
         (carte) =>
           carte.attributes.ville
@@ -234,8 +241,9 @@ export class TipsResultComponent implements OnInit {
 
       if (this.tipsData.length === 0) {
         setTimeout(() => {
-          this.strapiService.setSearchValue(''); // Réinitialise la barre de recherche après 2 secondes
-        }, 2000);
+          this.strapiService.setSearchValue('');
+          this.searchValue = '';
+        }, 1000);
       }
     } else {
       this.loadTips();
