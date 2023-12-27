@@ -127,7 +127,7 @@ type Carte = {
                   ✎
                 </button>
 
-                <div class="h-32 flex items-center justify-center">
+                <div class="h-28 flex items-center justify-center">
                   <img
                     class="w-full h-full object-contain rounded-lg p-2"
                     [src]="
@@ -135,7 +135,7 @@ type Carte = {
                         ?.url
                         ? carte.attributes.image?.data?.attributes?.formats
                             ?.small?.url
-                        : '../../../assets/shop.png'
+                        : '../../../assets/downtown.gif'
                     "
                   />
                 </div>
@@ -154,7 +154,7 @@ type Carte = {
                       carte.attributes.adresse !== null &&
                       carte.attributes.adresse !== undefined
                         ? carte.attributes.adresse
-                        : 'Adresse à venir'
+                        : 'Adresse à venir prochainement'
                     }}
                   </div>
 

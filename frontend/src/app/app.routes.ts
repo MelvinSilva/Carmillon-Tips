@@ -5,6 +5,7 @@ import { TipsResultComponent } from './components/tips/result.component';
 import { TipsRegionResult } from './components/tips-region/region.component';
 import { TipsSuggestComponent } from './components/tips/suggest.component';
 import { FaqComponent } from './components/faq.component';
+import { NotFoundComponent } from './components/404.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
@@ -17,4 +18,5 @@ export const routes: Routes = [
   { path: 'proposer-un-bon-plan', component: TipsSuggestComponent },
   { path: 'faq', component: FaqComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'non-disponible', component: NotFoundComponent },
 ];

@@ -34,16 +34,17 @@ import { MatIconModule } from '@angular/material/icon';
         </a>
         <a
           class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-          routerLink="/offres-nationales"
-        >
-          Offres nationales
-        </a>
-        <a
-          class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
           routerLink="/proposer-un-bon-plan"
         >
           Proposer un bon plan
         </a>
+        <a
+          class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+          routerLink="/non-disponible"
+        >
+          Offres nationales
+        </a>
+
         <a
           class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
           routerLink="/transports-idf"
@@ -58,7 +59,7 @@ import { MatIconModule } from '@angular/material/icon';
         </a>
         <a
           class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-          routerLink="/contact"
+          routerLink="/non-disponible"
         >
           Contact
         </a>
@@ -187,10 +188,12 @@ import { MatIconModule } from '@angular/material/icon';
       <!-- ******************************* Menu déroulant BOTTOM pour les écrans mobiles *******************************-->
       <div
         *ngIf="isMenuBottomOpen"
-        class="lg:hidden fixed bottom-8 right-0 bg-white dark:bg-gray-900 shadow-md p-4 z-10 rounded-tl-lg"
+        class="lg:hidden fixed bottom-8 right-0 bg-white shadow-md w-full h-full mt-20 z-10 rounded-tl-lg"
       >
         <nav aria-label="Global">
-          <ul class="flex flex-col items-center gap-6 text-sm">
+          <ul class="flex flex-col items-center gap-6 text-xl">
+            <br />
+            <br />
             <li>
               <a
                 class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
@@ -200,15 +203,7 @@ import { MatIconModule } from '@angular/material/icon';
                 Accueil
               </a>
             </li>
-            <li>
-              <a
-                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                routerLink="/offres-nationales"
-                (click)="closeMenuClick()"
-              >
-                Offres nationales
-              </a>
-            </li>
+
             <li>
               <a
                 class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
@@ -221,7 +216,16 @@ import { MatIconModule } from '@angular/material/icon';
             <li>
               <a
                 class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                routerLink="/transports-idf"
+                routerLink="/non-disponible"
+                (click)="closeMenuClick()"
+              >
+                Offres nationales
+              </a>
+            </li>
+            <li>
+              <a
+                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                routerLink="/non-disponible"
                 (click)="closeMenuClick()"
               >
                 Transports en IDF
@@ -240,13 +244,14 @@ import { MatIconModule } from '@angular/material/icon';
             <li>
               <a
                 class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                routerLink="/contact"
+                routerLink="/non-disponible"
                 (click)="closeMenuClick()"
               >
                 Contact
               </a>
             </li>
           </ul>
+          <br />
           <br />
         </nav>
       </div>

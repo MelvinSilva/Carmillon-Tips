@@ -131,7 +131,7 @@ type RegionData = {
                         ? 'https://meaningful-horses-3ddd745858.media.strapiapp.com/GO_Sport_logo_1380761708_ee9c76d13b.png' +
                           data.attributes.image?.data?.attributes?.formats
                             ?.small?.url
-                        : '../../../assets/shop.png'
+                        : '../../../assets/downtown.gif'
                     "
                   />
                 </div>
@@ -150,7 +150,7 @@ type RegionData = {
                       data.attributes.adresse !== null &&
                       data.attributes.adresse !== undefined
                         ? data.attributes.adresse
-                        : 'Adresse à venir'
+                        : 'Adresse à venir prochainement'
                     }}
                   </div>
 
