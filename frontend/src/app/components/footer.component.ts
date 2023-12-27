@@ -15,7 +15,7 @@ import { RouterLink } from '@angular/router';
         </div>
         <div class="text-center">
           <p class="text-xs">
-            Application non officiel - Réservé aux cheminots SNCF
+            Application non officielle - Réservée aux cheminots SNCF
           </p>
           <p class="text-xs">Rejoignez le groupe facebook « Carmisphère »</p>
           <!-- <div class="flex justify-center my-10">

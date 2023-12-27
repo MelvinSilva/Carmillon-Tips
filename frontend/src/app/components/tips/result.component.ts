@@ -1,4 +1,10 @@
-import { Component, LOCALE_ID, OnInit } from '@angular/core';
+import {
+  Component,
+  Directive,
+  LOCALE_ID,
+  NgModule,
+  OnInit,
+} from '@angular/core';
 import { StrapiService } from '../../services/strapi.service';
 import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { registerLocaleData } from '@angular/common';
@@ -47,21 +53,13 @@ type Carte = {
           rgba(240, 46, 170, 0.2) 8px 8px, rgba(240, 46, 170, 0.1) 12px 12px;
       }
       .bg-enseigne {
-        background-color: #d7d7d7;
-        font-size: 20px;
         white-space: nowrap; /* Empêche le passage à la ligne */
         overflow: hidden; /* Cache le contenu débordant */
         text-overflow: ellipsis;
-        border-radius: 20px;
-        margin: 0px 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
         color: #3f2a56;
-        height: 68px;
-      }
-      .bg-enseigne:hover {
-        overflow: visible;
-        white-space: normal;
-        font-size: 13px;
-        height: 68px;
+        height: 80px;
       }
       .bg-reduction {
         background-color: #ee528a;
@@ -96,95 +94,109 @@ type Carte = {
     <ng-template #content>
       <div class="m-1 flex justify-center">
         <div class="w-full max-w-screen-2xl">
-          <div class="flex flex-wrap justify-center gap-6">
-            <ng-container *ngFor="let carte of tipsData">
+          <div class="flex flex-wrap justify-center gap-4">
+            <ng-container *ngFor="let data of tipsData">
               <div
-                *ngIf="carte.attributes.disponible"
-                class="w-80 max-h-max bg-card rounded-xl flex flex-col gap-4 relative"
+                *ngIf="data.attributes.disponible"
+                class="w-full h-56 bg-card rounded-xl flex flex-col relative shadow-inner m-1"
+                style="max-width: 370px;"
               >
+                <!-- Encart de réduction -->
                 <span
-                  *ngIf="carte.attributes.reduction !== null"
+                  *ngIf="data.attributes.reduction !== null"
                   class="absolute top-0 right-0 bg-reduction p-2 rounded-tr-lg text-white text-sm flex items-center justify-center"
                   style="border-bottom-left-radius: 10px; height: 36px;"
-                  >{{ carte.attributes.reduction }}
+                  >{{ data.attributes.reduction }}
                 </span>
                 <span
                   *ngIf="
-                    carte.attributes.reduction === null ||
-                    carte.attributes.reduction === ''
+                    data.attributes.reduction === null ||
+                    data.attributes.reduction === ' ' ||
+                    data.attributes.reduction === ''
                   "
-                  class="absolute top-0 right-0 bg-reduction p-2 rounded-tr-lg text-white text-xs flex items-center justify-center"
+                  class="absolute top-0 right-0 bg-reduction p-2 rounded-tr-lg text-white text-sm flex items-center justify-center"
                   style="border-bottom-left-radius: 10px; height: 36px;"
-                >
-                  Offre spéciale
+                  >🔖
                 </span>
 
-                <button
-                  (click)="openModal(carte.id)"
-                  class="absolute bottom-0 right-0 bg-gray-200 p-2 rounded-br-lg color-edit text-md flex items-center justify-center"
-                  style="border-top-left-radius: 10px; height: 36px;"
+                <!-- Division horizontale -->
+                <div
+                  class="flex bg-enseigne bg-gray-200 justify-start items-center"
                 >
-                  ✎
-                </button>
+                  <!-- Section de l'image -->
+                  <div class="">
+                    <img
+                      class="w-24 h-24 p-2 object-contain rounded-lg"
+                      [src]="
+                        data.attributes.image?.data?.attributes?.formats?.small
+                          ?.url
+                          ? data.attributes.image?.data?.attributes?.formats
+                              ?.small?.url
+                          : '../../../assets/downtown.gif'
+                      "
+                    />
+                  </div>
 
-                <div class="h-28 flex items-center justify-center">
-                  <img
-                    class="w-full h-full object-contain rounded-lg p-2"
-                    [src]="
-                      carte.attributes.image?.data?.attributes?.formats?.small
-                        ?.url
-                        ? carte.attributes.image?.data?.attributes?.formats
-                            ?.small?.url
-                        : '../../../assets/downtown.gif'
-                    "
-                  />
-                </div>
-                <div class="flex flex-col text-md">
-                  <div
-                    class="text-white font-extrabold bg-enseigne text-center p-2"
-                  >
-                    {{ carte.attributes.enseigne.split('-')[0].trim() }}
-                    <div class="text-sm font-bold">
-                      {{ carte.attributes.ville }}
+                  <!-- Section enseigne, ville -->
+                  <div class="h-full flex flex-col text-start">
+                    <!-- Enseigne et Ville -->
+                    <div class="font-extrabold text-md pt-3 pl-2">
+                      {{ data.attributes.enseigne.split('-')[0].trim() }}
+                      <div class="text-sm text-gray-600">
+                        {{ data.attributes.ville }}
+                      </div>
                     </div>
                   </div>
-                  <div class="text-neutral-600 pl-3 pb-1 pt-3">
+                </div>
+
+                <!-- Division pour la description -->
+                <div class="flex flex-col mt-3 text-sm">
+                  <div class="text-neutral-600 pl-3 pb-1 ">
                     📮
                     {{
-                      carte.attributes.adresse !== null &&
-                      carte.attributes.adresse !== undefined
-                        ? carte.attributes.adresse
+                      data.attributes.adresse !== null &&
+                      data.attributes.adresse !== undefined
+                        ? data.attributes.adresse
                         : 'Adresse à venir prochainement'
                     }}
                   </div>
-
+                  <!-- Description -->
                   <div
-                    class="font-black pr-3 pl-3 pb-1 h-24"
+                    class="font-black pr-3 pl-3 pb-1"
                     style="color: #3f2a56;"
                   >
-                    🔖 {{ filterDescriptionName(carte.attributes.description) }}
+                    🔖 {{ filterDescriptionName(data.attributes.description) }}
                   </div>
 
-                  <!-- AFFICHE "VERIFIER" OU "A RE-VERIFIER" SELON LE BOOLEAN OU "DATE_VERIFICATION" SEULEMENT SI UNE DONNEE EST DISPO -->
-                  <div class="flex justify-between p-3">
+                  <!-- Statut de vérification -->
+                  <div class="flex justify-between p-3 absolute bottom-0">
                     <div
-                      *ngIf="!carte.attributes.date_verification"
+                      *ngIf="!data.attributes.date_verification"
                       class="text-sm italic text-neutral-500"
                     >
                       {{
-                        carte.attributes.verifier
+                        data.attributes.verifier
                           ? ' ☑️ Vérifié dernièrement'
                           : '☑️ A re-vérifier'
                       }}
                     </div>
                     <div
-                      *ngIf="carte.attributes.date_verification"
+                      *ngIf="data.attributes.date_verification"
                       class="text-sm italic text-neutral-500"
                     >
-                      ☑️ Vérifié le {{ carte.attributes.date_verification }}
+                      ☑️ Vérifié le {{ data.attributes.date_verification }}
                     </div>
                   </div>
                 </div>
+
+                <!-- Bouton pour éditer -->
+                <button
+                  (click)="openModal(data.id)"
+                  class="absolute bottom-0 right-0 bg-gray-200 p-3 rounded-br-lg color-edit text-md flex items-center justify-center"
+                  style="border-top-left-radius: 10px; height: 36px;"
+                >
+                  ✎
+                </button>
               </div>
             </ng-container>
           </div>
