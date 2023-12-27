@@ -133,8 +133,7 @@ type Carte = {
                     [src]="
                       carte.attributes.image?.data?.attributes?.formats?.small
                         ?.url
-                        ? 'http://localhost:1337' +
-                          carte.attributes.image?.data?.attributes?.formats
+                        ? carte.attributes.image?.data?.attributes?.formats
                             ?.small?.url
                         : '../../../assets/shop.png'
                     "
