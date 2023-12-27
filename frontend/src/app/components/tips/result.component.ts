@@ -82,7 +82,7 @@ type Carte = {
     </div>
     <div *ngIf="!tipsData || tipsData.length === 0; else content">
       <p class="p-2 h-96 text-center text-white text-3xl">
-        Aucune donnée disponible.
+        Aucunes données disponibles.
       </p>
     </div>
 
@@ -231,6 +231,12 @@ export class TipsResultComponent implements OnInit {
             .toLowerCase()
             .includes(this.searchValue.toLowerCase())
       );
+
+      if (this.tipsData.length === 0) {
+        setTimeout(() => {
+          this.strapiService.setSearchValue(''); // Réinitialise la barre de recherche après 2 secondes
+        }, 2000);
+      }
     } else {
       this.loadTips();
       // Charge tous les bons plans si la valeur de recherche est vide
