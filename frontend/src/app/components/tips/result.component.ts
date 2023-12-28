@@ -62,14 +62,10 @@ type Carte = {
         height: 80px;
       }
       .bg-reduction {
-        background-color: #f23232;
+        background-color: #ee528a;
       }
       .color-edit {
         color: #3f2a56;
-      }
-
-      .text-description {
-        font-size: 16px;
       }
     `,
   ],
@@ -108,7 +104,7 @@ type Carte = {
                 <!-- Encart de réduction -->
                 <span
                   *ngIf="data.attributes.reduction"
-                  class="absolute top-12 right-0 bg-reduction p-2 rounded-tl-lg text-white text-xl flex items-center justify-center"
+                  class="absolute top-12 right-0 bg-reduction p-2 rounded-tl-lg text-white text-xl flex items-center justify-center font-semibold"
                   style="border-bottom-left-radius: 10px; height: 48px; width: 60px"
                   >{{ data.attributes.reduction }}</span
                 >
@@ -134,9 +130,9 @@ type Carte = {
                   <!-- Section enseigne, ville -->
                   <div class="h-full flex flex-col text-start">
                     <!-- Enseigne et Ville -->
-                    <div class="font-extrabold text-md pt-4 pl-2">
+                    <div class="font-bold text-lg pt-4">
                       {{ data.attributes.enseigne.split('-')[0].trim() }}
-                      <div class="text-sm text-gray-600">
+                      <div class="text-sm font-normal">
                         {{ data.attributes.ville }}
                       </div>
                     </div>
@@ -144,7 +140,7 @@ type Carte = {
                 </div>
 
                 <!-- Division pour la description -->
-                <div class="flex flex-col mt-3 text-sm">
+                <div class="flex flex-col mt-3 text-md">
                   <div class="text-gray-600 pl-3 pb-1 ">
                     📮
                     {{
@@ -155,7 +151,7 @@ type Carte = {
                     }}
                   </div>
                   <!-- Description -->
-                  <div class="font-black pr-3 pl-3 pb-1 text-gray-600">
+                  <div class="font-semibold pr-3 pl-3 pb-1 text-gray-600">
                     🔖
                     <span class="text-description">{{
                       filterDescriptionName(data.attributes.description)
@@ -163,7 +159,7 @@ type Carte = {
                   </div>
 
                   <!-- Statut de vérification -->
-                  <div class="flex justify-between p-3 absolute bottom-0">
+                  <div class="flex justify-between pl-3 pb-1 absolute bottom-0">
                     <div
                       *ngIf="!data.attributes.date_verification"
                       class="text-sm text-gray-600"

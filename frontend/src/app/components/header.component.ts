@@ -283,7 +283,7 @@ import { MatIconModule } from '@angular/material/icon';
           <li class="text-center">
             <a
               class="block text-gray-700 block hover:text-gray-900"
-              routerLink="/"
+              routerLink="/non-disponible"
               (click)="closeMenuClick()"
             >
               <div class="flex flex-col items-center">

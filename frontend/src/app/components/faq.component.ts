@@ -11,7 +11,10 @@ import { Component } from '@angular/core';
         Foire aux questions
       </h1>
       <div *ngFor="let faq of faqs" class="faq-item bg-gray-100 m-2">
-        <div class="question text-gray-500" (click)="toggleAnswer(faq)">
+        <div
+          class="question text-gray-500 font-semibold"
+          (click)="toggleAnswer(faq)"
+        >
           {{ faq.question }}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +57,6 @@ import { Component } from '@angular/core';
         overflow: hidden; /* Masquage du contenu débordant */
       }
       .question {
-        font-weight: bold;
         cursor: pointer;
         display: flex;
         align-items: center;
