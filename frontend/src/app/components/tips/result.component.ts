@@ -62,10 +62,14 @@ type Carte = {
         height: 80px;
       }
       .bg-reduction {
-        background-color: #ee528a;
+        background-color: #f23232;
       }
       .color-edit {
         color: #3f2a56;
+      }
+
+      .text-description {
+        font-size: 16px;
       }
     `,
   ],
@@ -103,21 +107,11 @@ type Carte = {
               >
                 <!-- Encart de réduction -->
                 <span
-                  *ngIf="data.attributes.reduction !== null"
-                  class="absolute top-0 right-0 bg-reduction p-2 rounded-tr-lg text-white text-sm flex items-center justify-center"
-                  style="border-bottom-left-radius: 10px; height: 36px;"
-                  >{{ data.attributes.reduction }}
-                </span>
-                <span
-                  *ngIf="
-                    data.attributes.reduction === null ||
-                    data.attributes.reduction === ' ' ||
-                    data.attributes.reduction === ''
-                  "
-                  class="absolute top-0 right-0 bg-reduction p-2 rounded-tr-lg text-white text-sm flex items-center justify-center"
-                  style="border-bottom-left-radius: 10px; height: 36px;"
-                  >🔖
-                </span>
+                  *ngIf="data.attributes.reduction"
+                  class="absolute top-12 right-0 bg-reduction p-2 rounded-tl-lg text-white text-xl flex items-center justify-center"
+                  style="border-bottom-left-radius: 10px; height: 48px; width: 60px"
+                  >{{ data.attributes.reduction }}</span
+                >
 
                 <!-- Division horizontale -->
                 <div
@@ -140,7 +134,7 @@ type Carte = {
                   <!-- Section enseigne, ville -->
                   <div class="h-full flex flex-col text-start">
                     <!-- Enseigne et Ville -->
-                    <div class="font-extrabold text-md pt-3 pl-2">
+                    <div class="font-extrabold text-md pt-4 pl-2">
                       {{ data.attributes.enseigne.split('-')[0].trim() }}
                       <div class="text-sm text-gray-600">
                         {{ data.attributes.ville }}
@@ -151,7 +145,7 @@ type Carte = {
 
                 <!-- Division pour la description -->
                 <div class="flex flex-col mt-3 text-sm">
-                  <div class="text-neutral-600 pl-3 pb-1 ">
+                  <div class="text-gray-600 pl-3 pb-1 ">
                     📮
                     {{
                       data.attributes.adresse !== null &&
@@ -161,18 +155,18 @@ type Carte = {
                     }}
                   </div>
                   <!-- Description -->
-                  <div
-                    class="font-black pr-3 pl-3 pb-1"
-                    style="color: #3f2a56;"
-                  >
-                    🔖 {{ filterDescriptionName(data.attributes.description) }}
+                  <div class="font-black pr-3 pl-3 pb-1 text-gray-600">
+                    🔖
+                    <span class="text-description">{{
+                      filterDescriptionName(data.attributes.description)
+                    }}</span>
                   </div>
 
                   <!-- Statut de vérification -->
                   <div class="flex justify-between p-3 absolute bottom-0">
                     <div
                       *ngIf="!data.attributes.date_verification"
-                      class="text-sm italic text-neutral-500"
+                      class="text-sm text-gray-600"
                     >
                       {{
                         data.attributes.verifier
@@ -182,7 +176,7 @@ type Carte = {
                     </div>
                     <div
                       *ngIf="data.attributes.date_verification"
-                      class="text-sm italic text-neutral-500"
+                      class="text-sm text-gray-600"
                     >
                       ☑️ Vérifié le {{ data.attributes.date_verification }}
                     </div>
@@ -292,6 +286,7 @@ export class TipsResultComponent implements OnInit {
       '.Vérifié en 2021',
       '.Vérifié en 2022',
       '.Vérifié en 2023',
+      'sur présentation du pass carmillon',
     ];
 
     // Remplace les termes spécifiques par une chaîne vide dans la description
