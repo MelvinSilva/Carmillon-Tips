@@ -282,7 +282,6 @@ export class TipsResultComponent implements OnInit {
       '.Vérifié en 2021',
       '.Vérifié en 2022',
       '.Vérifié en 2023',
-      'sur présentation du pass carmillon',
     ];
 
     // Remplace les termes spécifiques par une chaîne vide dans la description
