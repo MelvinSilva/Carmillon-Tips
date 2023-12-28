@@ -136,7 +136,7 @@ type RegionData = {
                     }}
                   </div>
                   <!-- Description -->
-                  <div class="font-semibold pr-3 pl-3 pb-1 pt-1 text-gray-600">
+                  <div class="font-semibold pr-3 pl-3 pb-1 text-gray-600">
                     🔖
                     <span class="text-description">{{
                       filterDescriptionName(data.attributes.description)

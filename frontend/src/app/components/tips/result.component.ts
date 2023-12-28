@@ -74,7 +74,7 @@ type Carte = {
       <input
         placeholder="Saisir ville, enseigne ou catégorie"
         type="text"
-        class="button-search-city text-gray-700 block rounded-md py-2 w-80 pl-2 mb-4 focus:outline-none placeholder:text-gray-400"
+        class="button-search-city text-gray-700 block rounded-md py-4 w-full p-2 m-2 mb-4 focus:outline-none placeholder:text-gray-500"
         (keyup)="(0)"
         #searchCollectorInput
         (input)="search($event)"
