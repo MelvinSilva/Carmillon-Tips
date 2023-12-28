@@ -262,7 +262,7 @@ import { MatIconModule } from '@angular/material/icon';
       <nav
         class="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg md:text-xl text-xs z-10 rounded-t-2xl"
       >
-        <ul class="flex justify-around py-1">
+        <ul class="flex justify-around py-2">
           <li class="text-center">
             <a
               class="block text-gray-700 block hover:text-gray-900"
@@ -282,8 +282,8 @@ import { MatIconModule } from '@angular/material/icon';
           </li>
           <li class="text-center">
             <a
-              class="block text-gray-700 hover:text-gray-900"
-              routerLink="/les-bons-plans"
+              class="block text-gray-700 block hover:text-gray-900"
+              routerLink="/"
               (click)="closeMenuClick()"
             >
               <div class="flex flex-col items-center">
@@ -291,12 +291,13 @@ import { MatIconModule } from '@angular/material/icon';
                   class="icon-nav"
                   aria-hidden="false"
                   aria-label="home"
-                  fontIcon="find_in_page"
+                  fontIcon="local_offer"
                 ></mat-icon>
-                <span>Recherche</span>
+                <span>Nationales</span>
               </div>
             </a>
           </li>
+
           <li class="text-center">
             <a
               class="block text-gray-700 hover:text-gray-900"
@@ -311,6 +312,23 @@ import { MatIconModule } from '@angular/material/icon';
                   fontIcon="library_add"
                 ></mat-icon>
                 <span>Proposer</span>
+              </div>
+            </a>
+          </li>
+          <li class="text-center">
+            <a
+              class="block text-gray-700 hover:text-gray-900"
+              routerLink="/les-bons-plans"
+              (click)="closeMenuClick()"
+            >
+              <div class="flex flex-col items-center">
+                <mat-icon
+                  class="icon-nav"
+                  aria-hidden="false"
+                  aria-label="home"
+                  fontIcon="find_in_page"
+                ></mat-icon>
+                <span>Recherche</span>
               </div>
             </a>
           </li>
