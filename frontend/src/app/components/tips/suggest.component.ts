@@ -135,7 +135,7 @@ interface Tips {
             <button
               type="submit"
               [disabled]="!form.valid"
-              class="bg-button hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-30"
+              class="bg-button hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-30"
             >
               Envoyer votre proposition
             </button>
