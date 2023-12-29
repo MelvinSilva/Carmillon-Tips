@@ -72,10 +72,10 @@ type Carte = {
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   template: `<div class="mt-4 relative justify-center flex">
       <input
-        placeholder="Saisir ville, enseigne ou catégorie"
+        placeholder="Saisir ville, enseigne, catégorie ou dépt."
         type="text"
         style="max-width: 370px;"
-        class="button-search-city text-gray-700 block rounded-md py-4 w-full p-2 m-2 mb-4 focus:outline-none placeholder:text-gray-500"
+        class="button-search-city text-gray-700 block rounded-md py-4 w-full p-2 m-2 mb-4 focus:outline-none placeholder:text-gray-500 placeholder:text-md"
         (keyup)="(0)"
         #searchCollectorInput
         (input)="search($event)"
