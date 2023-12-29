@@ -118,7 +118,12 @@ type RegionData = {
                     <div class="font-bold text-lg pt-4">
                       {{ data.attributes.enseigne.split('-')[0].trim() }}
                       <div class="text-sm font-normal">
-                        {{ data.attributes.ville }}
+                        {{ data.attributes.ville }} ({{
+                          data.attributes.departement &&
+                          data.attributes.departement.split('-')[1]
+                            ? data.attributes.departement.split('-')[1].trim()
+                            : ''
+                        }})
                       </div>
                     </div>
                   </div>
@@ -210,6 +215,20 @@ export class TipsRegionResult implements OnInit {
     this.strapiService.getTipsByRegion(region).subscribe(
       (response: any) => {
         this.tipsData = response.data; // mettre les données de la propriété 'data'
+
+        // TRI par odre alphabétique des villes
+        this.tipsData.sort((a, b) => {
+          const cityA = a.attributes.ville.toUpperCase();
+          const cityB = b.attributes.ville.toUpperCase();
+
+          if (cityA < cityB) {
+            return -1;
+          }
+          if (cityA > cityB) {
+            return 1;
+          }
+          return 0;
+        });
       },
       (error) => {
         console.error(error);

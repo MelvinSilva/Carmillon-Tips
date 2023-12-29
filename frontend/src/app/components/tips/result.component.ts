@@ -74,6 +74,7 @@ type Carte = {
       <input
         placeholder="Saisir ville, enseigne ou catégorie"
         type="text"
+        style="max-width: 370px;"
         class="button-search-city text-gray-700 block rounded-md py-4 w-full p-2 m-2 mb-4 focus:outline-none placeholder:text-gray-500"
         (keyup)="(0)"
         #searchCollectorInput
@@ -133,7 +134,12 @@ type Carte = {
                     <div class="font-bold text-lg pt-4">
                       {{ data.attributes.enseigne.split('-')[0].trim() }}
                       <div class="text-sm font-normal">
-                        {{ data.attributes.ville }}
+                        {{ data.attributes.ville }} ({{
+                          data.attributes.departement &&
+                          data.attributes.departement.split('-')[1]
+                            ? data.attributes.departement.split('-')[1].trim()
+                            : ''
+                        }})
                       </div>
                     </div>
                   </div>
@@ -256,6 +262,18 @@ export class TipsResultComponent implements OnInit {
     this.strapiService.getTips().subscribe(
       (data: any) => {
         this.tipsData = data.data;
+        this.tipsData.sort((a, b) => {
+          const enseigneA = a.attributes.enseigne.toUpperCase();
+          const enseigneB = b.attributes.enseigne.toUpperCase();
+
+          if (enseigneA < enseigneB) {
+            return -1;
+          }
+          if (enseigneA > enseigneB) {
+            return 1;
+          }
+          return 0;
+        });
       },
       (error) => {
         console.error(error);
@@ -263,17 +281,17 @@ export class TipsResultComponent implements OnInit {
     );
   }
 
-  loadTipsForRegion(region: string) {
-    this.strapiService.getTipsByRegion(region).subscribe(
-      (data: any) => {
-        this.tipsData = data; // Assurez-vous que les données reçues correspondent à la structure Carte
-        this.filterTips(); // Appliquez éventuellement d'autres filtres ici si nécessaire
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
+  // loadTipsForRegion(region: string) {
+  //   this.strapiService.getTipsByRegion(region).subscribe(
+  //     (data: any) => {
+  //       this.tipsData = data; // Assurez-vous que les données reçues correspondent à la structure Carte
+  //       this.filterTips(); // Appliquez éventuellement d'autres filtres ici si nécessaire
+  //     },
+  //     (error) => {
+  //       console.error(error);
+  //     }
+  //   );
+  // }
 
   filterDescriptionName(description: string): string {
     const filteredTerms = [
