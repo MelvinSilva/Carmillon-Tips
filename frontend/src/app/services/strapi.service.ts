@@ -16,7 +16,7 @@ export class StrapiService {
   searchValue$ = this.searchValueSubject.asObservable(); // Observable pour etre ecouté par d'autres parties de l'app
 
   setSearchValue(value: string) {
-    this.searchValueSubject.next(value); // met à jour la valeur de recherche en envoyant une nouvelle valeur via le BehaviorSubject
+    this.searchValueSubject.next(value); // met à jour la valeur de recherche en envoyant une nouvelle valeur
   }
 
   getTips(): Observable<any[]> {

@@ -102,7 +102,7 @@ type Carte = {
                 class="w-full h-56 bg-card rounded-xl flex flex-col relative shadow-inner m-1"
                 style="max-width: 370px;"
               >
-                <!-- Encart de réduction -->
+                <!-- REDUCTION -->
                 <span
                   *ngIf="data.attributes.reduction"
                   class="absolute top-12 right-0 bg-reduction p-2 rounded-tl-lg text-white text-xl flex items-center justify-center font-semibold"
@@ -110,11 +110,10 @@ type Carte = {
                   >{{ data.attributes.reduction }}</span
                 >
 
-                <!-- Division horizontale -->
                 <div
                   class="flex bg-enseigne bg-gray-200 justify-start items-center"
                 >
-                  <!-- Section de l'image -->
+                  <!-- IMAGE -->
                   <div class="">
                     <img
                       class="w-24 h-24 p-2 object-contain rounded-lg"
@@ -128,7 +127,7 @@ type Carte = {
                     />
                   </div>
 
-                  <!-- Section enseigne, ville -->
+                  <!-- ENSEIGNE VILLE ET DEPARTEMENT -->
                   <div class="h-full flex flex-col text-start">
                     <!-- Enseigne et Ville -->
                     <div class="font-bold text-lg pt-4">
@@ -145,7 +144,7 @@ type Carte = {
                   </div>
                 </div>
 
-                <!-- Division pour la description -->
+                <!-- ADRESSE ET DESCRIPTION -->
                 <div class="flex flex-col mt-3 text-md">
                   <div class="text-gray-600 pl-3 pb-1 ">
                     📮
@@ -156,7 +155,6 @@ type Carte = {
                         : 'Adresse à venir prochainement'
                     }}
                   </div>
-                  <!-- Description -->
                   <div class="pr-3 pl-3 pb-1 text-gray-600">
                     🔖
                     <span class="text-description">{{
@@ -164,28 +162,28 @@ type Carte = {
                     }}</span>
                   </div>
 
-                  <!-- Statut de vérification -->
+                  <!-- VERIFICATION  -->
                   <div class="flex justify-between pl-3 pb-1 absolute bottom-0">
                     <div
                       *ngIf="!data.attributes.date_verification"
-                      class="text-sm text-gray-600"
+                      class="text-xs text-gray-500"
                     >
                       {{
                         data.attributes.verifier
-                          ? ' ☑️ Vérifié dernièrement'
-                          : '☑️ A re-vérifier'
+                          ? ' ✅ Utilisé récemment'
+                          : '👁️ A vérifier'
                       }}
                     </div>
                     <div
                       *ngIf="data.attributes.date_verification"
-                      class="text-sm text-gray-600"
+                      class="text-xs text-gray-500"
                     >
-                      ☑️ Vérifié le {{ data.attributes.date_verification }}
+                      ✅ Utilisé le {{ data.attributes.date_verification }}
                     </div>
                   </div>
                 </div>
 
-                <!-- Bouton pour éditer -->
+                <!-- BOUTON EDITION -->
                 <button
                   (click)="openModal(data.id)"
                   class="absolute bottom-0 right-0 bg-gray-200 p-3 rounded-br-lg color-edit text-md flex items-center justify-center"
@@ -232,7 +230,7 @@ export class TipsResultComponent implements OnInit {
 
   filterTips() {
     if (this.searchValue) {
-      // Filtre les résultats selon la valeur de recherche ville, enseigne ou catégorie
+      // Filtre les résultats selon la valeur de recherche ville, enseigne, catégorie, département
       this.tipsData = this.tipsData.filter(
         (carte) =>
           carte.attributes.ville
@@ -302,7 +300,7 @@ export class TipsResultComponent implements OnInit {
       '.Vérifié en 2023',
     ];
 
-    // Remplace les termes spécifiques par une chaîne vide dans la description
+    // Remplace les termes spécifiques au dessus par une chaîne vide dans la description
     const filteredDescription = description.replace(
       new RegExp(filteredTerms.join('|'), 'g'),
       ''
