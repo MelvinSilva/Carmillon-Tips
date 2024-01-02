@@ -3,10 +3,11 @@ export interface DepartementsParRegion {
 }
 
 export const departementsParRegion: DepartementsParRegion = {
+  // les DEPARTEMENTS doivent être écrit sans accent ni caracteres speciaux. Ils doivent être écrit de la meme maniere que dans le BDD.
   'Auvergne-Rhône-Alpes': [
     'AIN - 01',
     'ALLIER - 03',
-    'ARDÈCHE - 07',
+    'ARDECHE - 07',
     'CANTAL - 15',
     'DROME - 26',
     'ISERE - 38',
@@ -18,7 +19,7 @@ export const departementsParRegion: DepartementsParRegion = {
     'HAUTE SAVOIE - 74',
   ],
   'Bourgogne-Franche-Comté': [
-    "COTE D'OR- 21",
+    "COTE D'OR - 21",
     'DOUBS - 25',
     'JURA - 39',
     'NIEVRE - 58',
@@ -46,7 +47,7 @@ export const departementsParRegion: DepartementsParRegion = {
     'ARDENNES - 08',
     'AUBE - 10',
     'MARNE - 51',
-    'HAUTE-MARNE - 52',
+    'HAUTE MARNE - 52',
     'MEURTHE ET MOSELLE - 54',
     'MEUSE - 55',
     'MOSELLE - 57',
