@@ -6,6 +6,7 @@ import {
   MatDialogModule,
 } from '@angular/material/dialog';
 import { StrapiService } from '../../services/strapi.service';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-modal-update',
@@ -31,7 +32,7 @@ import { StrapiService } from '../../services/strapi.service';
         class="bg-white rounded-lg shadow-lg z-10 relative max-w-md w-full p-6"
       >
         <div class="bg-text rounded-lg p-2">
-          <h2 class="text-lg font-bold text-center">
+          <h2 class="text-lg font-semibold text-center">
             ⓘ Dites nous si l'avantage est toujours valable le
             {{ currentDate }} ou s'il est expiré afin de mettre à jour les
             informations.
@@ -163,6 +164,10 @@ export class ModalUpdate {
       .subscribe(
         (data: any) => {
           console.log('Commentaire envoyé avec succès :', data);
+          alert(
+            'Votre modification à bien été prise en compte et sera traité au plus vite.'
+          );
+
           this.closeModal();
         },
         (error) => {

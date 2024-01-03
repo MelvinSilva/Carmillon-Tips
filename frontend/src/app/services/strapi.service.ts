@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { DatePipe } from '@angular/common';
+import { departementsParRegion } from '../components/tips-region/departement';
 
 @Injectable({
   providedIn: 'root',
@@ -15,15 +16,25 @@ export class StrapiService {
   searchValue$ = this.searchValueSubject.asObservable(); // Observable pour etre ecouté par d'autres parties de l'app
 
   setSearchValue(value: string) {
-    this.searchValueSubject.next(value); // met à jour la valeur de recherche en envoyant une nouvelle valeur via le BehaviorSubject
+    this.searchValueSubject.next(value); // met à jour la valeur de recherche en envoyant une nouvelle valeur
   }
 
   getTips(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/tips?populate=*`); // effectue la recherche de tout les tips
   }
 
+  // méthode pour récupérer les départements par région afin dafficher les tips par region seulement
+  getTipsByRegion(region: string): Observable<any[]> {
+    const departements = departementsParRegion[region];
+    const query = departements
+      .map((dep) => `filters[departement][$in]=${encodeURIComponent(dep)}`)
+      .join('&');
+
+    return this.http.get<any[]>(`${this.apiUrl}/tips?${query}&populate=*`);
+  }
+
   searchTips(query: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/tips?q=${query}`); // effectue la recherche selon la query envoyé (ville)
+    return this.http.get<any[]>(`${this.apiUrl}/tips?q=${query}`); // effectue la recherche selon la query envoyé
   }
 
   createTips(dealData: any): Observable<any> {
