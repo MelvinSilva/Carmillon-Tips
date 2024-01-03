@@ -8,16 +8,18 @@ body {
   background-color: #3f2a56;
 }
 
-.home {
-  background: #3f2a56;
-}
-
 .message {
-  background-color: rgba(245, 155, 187, 0.064);
+  background-color: #3222453c;
   border-radius: 6px;
-  padding: 20px;
+  padding: 10px;
 }
 
 .button-search-city {
-  background-color: #ee528a;
+  border: 1px solid rgba(201, 201, 201, 0.543);
+  touch-action: manipulation;
+  font-size: 16px;
+}
+
+.footer {
+  background-color: #322245;
 }

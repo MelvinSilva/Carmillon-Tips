@@ -1,56 +1,59 @@
 import { Component } from '@angular/core';
-import { StrapiService } from '../services/strapi.service';
 import { FormsModule } from '@angular/forms';
-import { CarteComponent } from './tips/card.component';
-import { SuggestTipsComponent } from './tips/suggest-tips.component';
+import { TipsResultComponent } from './tips/result.component';
+import { TipsSuggestComponent } from './tips/suggest.component';
+import { MapFrenchComponent } from './tips-region/map-french.component';
+import { FooterComponent } from './footer.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   styles: [``],
-  template: ` <section class="home bg-cover bg-center bg-no-repeat">
-    <div
-      class="mx-auto max-w-screen-2xl px-4 py-10 sm:px-6 lg:flex lg:items-center"
-    >
+  template: ` <section class="home">
       <div
-        class="message mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right"
+        class="mx-auto max-w-screen-2xl px-4 py-4 sm:px-6 lg:flex lg:items-center"
       >
-        <h1 class="text-2xl font-black sm:text-5xl text-white">
-          CARMISPHERE
+        <div
+          class="message mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right"
+        >
+          <h1 class="text-4xl font-black sm:text-5xl text-white">
+            CARMISPHERE
+          </h1>
+          <div>
+            <p class="mt-2 text-md sm:text-xl text-gray-200">
+              Contribuons ensemble à trouver et partager les bons plans
+              cheminots !
+            </p>
+          </div>
 
-          <strong class="text-sm block font-black sm:text-2xl text-white">
-            LES BONS PLANS CARMILLON.
-          </strong>
-        </h1>
-
-        <p class="mt-4 text-md sm:text-xl text-gray-200">
-          Contribuons ensemble à trouver et partager les bons plans cheminots !
-        </p>
-        <br />
-        <hr />
-        <div class="mt-3 flex justify-center">
-          <label class="text-gray-200 mx-auto block py-3 text-xs italic">
-            Recherche par ville, enseigne, département ou catégorie
-            <input
-              placeholder="🔍"
-              type="text"
-              class="text-white button-search-city mt-1 block rounded py-3 text-md w-80 pl-3 focus:outline-none placeholder:text-gray-200"
-              (input)="search($event)"
-            />
-          </label>
+          <!--  <div class="mt-3 flex justify-center">
+         
+          <input
+            placeholder="🔍 Recherche par ville, enseigne, catégorie"
+            type="text"
+            class="text-white button-search-city mt-1 block rounded py-3 text-md w-80 pl-3 focus:outline-none placeholder:text-gray-200 placeholder:text-sm"
+            (input)="search($event)"
+          />
+    
+        </div> -->
         </div>
       </div>
-    </div>
-    <app-cartes></app-cartes>
-  </section>`,
-  imports: [FormsModule, CarteComponent, SuggestTipsComponent],
+      <app-map-french></app-map-french>
+    </section>
+    <app-footer></app-footer>`,
+  imports: [
+    FormsModule,
+    TipsResultComponent,
+    TipsSuggestComponent,
+    MapFrenchComponent,
+    FooterComponent,
+  ],
 })
 export class HomeComponent {
-  constructor(private strapiService: StrapiService) {}
-
-  search(event: Event) {
-    const value = (event.target as HTMLInputElement).value;
-    this.strapiService.setSearchValue(value);
-    // recupere ce qui est tapé dans la barre de recherche
-  }
+  // constructor(private strapiService: StrapiService) {}
+  // search(event: Event) {
+  //   const value = (event.target as HTMLInputElement).value;
+  //   this.strapiService.setSearchValue(value);
+  //   // recupere ce qui est tapé dans la barre de recherche
+  // }
 }
