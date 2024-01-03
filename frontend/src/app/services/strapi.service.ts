@@ -10,7 +10,7 @@ import { departementsParRegion } from '../components/tips-region/departement';
 export class StrapiService {
   constructor(private http: HttpClient, private datePipe: DatePipe) {}
 
-  private apiUrl = 'https://meaningful-horses-3ddd745858.strapiapp.com/api';
+  private apiUrl = 'http://localhost:1337/api';
   private searchValueSubject = new BehaviorSubject<string>(''); // suivi de la valeur de recherche (initialement vide)
 
   searchValue$ = this.searchValueSubject.asObservable(); // Observable pour etre ecouté par d'autres parties de l'app
