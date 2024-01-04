@@ -45,90 +45,92 @@ interface Tips {
           <h1 class="text-center text-sm m-2 text-gray-400">
             INFORMATION AGENT
           </h1>
-          <div class="mb-2 relative">
+
+          <div class="relative z-0 mb-4">
             <input
               type="text"
               id="nom"
-              [(ngModel)]="newTips.nom"
               name="nom"
               required
-              class="placeholder:text-sm border rounded-md w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              [(ngModel)]="newTips.nom"
+              class="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+              placeholder=" "
             />
-            <span
-              class="absolute top-0 left-0 px-3 text-gray-400 text-sm"
-              style="transform: translateY(0.15rem);"
+            <label
+              class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
             >
               Nom et prénom*
-            </span>
+            </label>
           </div>
 
-          <div class="mb-8 relative">
+          <div class="relative z-0 mb-4">
             <input
               type="text"
               id="cp"
-              [(ngModel)]="newTips.cp"
               name="cp"
               required
-              class="placeholder:text-sm border rounded-md w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              [(ngModel)]="newTips.cp"
+              class="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+              placeholder=" "
             />
-            <span
-              class="absolute top-0 left-0 px-3 text-gray-400 text-sm"
-              style="transform: translateY(0.15rem);"
+            <label
+              class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
             >
               Numéro de CP*
-            </span>
+            </label>
           </div>
+
           <h1 class="text-center text-sm m-2 text-gray-400">
             DESCRIPTION AVANTAGE
           </h1>
 
-          <div class="mb-4 relative">
+          <div class="relative z-0 mb-4">
             <input
               type="text"
               id="enseigne"
-              [(ngModel)]="newTips.enseigne"
               name="enseigne"
               required
-              class="placeholder:text-sm border rounded-md w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              [(ngModel)]="newTips.enseigne"
+              class="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+              placeholder=" "
             />
-            <span
-              class="absolute top-0 left-0 px-3 text-gray-400 text-sm"
-              style="transform: translateY(0.15rem);"
-            >
-              Nom de l'enseigne*
-            </span>
+            <label
+              class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
+              >Nom de l'enseigne*
+            </label>
           </div>
-          <div class="mb-4 relative">
+
+          <div class="relative z-0 mb-4">
             <input
               type="text"
               id="ville"
-              [(ngModel)]="newTips.ville"
               name="ville"
               required
-              class="placeholder:text-sm border rounded-md w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              [(ngModel)]="newTips.ville"
+              class="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+              placeholder=" "
             />
-            <span
-              class="absolute top-0 left-0 px-3 text-gray-400 text-sm"
-              style="transform: translateY(0.15rem);"
+            <label
+              class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
             >
               Ville et adresse*
-            </span>
+            </label>
           </div>
-          <div class="mb-4 relative">
+
+          <div class="relative z-0 col-span-2 mt-4 mb-4">
             <textarea
-              [(ngModel)]="newTips.description"
+              id="description"
               name="description"
               required
-              id="description"
-              class="border rounded-md w-full py-6 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              style="padding-top: 0.95rem; padding-bottom: 0.95rem;"
+              [(ngModel)]="newTips.description"
+              rows="5"
+              class="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+              placeholder=" "
             ></textarea>
-            <span
-              class="absolute top-0 left-0 px-3 text-gray-400 text-sm"
-              style="transform: translateY(0.15rem);"
-            >
-              Description complète (réduction etc...)*
-            </span>
+            <label
+              class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
+              >Description complète (réduction etc...)*
+            </label>
           </div>
 
           <div class="flex justify-center">

@@ -59,7 +59,7 @@ import { MatIconModule } from '@angular/material/icon';
         </a>
         <a
           class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-          routerLink="/non-disponible"
+          routerLink="/contact"
         >
           Contact
         </a>
@@ -244,7 +244,7 @@ import { MatIconModule } from '@angular/material/icon';
             <li>
               <a
                 class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                routerLink="/non-disponible"
+                routerLink="/contact"
                 (click)="closeMenuClick()"
               >
                 Contact
