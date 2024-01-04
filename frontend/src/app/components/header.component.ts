@@ -13,6 +13,10 @@ import { MatIconModule } from '@angular/material/icon';
       .icon-nav {
         color: #ee528a;
       }
+
+      .title-color {
+        color: #ee528a;
+      }
     `,
   ],
   template: `<header
@@ -22,9 +26,14 @@ import { MatIconModule } from '@angular/material/icon';
       class="mx-auto flex h-12 lg:h-16 justify-between lg:justify-center max-w-screen-xl items-center gap-4 px-4 sm:px-6 lg:px-8"
     >
       <!-- logo -->
-      <a class="block text-red-600 dark:text-teal-300" href="/">
-        <img src="../../assets/logo-carmisphere.webp" class="h-10 w-10" />
-      </a>
+      <div class="flex flex-start items-center">
+        <a class="block text-red-600 dark:text-teal-300" href="/">
+          <img src="../../assets/logo-carmisphere.webp" class="h-10 w-10" />
+        </a>
+        <a href="/">
+          <p class="lg:hidden pl-2 title-color font-bold">CARMISPHERE</p></a
+        >
+      </div>
       <nav class="hidden lg:flex items-center gap-6 text-sm">
         <a
           class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
@@ -65,10 +74,11 @@ import { MatIconModule } from '@angular/material/icon';
         </a>
         <div class="relative">
           <button
-            class="bg-gray-100 text-gray-500 block rounded-3xl py-2 text-md p-3 focus:outline-none  placeholder:text-sm"
+            class="bg-gray-100 text-gray-500 block rounded-3xl py-2 text-md p-3 focus:outline-none  placeholder:text-sm flex item-center"
             routerLink="les-bons-plans"
           >
-            🔎 Recherche avancée de bons plans
+            <mat-icon class="text-sm">search</mat-icon> Recherche avancée de
+            bons plans
           </button>
         </div>
       </nav>
@@ -76,12 +86,13 @@ import { MatIconModule } from '@angular/material/icon';
       <!-- ***************** Bouton du menu burger et search mobiles header TOP ****************** -->
       <!-- ***************** Bouton du menu burger et search mobiles header TOP ****************** -->
       <!-- ***************** Bouton du menu burger et search mobiles header TOP ****************** -->
-      <div class="lg:hidden flex">
+      <div class="lg:hidden">
         <button
-          class="bg-gray-100 text-gray-600 block rounded-xl py-2 text-xs p-2 focus:outline-none"
+          class="bg-gray-100 text-gray-600 block rounded-xl text-xs px-2 focus:outline-none flex items-center"
           routerLink="les-bons-plans"
         >
-          🔎 Recherche
+          <mat-icon class="text-sm mt-1">search</mat-icon>
+          <p>Recherche avancée</p>
         </button>
         <!-- <button
           class="block lg:hidden rounded-xl bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
@@ -191,7 +202,7 @@ import { MatIconModule } from '@angular/material/icon';
         class="lg:hidden fixed bottom-8 right-0 bg-white shadow-md w-full h-full mt-20 z-10 rounded-tl-lg"
       >
         <nav aria-label="Global">
-          <ul class="flex flex-col items-center gap-6 text-xl">
+          <ul class="flex flex-col items-center gap-6 text-3xl font-semibold">
             <br />
             <br />
             <li>
@@ -210,7 +221,7 @@ import { MatIconModule } from '@angular/material/icon';
                 routerLink="/proposer-un-bon-plan"
                 (click)="closeMenuClick()"
               >
-                💡 Proposer un bon plan
+                Proposer un bon plan
               </a>
             </li>
             <li>

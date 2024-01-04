@@ -8,17 +8,17 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink, MatIconModule],
   template: `<div class="footer">
       <div class="max-w-2xl mx-auto text-white py-8">
-        <div class="text-center flex justify-center">
+        <div class="text-center flex justify-center items-center">
           <a class="block text-red-600 dark:text-teal-300" href="/">
             <img src="../../assets/logo-carmisphere.webp" class="h-10 w-10" />
           </a>
-          <h3 class="text-3xl mb-2 ml-1">CARMISPHÈRE</h3>
+          <h3 class="text-xl ml-2">CARMISPHÈRE</h3>
         </div>
         <div class="text-center flex flex-col text-gray-200 p-2">
-          <p class="text-md">
-            Application non officielle <br />Réservée aux cheminots SNCF
+          <p class="text-sm">
+            Application non officielle - Réservée aux cheminots
           </p>
-          <p class="text-md mt-3 no-underline hover:underline">
+          <p class="text-sm mt-3 no-underline hover:underline">
             <a
               href="https://www.facebook.com/groups/Bons.plans.carmillon/?locale=fr_FR"
               target="_blank"

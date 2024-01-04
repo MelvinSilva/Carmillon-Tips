@@ -11,6 +11,7 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalUpdate } from './modal-update.component';
+import { MatIconModule } from '@angular/material/icon';
 
 registerLocaleData(localeFr);
 
@@ -44,7 +45,7 @@ type Carte = {
 @Component({
   selector: 'app-tips-result',
   standalone: true,
-  imports: [NgFor, NgIf, DatePipe],
+  imports: [NgFor, NgIf, DatePipe, MatIconModule],
   styles: [
     `
       .bg-card {
@@ -70,25 +71,28 @@ type Carte = {
     `,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
-  template: `<div class="mt-4 relative justify-center flex">
+  template: `<div
+      class="mt-4 relative justify-center flex flex-col items-center"
+    >
       <input
         placeholder="Saisir ville, enseigne, catégorie ou dépt."
         type="text"
         style="max-width: 370px;"
-        class="button-search-city text-gray-700 block rounded-md py-4 w-full p-2 m-2 mb-4 focus:outline-none placeholder:text-gray-500 placeholder:text-md"
+        class="button-search-city text-gray-700 block rounded-md py-4 w-full p-2 m-2 mb-4 focus:outline-none placeholder:text-gray-500 placeholder:text-md relative"
         (keyup)="(0)"
         #searchCollectorInput
         (input)="search($event)"
       />
-      <span
+      <mat-icon
+        class="absolute text-gray-700 ml-80 mb-2"
         *ngIf="searchCollectorInput.value.length > 0"
         (click)="searchCollectorInput.value = ''"
-        class="fa fa-close"
-      ></span>
+        >close</mat-icon
+      >
     </div>
     <div *ngIf="!tipsData || tipsData.length === 0; else content">
-      <p class="p-2 h-96 text-center text-white text-3xl">
-        Aucunes données disponibles.
+      <p class="p-2 h-96 text-center text-white text-xl">
+        Aucun résultat trouvé, veuillez vérifier votre saisie.
       </p>
     </div>
 
@@ -205,6 +209,7 @@ type Carte = {
 })
 export class TipsResultComponent implements OnInit {
   tipsData: Carte[] = [];
+  allTipsData: Carte[] = [];
   searchValue: string = '';
   selectedRegion: string | null = null;
 
@@ -212,13 +217,12 @@ export class TipsResultComponent implements OnInit {
     private strapiService: StrapiService,
     private dialog: MatDialog
   ) {}
-
   ngOnInit(): void {
-    this.loadTips(); // initialise tout les bons plans
+    this.loadTips(); // Chargez les données dès le début
 
     this.strapiService.searchValue$.subscribe((value) => {
       this.searchValue = value;
-      this.filterTips();
+      this.filterTips(this.searchValue); // Filtrez avec la nouvelle valeur de recherche
     });
   }
 
@@ -228,31 +232,24 @@ export class TipsResultComponent implements OnInit {
     // recupere ce qui est tapé dans la barre de recherche
   }
 
-  filterTips() {
-    if (this.searchValue) {
-      // Filtre les résultats selon la valeur de recherche ville, enseigne, catégorie, département
-      this.tipsData = this.tipsData.filter(
+  filterTips(searchValue: string) {
+    if (searchValue) {
+      // Filtrez les résultats
+      this.tipsData = this.allTipsData.filter(
         (carte) =>
           carte.attributes.ville
             .toLowerCase()
-            .includes(this.searchValue.toLowerCase()) ||
+            .includes(searchValue.toLowerCase()) ||
           carte.attributes.enseigne
             .toLowerCase()
-            .includes(this.searchValue.toLowerCase()) ||
+            .includes(searchValue.toLowerCase()) ||
           carte.attributes.departement
             .toLowerCase()
-            .includes(this.searchValue.toLowerCase())
+            .includes(searchValue.toLowerCase())
       );
-
-      if (this.tipsData.length === 0) {
-        setTimeout(() => {
-          this.strapiService.setSearchValue('');
-          this.searchValue = '';
-        }, 1000);
-      }
     } else {
-      this.loadTips();
-      // Charge tous les bons plans si la valeur de recherche est vide
+      // Si la valeur de recherche est vide, n'affichez aucun résultat
+      this.loadTips;
     }
   }
 
@@ -260,6 +257,7 @@ export class TipsResultComponent implements OnInit {
     this.strapiService.getTips().subscribe(
       (data: any) => {
         this.tipsData = data.data;
+        this.allTipsData = data.data; // Stockez les données originales
         this.tipsData.sort((a, b) => {
           const enseigneA = a.attributes.enseigne.toUpperCase();
           const enseigneB = b.attributes.enseigne.toUpperCase();

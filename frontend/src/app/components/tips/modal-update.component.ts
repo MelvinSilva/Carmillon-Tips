@@ -32,9 +32,9 @@ import { NgIf } from '@angular/common';
         class="bg-white rounded-lg shadow-lg z-10 relative max-w-md w-full p-6"
       >
         <div class="bg-text rounded-lg p-2">
-          <h2 class="text-lg font-semibold text-center">
-            ⓘ Dites nous si l'avantage est toujours valable le
-            {{ currentDate }} ou s'il est expiré afin de mettre à jour les
+          <h2 class="text-sm font-semibold text-center">
+            ⓘ Indiquez-nous si l'avantage est toujours valable aujourd'hui, le
+            {{ currentDate }}, ou s'il a expiré, afin de mettre à jour les
             informations.
           </h2>
         </div>
@@ -66,8 +66,8 @@ import { NgIf } from '@angular/common';
         </div>
 
         <textarea
-          class="w-full h-20 border border-gray-300 rounded p-2 focus:outline-none placeholder:text-xs"
-          placeholder="Si expiré, renseigner un maximum d'info ainsi que votre nom et CP"
+          class="w-full h-28 border border-gray-300 rounded p-2 focus:outline-none placeholder:text-xs"
+          placeholder="Veuillez fournir autant d'informations que possible si l'offre a expiré ou si des informations ont changé."
           [(ngModel)]="commentaire"
         ></textarea>
 
