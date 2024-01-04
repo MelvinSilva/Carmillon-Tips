@@ -123,7 +123,7 @@ type Carte = {
             <ng-container *ngFor="let data of tipsData">
               <div
                 *ngIf="data.attributes.disponible"
-                class="w-full h-56 bg-card rounded-xl flex flex-col relative shadow-inner m-1"
+                class="card w-full h-56 bg-card rounded-xl flex flex-col relative shadow-inner m-1"
                 style="max-width: 370px;"
               >
                 <!-- REDUCTION -->
