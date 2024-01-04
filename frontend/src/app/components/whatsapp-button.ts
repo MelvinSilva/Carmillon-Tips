@@ -36,13 +36,13 @@ import { CommonModule } from '@angular/common';
       </a>
     </div>
   `,
-  animations: [
-    trigger('bounceAnimation', [
-      state('initial', style({ transform: 'scale(1)' })),
-      state('bounced', style({ transform: 'scale(1.2)' })),
-      transition('initial => bounced', animate('200ms ease-in')),
-    ]),
-  ],
+  // animations: [
+  //   trigger('bounceAnimation', [
+  //     state('initial', style({ transform: 'scale(1)' })),
+  //     state('bounced', style({ transform: 'scale(1.2)' })),
+  //     transition('initial => bounced', animate('200ms ease-in')),
+  //   ]),
+  // ],
 })
 export class WhatsappButtonComponent implements OnInit, OnDestroy {
   constructor() {

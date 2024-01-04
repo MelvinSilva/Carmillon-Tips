@@ -28,12 +28,16 @@ interface Tips {
         height: 200px;
         opacity: 0.4;
       }
+      input,
+      textarea {
+        border-radius: 8px;
+      }
     `,
   ],
   template: `
-    <div class="">
+    <div class="flex flex-col items-center justify-center min-h-screen">
       <div class="m-4">
-        <h1 class="text-center text-white text-sm p-2 mt-2">
+        <h1 class="text-center text-white text-lg p-2 mt-2">
           Proposer un nouvel avantage ici et notre équipe l'ajoutera au
           catalogue dans les plus brefs délais.
         </h1>
@@ -42,95 +46,88 @@ interface Tips {
           (ngSubmit)="submitDeal(form)"
           class="lg:max-w-2xl xl:max-w-3xl mx-auto bg-white p-4 border border-gray-300 shadow-md rounded-lg mt-4"
         >
-          <h1 class="text-center text-sm m-2 text-gray-400">
-            INFORMATION AGENT
-          </h1>
-
-          <div class="relative z-0 mb-4">
+          <h1 class="text-center m-2 text-gray-400">INFORMATION AGENT</h1>
+          <div class="relative mt-4">
             <input
               type="text"
               id="nom"
               name="nom"
               required
               [(ngModel)]="newTips.nom"
-              class="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+              class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
             />
             <label
-              class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
+              for="floating_filled"
+              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+              >Nom et prénom*</label
             >
-              Nom et prénom*
-            </label>
           </div>
-
-          <div class="relative z-0 mb-4">
+          <div class="relative mt-4">
             <input
               type="text"
               id="cp"
               name="cp"
               required
               [(ngModel)]="newTips.cp"
-              class="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+              class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
             />
             <label
-              class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
+              for="cp"
+              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+              >Numéro de CP*</label
             >
-              Numéro de CP*
-            </label>
           </div>
 
-          <h1 class="text-center text-sm m-2 text-gray-400">
-            DESCRIPTION AVANTAGE
-          </h1>
-
-          <div class="relative z-0 mb-4">
+          <h1 class="text-center m-2 text-gray-400">DESCRIPTION AVANTAGE</h1>
+          <div class="relative mt-4">
             <input
               type="text"
               id="enseigne"
               name="enseigne"
               required
               [(ngModel)]="newTips.enseigne"
-              class="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+              class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
             />
             <label
-              class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
-              >Nom de l'enseigne*
-            </label>
+              for="enseigne"
+              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+              >Nom de l'enseigne*</label
+            >
           </div>
-
-          <div class="relative z-0 mb-4">
+          <div class="relative mt-4">
             <input
               type="text"
               id="ville"
               name="ville"
               required
               [(ngModel)]="newTips.ville"
-              class="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+              class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
             />
             <label
-              class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
+              for="ville"
+              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+              >Ville et adresse*</label
             >
-              Ville et adresse*
-            </label>
           </div>
-
-          <div class="relative z-0 col-span-2 mt-4 mb-4">
+          <div class="relative mt-4 mb-4">
             <textarea
               id="description"
               name="description"
               required
               [(ngModel)]="newTips.description"
               rows="5"
-              class="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+              class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
             ></textarea>
             <label
-              class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
-              >Description complète (réduction etc...)*
-            </label>
+              for="description"
+              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+              >Description complète (réduction etc...)*</label
+            >
           </div>
 
           <div class="flex justify-center">
@@ -158,7 +155,7 @@ interface Tips {
             >
               <path
                 d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"
-              />
+              ></path>
             </svg>
           </div>
           <div>Votre proposition a bien été prise en compte.</div>
@@ -215,7 +212,7 @@ export class TipsSuggestComponent {
       enseigne: '',
     };
     setTimeout(() => {
-      this.submittedSuccessfully = false; // Réinitialise le message apres 3s
+      this.submittedSuccessfully = false; // Réinitialise le message après 3s
       this.router.navigateByUrl('/'); // Redirection vers la page d'accueil
     }, 3000);
   }

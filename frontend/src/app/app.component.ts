@@ -3,6 +3,7 @@ import { HeaderComponent } from './components/header.component';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-root',
