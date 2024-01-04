@@ -207,7 +207,7 @@ import { MatIconModule } from '@angular/material/icon';
       <!-- ******************************* Menu déroulant BOTTOM pour les écrans mobiles *******************************-->
       <div
         *ngIf="isMenuBottomOpen"
-        class="lg:hidden fixed bottom-8 right-0 bg-white shadow-md w-full h-full mt-20 z-10 rounded-tl-lg"
+        class="lg:hidden fixed bottom-8 right-0 bg-white shadow-md w-full h-full mt-20 z-50 rounded-tl-lg"
       >
         <nav aria-label="Global">
           <ul class="flex flex-col items-center gap-6 text-3xl font-semibold">
@@ -288,7 +288,7 @@ import { MatIconModule } from '@angular/material/icon';
       <!-- ******************************* Navbar mobile fixe BOTTOM *******************************-->
       <!-- ******************************* Navbar mobile fixe BOTTOM *******************************-->
       <nav
-        class="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg md:text-xl text-xs z-10 rounded-t-2xl"
+        class="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg md:text-xl text-xs z-50 rounded-t-2xl"
       >
         <ul class="flex justify-around py-2">
           <li class="text-center">

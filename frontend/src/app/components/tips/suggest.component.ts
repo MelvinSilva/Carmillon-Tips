@@ -22,113 +22,115 @@ interface Tips {
       .bg-button {
         background-color: #ee528a;
       }
-      .bg-shop {
-        background-image: url('https://images.pexels.com/photos/1050244/pexels-photo-1050244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-        background-size: cover;
-        height: 200px;
-        opacity: 0.4;
+
+      input,
+      textarea {
+        border-radius: 8px;
+      }
+
+      .color-title {
+        color: #3f2a56;
       }
     `,
   ],
   template: `
-    <div class="">
-      <div class="m-4">
-        <h1 class="text-center text-white text-xl p-2 mt-2 font-semibold">
-          Proposer un nouvel avantage ici et notre équipe l'ajoutera au
-          catalogue dans les plus brefs délais.
+    <div class="flex flex-col items-center justify-center min-h-screen">
+      <div class="m-2">
+        <h1 class="text-center text-white text-lg p-2 mt-2 font-semibold">
+          Proposez votre bon plan : Donnez-nous les détails, on s'occupe du
+          reste ! ✒️
         </h1>
         <form
           #form="ngForm"
           (ngSubmit)="submitDeal(form)"
           class="lg:max-w-2xl xl:max-w-3xl mx-auto bg-white p-4 border border-gray-300 shadow-md rounded-lg mt-4"
         >
-          <h1 class="text-center text-sm m-2 text-gray-400">
+          <h1 class="text-center m-2 text-gray-400 color-title">
             INFORMATION AGENT
           </h1>
-          <div class="mb-2 relative">
+          <div class="relative mt-4">
             <input
               type="text"
               id="nom"
-              [(ngModel)]="newTips.nom"
               name="nom"
               required
-              class="placeholder:text-sm border rounded-md w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              [(ngModel)]="newTips.nom"
+              class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-md text-gray-700 bg-gray-50 border-1 border-gray-100 appearance-none  focus:outline-none focus:ring-0 focus:border-gray-300 peer"
+              placeholder=" "
             />
-            <span
-              class="absolute top-0 left-0 px-3 text-gray-400 text-sm"
-              style="transform: translateY(0.15rem);"
+            <label
+              for="floating_filled"
+              class="absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-gray-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+              >Nom et prénom*</label
             >
-              Nom et prénom*
-            </span>
           </div>
-
-          <div class="mb-8 relative">
+          <div class="relative mt-4">
             <input
               type="text"
               id="cp"
-              [(ngModel)]="newTips.cp"
               name="cp"
               required
-              class="placeholder:text-sm border rounded-md w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              [(ngModel)]="newTips.cp"
+              class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-md text-gray-700 bg-gray-50 border-1 border-gray-100 appearance-none  focus:outline-none focus:ring-0 focus:border-gray-300 peer"
+              placeholder=" "
             />
-            <span
-              class="absolute top-0 left-0 px-3 text-gray-400 text-sm"
-              style="transform: translateY(0.15rem);"
+            <label
+              for="cp"
+              class="absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-gray-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+              >Numéro de CP*</label
             >
-              Numéro de CP*
-            </span>
           </div>
-          <h1 class="text-center text-sm m-2 text-gray-400">
+
+          <h1 class="color-title text-center text-gray-400 mt-10 m-2">
             DESCRIPTION AVANTAGE
           </h1>
-
-          <div class="mb-4 relative">
+          <div class="relative mt-4">
             <input
               type="text"
               id="enseigne"
-              [(ngModel)]="newTips.enseigne"
               name="enseigne"
               required
-              class="placeholder:text-sm border rounded-md w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              [(ngModel)]="newTips.enseigne"
+              class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-md text-gray-700 bg-gray-50 border-1 border-gray-100 appearance-none  focus:outline-none focus:ring-0 focus:border-gray-300 peer"
+              placeholder=" "
             />
-            <span
-              class="absolute top-0 left-0 px-3 text-gray-400 text-sm"
-              style="transform: translateY(0.15rem);"
+            <label
+              for="enseigne"
+              class="absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-gray-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+              >Nom de l'enseigne*</label
             >
-              Nom de l'enseigne*
-            </span>
           </div>
-          <div class="mb-4 relative">
+          <div class="relative mt-4">
             <input
               type="text"
               id="ville"
-              [(ngModel)]="newTips.ville"
               name="ville"
               required
-              class="placeholder:text-sm border rounded-md w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              [(ngModel)]="newTips.ville"
+              class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-md text-gray-700 bg-gray-50 border-1 border-gray-100 appearance-none  focus:outline-none focus:ring-0 focus:border-gray-300 peer"
+              placeholder=" "
             />
-            <span
-              class="absolute top-0 left-0 px-3 text-gray-400 text-sm"
-              style="transform: translateY(0.15rem);"
+            <label
+              for="ville"
+              class="absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-gray-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+              >Ville et adresse*</label
             >
-              Ville et adresse*
-            </span>
           </div>
-          <div class="mb-4 relative">
+          <div class="relative mt-4 mb-4">
             <textarea
-              [(ngModel)]="newTips.description"
+              id="description"
               name="description"
               required
-              id="description"
-              class="border rounded-md w-full py-6 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              style="padding-top: 0.95rem; padding-bottom: 0.95rem;"
+              [(ngModel)]="newTips.description"
+              rows="5"
+              class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-md text-gray-700 bg-gray-50 border-1 border-gray-100 appearance-none  focus:outline-none focus:ring-0 focus:border-gray-300 peer"
+              placeholder=" "
             ></textarea>
-            <span
-              class="absolute top-0 left-0 px-3 text-gray-400 text-sm"
-              style="transform: translateY(0.15rem);"
+            <label
+              for="description"
+              class="absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-gray-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+              >Description complète (réduction etc...)*</label
             >
-              Description complète (réduction etc...)*
-            </span>
           </div>
 
           <div class="flex justify-center">
@@ -144,7 +146,7 @@ interface Tips {
       </div>
       <div
         *ngIf="submittedSuccessfully"
-        class="bg-teal-100 w-full h-auto absolute bottom border-t-4 border-teal-500 text-teal-900 px-4 py-3 shadow-md z-20"
+        class="bg-teal-100 w-full h-auto absolute bottom-0 border-teal-500 text-teal-900 px-4 py-3 shadow-md z-50"
         role="alert"
       >
         <div class="flex">
@@ -156,7 +158,7 @@ interface Tips {
             >
               <path
                 d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"
-              />
+              ></path>
             </svg>
           </div>
           <div>Votre proposition a bien été prise en compte.</div>
@@ -213,7 +215,7 @@ export class TipsSuggestComponent {
       enseigne: '',
     };
     setTimeout(() => {
-      this.submittedSuccessfully = false; // Réinitialise le message apres 3s
+      this.submittedSuccessfully = false; // Réinitialise le message après 3s
       this.router.navigateByUrl('/'); // Redirection vers la page d'accueil
     }, 3000);
   }
