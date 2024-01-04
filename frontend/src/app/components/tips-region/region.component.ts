@@ -56,11 +56,31 @@ type RegionData = {
         color: #3f2a56;
         height: 80px;
       }
-      .bg-reduction {
-        background-color: #ee528a;
-      }
+
       .color-edit {
         color: #3f2a56;
+      }
+      .bg-reduction {
+        background-color: #ee528a;
+        border-bottom-left-radius: 10px;
+        height: 48px;
+        width: 60px;
+        position: absolute;
+        top: 47px;
+        right: 0;
+      }
+
+      @media screen and (max-width: 340px) {
+        .card {
+          height: 270px;
+        }
+        .bg-reduction {
+          height: 28px;
+          width: 42px;
+          top: 63px;
+          right: 0px;
+          font-size: 12px;
+        }
       }
     `,
   ],
@@ -79,18 +99,17 @@ type RegionData = {
             Vous êtes en région : <br />
             {{ regionId | uppercase }}
           </p>
-          <div class="flex flex-wrap justify-center gap-4">
+          <div class="flex flex-wrap justify-center gap-4 p-1">
             <ng-container *ngFor="let data of tipsData">
               <div
                 *ngIf="data.attributes.disponible"
-                class="w-full h-56 bg-card rounded-xl flex flex-col relative shadow-inner m-1"
+                class="card w-full h-56 bg-card rounded-xl flex flex-col relative shadow-inner m-1"
                 style="max-width: 370px;"
               >
                 <!-- REDUCTION -->
                 <span
                   *ngIf="data.attributes.reduction"
-                  class="absolute top-12 right-0 bg-reduction p-2 rounded-tl-lg text-white text-xl flex items-center justify-center font-semibold"
-                  style="border-bottom-left-radius: 10px; height: 48px; width: 60px"
+                  class="bg-reduction p-2 rounded-tl-lg text-white text-xl flex items-center justify-center font-semibold"
                   >{{ data.attributes.reduction }}</span
                 >
 

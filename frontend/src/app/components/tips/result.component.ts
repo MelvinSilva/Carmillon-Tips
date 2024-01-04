@@ -62,17 +62,37 @@ type Carte = {
         color: #3f2a56;
         height: 80px;
       }
-      .bg-reduction {
-        background-color: #ee528a;
-      }
+
       .color-edit {
         color: #3f2a56;
+      }
+      .bg-reduction {
+        background-color: #ee528a;
+        border-bottom-left-radius: 10px;
+        height: 48px;
+        width: 60px;
+        position: absolute;
+        top: 47px;
+        right: 0;
+      }
+
+      @media screen and (max-width: 340px) {
+        .card {
+          height: 270px;
+        }
+        .bg-reduction {
+          height: 28px;
+          width: 42px;
+          top: 63px;
+          right: 0px;
+          font-size: 12px;
+        }
       }
     `,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   template: `<div
-      class="mt-4 relative justify-center flex flex-col items-center"
+      class="mt-4 relative justify-center flex flex-col items-center p-1"
     >
       <input
         placeholder="Saisir ville, enseigne, catégorie ou dépt."
@@ -99,7 +119,7 @@ type Carte = {
     <ng-template #content>
       <div class="m-1 flex justify-center">
         <div class="w-full max-w-screen-2xl">
-          <div class="flex flex-wrap justify-center gap-4">
+          <div class="flex flex-wrap justify-center gap-4 p-1">
             <ng-container *ngFor="let data of tipsData">
               <div
                 *ngIf="data.attributes.disponible"
@@ -109,8 +129,7 @@ type Carte = {
                 <!-- REDUCTION -->
                 <span
                   *ngIf="data.attributes.reduction"
-                  class="absolute top-12 right-0 bg-reduction p-2 rounded-tl-lg text-white text-xl flex items-center justify-center font-semibold"
-                  style="border-bottom-left-radius: 10px; height: 48px; width: 60px"
+                  class="bg-reduction p-2 rounded-tl-lg text-white text-xl flex items-center justify-center font-semibold"
                   >{{ data.attributes.reduction }}</span
                 >
 
@@ -222,7 +241,7 @@ export class TipsResultComponent implements OnInit {
 
     this.strapiService.searchValue$.subscribe((value) => {
       this.searchValue = value;
-      this.filterTips(this.searchValue); // Filtrez avec la nouvelle valeur de recherche
+      this.filterTips(this.searchValue); // Filtre avec la nouvelle valeur de recherche
     });
   }
 
@@ -248,7 +267,6 @@ export class TipsResultComponent implements OnInit {
             .includes(searchValue.toLowerCase())
       );
     } else {
-      // Si la valeur de recherche est vide, n'affichez aucun résultat
       this.loadTips;
     }
   }
@@ -257,7 +275,7 @@ export class TipsResultComponent implements OnInit {
     this.strapiService.getTips().subscribe(
       (data: any) => {
         this.tipsData = data.data;
-        this.allTipsData = data.data; // Stockez les données originales
+        this.allTipsData = data.data; // Stock les données originales
         this.tipsData.sort((a, b) => {
           const enseigneA = a.attributes.enseigne.toUpperCase();
           const enseigneB = b.attributes.enseigne.toUpperCase();
@@ -276,18 +294,6 @@ export class TipsResultComponent implements OnInit {
       }
     );
   }
-
-  // loadTipsForRegion(region: string) {
-  //   this.strapiService.getTipsByRegion(region).subscribe(
-  //     (data: any) => {
-  //       this.tipsData = data; // Assurez-vous que les données reçues correspondent à la structure Carte
-  //       this.filterTips(); // Appliquez éventuellement d'autres filtres ici si nécessaire
-  //     },
-  //     (error) => {
-  //       console.error(error);
-  //     }
-  //   );
-  // }
 
   filterDescriptionName(description: string): string {
     const filteredTerms = [
@@ -315,7 +321,6 @@ export class TipsResultComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('La modal est fermée :', result);
-      // Fais quelque chose avec le résultat si nécessaire
     });
   }
 }

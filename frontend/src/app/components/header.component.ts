@@ -21,6 +21,14 @@ import { MatIconModule } from '@angular/material/icon';
       .bg-search {
         background-color: #ee528a;
       }
+      .text-search {
+        font-size: 11px;
+      }
+      @media screen and (max-width: 340px) {
+        .text-search {
+          font-size: 8px;
+        }
+      }
     `,
   ],
   template: `<header class="bg-white rounded-b-2xl lg:rounded-none ">
@@ -79,7 +87,7 @@ import { MatIconModule } from '@angular/material/icon';
             class="bg-search text-white block rounded-lg py-2 text-md p-3 focus:outline-none  placeholder:text-sm flex item-center"
             routerLink="les-bons-plans"
           >
-            Recherche avancée de bons plans
+            Recherche un bon plan
           </button>
         </div>
       </nav>
@@ -89,10 +97,10 @@ import { MatIconModule } from '@angular/material/icon';
       <!-- ***************** Bouton du menu burger et search mobiles header TOP ****************** -->
       <div class="lg:hidden">
         <button
-          class="bg-search text-white block rounded-lg text-xs px-2 py-2 focus:outline-none flex items-center"
+          class="bg-search text-search text-white block rounded-lg px-2 py-2 focus:outline-none flex items-center"
           routerLink="les-bons-plans"
         >
-          <p>Recherche avancée</p>
+          <p>Rechercher un bon plan</p>
         </button>
         <!-- <button
           class="block lg:hidden rounded-xl bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
@@ -348,7 +356,7 @@ import { MatIconModule } from '@angular/material/icon';
                   aria-label="home"
                   fontIcon="find_in_page"
                 ></mat-icon>
-                <span>Recherche</span>
+                <span>Rechercher</span>
               </div>
             </a>
           </li>
