@@ -84,7 +84,7 @@ type Carte = {
         (input)="search($event)"
       />
       <mat-icon
-        class="absolute text-gray-700 ml-80 mb-2"
+        class="absolute text-gray-600 ml-80 mb-2"
         *ngIf="searchCollectorInput.value.length > 0"
         (click)="searchCollectorInput.value = ''"
         >close</mat-icon
