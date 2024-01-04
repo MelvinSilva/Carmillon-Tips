@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-footer',
   standalone: true,
   imports: [RouterLink, MatIconModule],
-  template: `<div class="footer bg-white sticky">
+  template: `<div class="footer bg-white">
       <div class="max-w-2xl mx-auto text-gray-700 py-8">
         <div class="text-center flex justify-center items-center">
           <a class="block" href="/">
