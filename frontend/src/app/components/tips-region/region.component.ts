@@ -104,7 +104,8 @@ type RegionData = {
                       [src]="
                         data.attributes.image?.data?.attributes?.formats?.small
                           ?.url
-                          ? data.attributes.image?.data?.attributes?.formats
+                          ? 'http://localhost:1337' +
+                            data.attributes.image?.data?.attributes?.formats
                               ?.small?.url
                           : '../../../assets/downtown.gif'
                       "
