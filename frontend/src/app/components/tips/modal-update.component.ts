@@ -11,7 +11,7 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-modal-update',
   standalone: true,
-  imports: [MatDialogModule, FormsModule],
+  imports: [MatDialogModule, FormsModule, NgIf],
   styles: [
     `
       .bg-send {
@@ -51,6 +51,7 @@ import { NgIf } from '@angular/common';
               class="form-checkbox"
               name="toujoursValable"
               [(ngModel)]="toujoursValable"
+              (change)="handleCheckboxChange('toujoursValable')"
             />
             <span class="ml-2 text-gray-600 text-md">TOUJOURS VALABLE</span>
           </label>
@@ -60,6 +61,7 @@ import { NgIf } from '@angular/common';
               class="form-checkbox"
               name="expire"
               [(ngModel)]="expire"
+              (change)="handleCheckboxChange('expire')"
             />
             <span class="ml-2 text-gray-600 text-md">EXPIRÉ</span>
           </label>
@@ -133,6 +135,20 @@ export class ModalUpdate {
     this.dialogRef.close();
   }
 
+  ////////////////////////////////////////////////////  CHECKBOX TOGGLE  /////////////////////////////////////////////////
+  toggleCheckbox(checkbox: string) {
+    if (checkbox === 'toujoursValable' && this.toujoursValable) {
+      this.expire = false; // Désélectionne l'autre case si 'Toujours Valable' est cochée
+    } else if (checkbox === 'expire' && this.expire) {
+      this.toujoursValable = false; // Désélectionne l'autre case si 'Expiré' est cochée
+    }
+  }
+
+  // Fonction pour empêcher la sélection des deux cases simultanément
+  handleCheckboxChange(checkbox: string) {
+    this.toggleCheckbox(checkbox); // Désélectionne l'autre case si nécessaire
+  }
+
   //////////////////////////////////////////////// ENVOYER LA MODIFICATION ////////////////////////////////////////////////////////
   sendCommentaire(): void {
     if (!this.toujoursValable && !this.expire) {
@@ -144,15 +160,15 @@ export class ModalUpdate {
     // Si la case "Toujours valable" est cochée, ajoutez cette information au commentaire
     if (this.toujoursValable) {
       updatedCommentaire = updatedCommentaire
-        ? `Toujours valable -  Commentaire : ${updatedCommentaire}`
-        : 'Toujours valable';
+        ? `TOUJOURS VALABLE : ${updatedCommentaire}`
+        : 'TOUJOURS VALABLE';
     }
 
     // Si la case "Expiré" est cochée, ajoutez cette information au commentaire
     if (this.expire) {
       updatedCommentaire = updatedCommentaire
-        ? `Expiré - Commentaire : ${updatedCommentaire}`
-        : 'Expiré';
+        ? `EXPIRÉ : ${updatedCommentaire}`
+        : 'EXPIRÉ';
     }
 
     // Envoi des données au service

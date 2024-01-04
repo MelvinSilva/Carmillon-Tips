@@ -45,8 +45,8 @@ import { Router } from '@angular/router';
   template: `
     <div class="container">
       <div class="svg-container mt-8">
-        <h1 class="text-gray-200 mb-3 p-1 text-lg ">
-          🌍 Selectionnez une région
+        <h1 class="text-gray-100 mb-3 p-1 text-lg font-semibold">
+          Les bons plans par région 🌍
         </h1>
         <svg
           #maCarte
@@ -123,6 +123,8 @@ import { Router } from '@angular/router';
         </svg>
       </div>
     </div>
+    <br />
+    <br />
   `,
 })
 export class MapFrenchComponent {

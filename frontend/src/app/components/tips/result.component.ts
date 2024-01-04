@@ -78,13 +78,13 @@ type Carte = {
         placeholder="Saisir ville, enseigne, catégorie ou dépt."
         type="text"
         style="max-width: 370px;"
-        class="button-search-city text-gray-700 block rounded-md py-4 w-full p-2 m-2 mb-4 focus:outline-none placeholder:text-gray-500 placeholder:text-md relative"
+        class="button-search-city text-gray-100 block rounded-3xl py-3 w-full p-3 m-2 mb-4 focus:outline-none placeholder:text-gray-300 placeholder:text-sm placeholder:italic relative"
         (keyup)="(0)"
         #searchCollectorInput
         (input)="search($event)"
       />
       <mat-icon
-        class="absolute text-gray-600 ml-80 mb-2"
+        class="absolute text-gray-100 ml-80 mb-2"
         *ngIf="searchCollectorInput.value.length > 0"
         (click)="searchCollectorInput.value = ''"
         >close</mat-icon

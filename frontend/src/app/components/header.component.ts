@@ -17,11 +17,13 @@ import { MatIconModule } from '@angular/material/icon';
       .title-color {
         color: #ee528a;
       }
+
+      .bg-search {
+        background-color: #ee528a;
+      }
     `,
   ],
-  template: `<header
-    class="bg-white dark:bg-gray-900 rounded-b-2xl lg:rounded-none "
-  >
+  template: `<header class="bg-white rounded-b-2xl lg:rounded-none ">
     <div
       class="mx-auto flex h-12 lg:h-16 justify-between lg:justify-center max-w-screen-xl items-center gap-4 px-4 sm:px-6 lg:px-8"
     >
@@ -31,54 +33,53 @@ import { MatIconModule } from '@angular/material/icon';
           <img src="../../assets/logo-carmisphere.webp" class="h-10 w-10" />
         </a>
         <a href="/">
-          <p class="lg:hidden pl-2 title-color font-bold">CARMISPHERE</p></a
+          <p class="lg:hidden pl-2 title-color font-semibold">CARMISPHERE</p></a
         >
       </div>
       <nav class="hidden lg:flex items-center gap-6 text-sm">
         <a
-          class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+          class="text-gray-700 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
           routerLink="/accueil"
         >
           Accueil
         </a>
         <a
-          class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+          class="text-gray-700 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
           routerLink="/proposer-un-bon-plan"
         >
           Proposer un bon plan
         </a>
         <a
-          class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+          class="text-gray-700 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
           routerLink="/non-disponible"
         >
           Offres nationales
         </a>
 
         <a
-          class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+          class="text-gray-700 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
           routerLink="/transports-idf"
         >
           Transports IDF
         </a>
         <a
-          class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+          class="text-gray-700 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
           routerLink="/faq"
         >
           FAQ
         </a>
         <a
-          class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+          class="text-gray-700 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
           routerLink="/non-disponible"
         >
           Contact
         </a>
         <div class="relative">
           <button
-            class="bg-gray-100 text-gray-500 block rounded-3xl py-2 text-md p-3 focus:outline-none  placeholder:text-sm flex item-center"
+            class="bg-search text-white block rounded-lg py-2 text-md p-3 focus:outline-none  placeholder:text-sm flex item-center"
             routerLink="les-bons-plans"
           >
-            <mat-icon class="text-sm">search</mat-icon> Recherche avancée de
-            bons plans
+            Recherche avancée de bons plans
           </button>
         </div>
       </nav>
@@ -88,10 +89,9 @@ import { MatIconModule } from '@angular/material/icon';
       <!-- ***************** Bouton du menu burger et search mobiles header TOP ****************** -->
       <div class="lg:hidden">
         <button
-          class="bg-gray-100 text-gray-600 block rounded-xl text-xs px-2 focus:outline-none flex items-center"
+          class="bg-search text-white block rounded-lg text-xs px-2 py-2 focus:outline-none flex items-center"
           routerLink="les-bons-plans"
         >
-          <mat-icon class="text-sm mt-1">search</mat-icon>
           <p>Recherche avancée</p>
         </button>
         <!-- <button
@@ -207,17 +207,26 @@ import { MatIconModule } from '@angular/material/icon';
             <br />
             <li>
               <a
-                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                class="text-gray-700 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                 routerLink="/accueil"
                 (click)="closeMenuClick()"
               >
                 Accueil
               </a>
             </li>
+            <li>
+              <a
+                class="text-gray-700 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                routerLink="/les-bons-plans"
+                (click)="closeMenuClick()"
+              >
+                Les bons plans
+              </a>
+            </li>
 
             <li>
               <a
-                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                class="text-gray-700 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                 routerLink="/proposer-un-bon-plan"
                 (click)="closeMenuClick()"
               >
@@ -226,7 +235,7 @@ import { MatIconModule } from '@angular/material/icon';
             </li>
             <li>
               <a
-                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                class="text-gray-700 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                 routerLink="/non-disponible"
                 (click)="closeMenuClick()"
               >
@@ -235,7 +244,7 @@ import { MatIconModule } from '@angular/material/icon';
             </li>
             <li>
               <a
-                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                class="text-gray-700 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                 routerLink="/non-disponible"
                 (click)="closeMenuClick()"
               >
@@ -245,7 +254,7 @@ import { MatIconModule } from '@angular/material/icon';
 
             <li>
               <a
-                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                class="text-gray-700 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                 routerLink="/faq"
                 (click)="closeMenuClick()"
               >
@@ -254,7 +263,7 @@ import { MatIconModule } from '@angular/material/icon';
             </li>
             <li>
               <a
-                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                class="text-gray-700 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                 routerLink="/non-disponible"
                 (click)="closeMenuClick()"
               >
@@ -287,7 +296,7 @@ import { MatIconModule } from '@angular/material/icon';
                   aria-label="home"
                   fontIcon="map"
                 ></mat-icon>
-                <span>Carte</span>
+                <span>Accueil</span>
               </div>
             </a>
           </li>

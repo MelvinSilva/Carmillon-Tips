@@ -6,15 +6,15 @@ import { RouterLink } from '@angular/router';
   selector: 'app-footer',
   standalone: true,
   imports: [RouterLink, MatIconModule],
-  template: `<div class="footer">
-      <div class="max-w-2xl mx-auto text-white py-8">
+  template: `<div class="footer bg-white">
+      <div class="max-w-2xl mx-auto text-gray-700 py-8">
         <div class="text-center flex justify-center items-center">
-          <a class="block text-red-600 dark:text-teal-300" href="/">
+          <a class="block" href="/">
             <img src="../../assets/logo-carmisphere.webp" class="h-10 w-10" />
           </a>
           <h3 class="text-xl ml-2">CARMISPHÈRE</h3>
         </div>
-        <div class="text-center flex flex-col text-gray-200 p-2">
+        <div class="text-center flex flex-col p-2">
           <p class="text-sm">
             Application non officielle - Réservée aux cheminots
           </p>

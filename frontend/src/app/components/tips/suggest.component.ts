@@ -33,7 +33,7 @@ interface Tips {
   template: `
     <div class="">
       <div class="m-4">
-        <h1 class="text-center text-white text-sm p-2 mt-2">
+        <h1 class="text-center text-white text-xl p-2 mt-2 font-semibold">
           Proposer un nouvel avantage ici et notre équipe l'ajoutera au
           catalogue dans les plus brefs délais.
         </h1>

@@ -7,14 +7,11 @@ import { Component } from '@angular/core';
   imports: [NgFor, NgIf, NgClass],
   template: `
     <div class="faq p-4 text-sm h-screen lg:w-3/4 mx-auto">
-      <h1 class="text-center text-white text-2xl mt-4 mb-4 m-2">
+      <h1 class="text-center font-semibold text-white text-xl mt-4 mb-4 m-2">
         Foire aux questions
       </h1>
       <div *ngFor="let faq of faqs" class="faq-item bg-gray-100 m-2">
-        <div
-          class="question text-gray-500 font-semibold"
-          (click)="toggleAnswer(faq)"
-        >
+        <div class="question font-semibold" (click)="toggleAnswer(faq)">
           {{ faq.question }}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +37,7 @@ import { Component } from '@angular/core';
             />
           </svg>
         </div>
-        <div class="answer text-gray-600 mt-1" [class.show]="faq.showAnswer">
+        <div class="answer text-gray-700 mt-1" [class.show]="faq.showAnswer">
           {{ faq.answer }}
         </div>
       </div>
@@ -61,6 +58,7 @@ import { Component } from '@angular/core';
         display: flex;
         align-items: center;
         justify-content: space-between;
+        color: #3f2a56;
       }
       .answer {
         overflow: hidden;

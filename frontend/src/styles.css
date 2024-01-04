@@ -15,11 +15,8 @@ body {
 }
 
 .button-search-city {
-  border: 1px solid rgba(201, 201, 201, 0.543);
+  border: 2px solid #ffffff;
   touch-action: manipulation;
   font-size: 16px;
-}
-
-.footer {
-  background-color: #322245;
+  background-color: #3f2a56;
 }

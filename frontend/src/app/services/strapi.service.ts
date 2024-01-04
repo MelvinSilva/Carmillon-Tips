@@ -66,7 +66,7 @@ export class StrapiService {
     const formattedDate = this.datePipe.transform(currentDate, 'dd MMMM yyyy');
     const payload = {
       data: {
-        demande_modification: `${formattedDate} - ${commentaire}`,
+        demande_modification: `${formattedDate} : ${commentaire}`,
       },
     };
 
