@@ -40,7 +40,7 @@ import { MatIconModule } from '@angular/material/icon';
       </h1>
       <br />
 
-      <p class="text-xl text-white mt-3 no-underline hover:underline">
+      <p class="text-xl text-white mt-3 underline">
         <a
           href="https://www.facebook.com/groups/Bons.plans.carmillon/?locale=fr_FR"
           target="_blank"
