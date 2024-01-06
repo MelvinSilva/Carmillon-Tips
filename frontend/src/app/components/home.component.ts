@@ -40,12 +40,14 @@ import { MatIconModule } from '@angular/material/icon';
       </h1>
       <br />
 
-      <p class="text-xl text-white mt-3 underline">
+      <p class="text-xl text-white mt-3">
         <a
           href="https://www.facebook.com/groups/Bons.plans.carmillon/?locale=fr_FR"
           target="_blank"
           class="flex items-center justify-center"
-          ><mat-icon>facebook</mat-icon>&nbsp;Rejoignez le groupe Carmisphère
+          ><mat-icon>facebook</mat-icon>&nbsp;<span class="underline"
+            >Rejoignez le groupe Carmisphère</span
+          >
         </a>
       </p>
 
