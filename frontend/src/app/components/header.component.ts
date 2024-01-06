@@ -53,7 +53,7 @@ import { MatIconModule } from '@angular/material/icon';
         </a>
         <a
           class="text-gray-700 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-          routerLink="/proposer-un-bon-plan"
+          routerLink="/non-disponible"
         >
           Proposer un bon plan
         </a>

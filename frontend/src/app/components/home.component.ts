@@ -4,13 +4,15 @@ import { TipsResultComponent } from './tips/result.component';
 import { TipsSuggestComponent } from './tips/suggest.component';
 import { MapFrenchComponent } from './tips-region/map-french.component';
 import { FooterComponent } from './footer.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   styles: [``],
-  template: ` <section class="home">
-      <div
+  template: `
+    <section class="home">
+      <!--  <div
         class="mx-auto max-w-screen-2xl px-4 py-4 sm:px-6 lg:flex lg:items-center"
       >
         <div
@@ -25,28 +27,38 @@ import { FooterComponent } from './footer.component';
               cheminots !
             </p>
           </div>
+          <br />
+          <br />
 
-          <!--  <div class="mt-3 flex justify-center">
-         
-          <input
-            placeholder="🔍 Recherche par ville, enseigne, catégorie"
-            type="text"
-            class="text-white button-search-city mt-1 block rounded py-3 text-md w-80 pl-3 focus:outline-none placeholder:text-gray-200 placeholder:text-sm"
-            (input)="search($event)"
-          />
-    
-        </div> -->
         </div>
-      </div>
-      <app-map-french></app-map-french>
+      </div> -->
+      <h1 class="text-center text-white font-normal text-2xl mt-12 m-4">
+        Merci à tous nos incroyables testeurs pour leur soutien ! <br /><br />
+        💫 Nous avons été ravis de partager ces 5 jours avec vous. <br />
+        <br />Notre application sera de retour avec encore plus de magie courant
+        <span class="font-semibold text-3xl">FÉVRIER</span> ✨
+      </h1>
+      <br />
+
+      <p class="text-xl text-white mt-3 no-underline hover:underline">
+        <a
+          href="https://www.facebook.com/groups/Bons.plans.carmillon/?locale=fr_FR"
+          target="_blank"
+          class="flex items-center justify-center"
+          ><mat-icon>facebook</mat-icon>&nbsp;Rejoignez le groupe Carmisphère
+        </a>
+      </p>
+
+      <!--  <app-map-french></app-map-french> -->
     </section>
-    <app-footer></app-footer>`,
+  `,
   imports: [
     FormsModule,
     TipsResultComponent,
     TipsSuggestComponent,
     MapFrenchComponent,
     FooterComponent,
+    MatIconModule,
   ],
 })
 export class HomeComponent {
